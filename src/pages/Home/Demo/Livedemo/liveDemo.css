@@ -1,0 +1,43 @@
+.textDemo {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.textDemo img {
+  height: 30%;
+}
+
+.liveDemoHeader {
+  font-weight: 600;
+}
+
+.vidDemo {
+  margin-top: 5rem;
+  width: 100%;
+}
+
+.liveDemoImage {
+  width: 60%; /* Set image width to 100% of its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 1024px) {
+  .liveDemoImage {
+    width: 90%; /* Set image width to 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (max-width: 768px) {
+  .liveDemoImage {
+    width: 90%; /* Set image width to 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (max-width: 425px) {
+  .liveDemoImage {
+    width: 90%; /* Set image width to 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

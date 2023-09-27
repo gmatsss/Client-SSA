@@ -1,0 +1,97 @@
+.price_table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-table {
+  border-collapse: collapse;
+  width: 40%;
+  margin-top: 100px;
+}
+
+.header-row,
+.data-row {
+  font-weight: 700;
+}
+
+.header-row {
+  font-size: 28px;
+  color: #a04167;
+  border-bottom: 1px solid #27b3df;
+}
+
+.data-row {
+  font-size: 20px;
+  border-bottom: 1px solid #27b3df;
+}
+
+td {
+  padding: 30px; /* Uniform padding for all td elements */
+}
+
+.average-cost {
+  border-left: 1px solid #27b3df;
+}
+
+.logo-cell .logo {
+  width: 70%; /* Adjusted width for the logo */
+  max-width: 100px; /* Maximum width for the logo */
+}
+
+.final-cost .h1 {
+  font-weight: bold;
+  font-size: 39px;
+}
+
+.final-row {
+  border-right: 1px solid #27b3df; /* Ensuring border for the last row */
+}
+
+.logo-cell .logo {
+  width: 100%; /* Full width for the logo on medium screens */
+  max-width: none; /* Removing the maximum width restriction */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .price-table {
+    width: 60%;
+  }
+  .logo-cell .logo {
+    width: 100%; /* Full width for the logo on medium screens */
+    max-width: none; /* Removing the maximum width restriction */
+  }
+}
+
+@media (max-width: 768px) {
+  .price-table {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  td {
+    padding: 20px; /* Adjusted padding for medium screens */
+  }
+
+  .logo-cell .logo {
+    width: 100%; /* Full width for the logo on medium screens */
+    max-width: none; /* Removing the maximum width restriction */
+  }
+}
+
+@media (max-width: 425px) {
+  .price-table {
+    width: 95%;
+    font-size: 12px; /* Reduced font size for smaller screens */
+  }
+
+  td {
+    padding: 15px; /* Adjusted padding for smaller screens */
+  }
+
+  .final-cost .h1 {
+    font-size: 30px; /* Reduced font size for cost in smaller screens */
+  }
+}

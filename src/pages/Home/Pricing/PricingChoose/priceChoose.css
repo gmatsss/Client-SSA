@@ -1,0 +1,95 @@
+/* General Styles */
+.CardInfo {
+  background-color: #4c4d62;
+  padding: 13px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.CheckImg {
+  margin-right: 20px;
+}
+
+.text-start h3,
+.text-start h5 {
+  color: white;
+}
+
+/* Exclusive Offer Styles */
+.Offer {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.offer-box {
+  border: 2px solid #a04167;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.offer-title {
+  display: inline-block;
+  position: absolute;
+  top: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 10px;
+  color: #27b3df;
+  font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .CardInfo {
+    width: 70%;
+  }
+
+  .offer-box {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .CardInfo {
+    width: 90%;
+  }
+
+  .offer-box {
+    width: 85%;
+  }
+}
+
+@media (max-width: 425px) {
+  .CardInfo {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .CheckImg {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .offer-box {
+    width: 85%;
+    padding: 10px;
+  }
+
+  .Offer {
+    margin-top: 50px;
+  }
+  .offer-title {
+    top: -20px; /* Adjust the top position */
+    width: 80%;
+  }
+}

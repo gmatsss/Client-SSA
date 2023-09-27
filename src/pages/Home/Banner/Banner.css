@@ -1,0 +1,98 @@
+.banner-bg {
+  background-image: url("../../../img/banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.banner-title,
+.banner-subtitle {
+  font-family: "PublicaSansRound-Lt";
+  letter-spacing: 5px;
+}
+
+.glowing-text {
+  font-weight: 500;
+  color: transparent;
+  -webkit-text-stroke-width: 3px;
+  text-stroke-width: 3px;
+  animation: strokeAnimation 6s infinite alternate;
+}
+
+@keyframes strokeAnimation {
+  0%,
+  20% {
+    -webkit-text-stroke-color: #e03f6d;
+    text-stroke-color: #e03f6d;
+  }
+  50% {
+    -webkit-text-stroke-color: #27b3df;
+    text-stroke-color: #27b3df;
+  }
+  80%,
+  100% {
+    -webkit-text-stroke-color: #e03f6d;
+    text-stroke-color: #e03f6d;
+  }
+}
+
+.banner-title {
+  font-weight: 500;
+  font-size: 60px;
+}
+
+.banner-subtitle {
+  font-weight: 200;
+  margin-top: 1rem;
+  font-size: 40px;
+}
+
+.text-overlay {
+  width: 100%; /* Set to full width of the parent */
+  padding: 0 4%; /* Add padding instead of setting width to 92% */
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+/* Media queries to adjust sizes for smaller screens */
+@media (max-width: 1024px) {
+  .banner-title {
+    font-size: 50px;
+  }
+
+  .banner-subtitle {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-bg {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+
+  .text-overlay {
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+
+  .banner-title {
+    font-size: 40px;
+    text-align: center; /* Center the text */
+  }
+
+  .banner-subtitle {
+    font-size: 30px;
+    text-align: center; /* Center the text */
+  }
+
+  .text-center {
+    align-items: center; /* Center vertically */
+  }
+}

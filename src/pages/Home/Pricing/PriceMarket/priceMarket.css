@@ -1,0 +1,76 @@
+.price_market {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content_wrapper {
+  width: 75%;
+  margin-top: 100px;
+}
+
+.main_title h1 {
+  font-weight: 600;
+  font-size: 54px;
+}
+
+.sub_content {
+  width: 60%;
+  margin-top: 20px;
+}
+
+.sub_title h1 {
+  font-weight: 600;
+  font-size: 44px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.feature_column {
+}
+
+.feature_item {
+  display: flex;
+  align-items: center;
+}
+
+.feature_item img {
+  margin-right: 10px;
+}
+
+.feature_item p {
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.final_text h3 {
+  font-weight: 600;
+  font-size: 28px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .content_wrapper,
+  .sub_content {
+    width: 90%;
+  }
+
+  .main_title h1,
+  .sub_title h1 {
+    font-size: 30px;
+  }
+
+  .feature_item p {
+    font-size: 20px;
+  }
+
+  .final_text h3 {
+    font-size: 20px;
+  }
+}

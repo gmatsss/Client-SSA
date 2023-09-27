@@ -1,0 +1,55 @@
+.watchDemo {
+  background: linear-gradient(rgba(6, 11, 48, 0.7), rgba(6, 11, 48, 0.7)),
+    url("../../../../img/bgdemo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  display: block;
+}
+
+.textDemo1 {
+  text-align: center;
+}
+
+.textDemo1 img {
+  height: 30%;
+}
+
+.textDemo1 h1 {
+  font-weight: 600;
+}
+
+.vidDemo {
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.vidDemo video {
+  width: 55%; /* Make video responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 1024px) {
+  .vidDemo video {
+    width: 90%; /* Make video responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (max-width: 768px) {
+  .vidDemo video {
+    width: 90%; /* Make video responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (max-width: 425px) {
+  .vidDemo video {
+    width: 90%; /* Make video responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

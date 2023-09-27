@@ -1,0 +1,103 @@
+.ratings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_rating_holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5rem;
+  width: 70%;
+}
+
+.rating_card {
+  background-color: #4c4d62;
+  padding: 40px;
+  width: calc(33.333% - 20px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card_footer {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.stars img {
+  height: 1.2em;
+  width: 1.2em;
+  margin-right: 3px;
+}
+
+.headerRating {
+  margin-top: 100px;
+}
+
+.headerRating p {
+  font-weight: 700;
+  font-size: 45px;
+}
+
+/* Responsive Styles for 1024px */
+@media (max-width: 1024px) {
+  .card_rating_holder {
+    width: 95%;
+  }
+  .rating_card {
+    padding: 20px;
+  }
+}
+
+/* Responsive Styles for 768px */
+@media (max-width: 768px) {
+  .rating_card {
+    width: 50%;
+    padding: 30px;
+  }
+  .stars img {
+    height: 1.5em;
+    width: 1.5em;
+  }
+  .headerRating p {
+    font-size: 40px;
+  }
+}
+
+/* Responsive Styles for 425px */
+@media (max-width: 425px) {
+  .card_rating_holder {
+    width: 95%;
+    gap: 10px;
+  }
+  .rating_card {
+    width: 100%; /* Full width for smaller screens */
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  .stars img {
+    height: 1em;
+    width: 1em;
+  }
+  .headerRating p {
+    text-align: center;
+    font-size: 28px; /* Reduced font size for smaller screens */
+  }
+}

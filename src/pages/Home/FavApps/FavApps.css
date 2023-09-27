@@ -1,0 +1,29 @@
+/* FavApps.css */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Changed from space-between to center */
+  width: 100%;
+}
+
+.item {
+  flex: 0 0 32%; /* 3 items per row */
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .item {
+    flex: 0 0 48%; /* 2 items per row */
+  }
+}
+
+@media (max-width: 425px) {
+  .item {
+    flex: 0 0 100%; /* 1 item per row */
+    margin: 0 auto; /* Center the item */
+  }
+}

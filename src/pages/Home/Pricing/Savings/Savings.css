@@ -1,0 +1,156 @@
+.savings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 140px;
+  width: 100%; /* Ensure the width does not exceed the viewport */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.intro-text p:first-child {
+  font-weight: 600;
+  font-size: 30px;
+  color: #27b3df;
+  text-align: center; /* Center the text */
+}
+
+.intro-text p:last-child {
+  font-weight: 600;
+  font-size: 60px;
+  text-align: center; /* Center the text */
+}
+
+.savings-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 100px;
+}
+
+.header-row,
+.data-row {
+  font-weight: 700;
+  text-align: center; /* Center the text in the cells */
+}
+
+.header-row {
+  font-size: 32px;
+  color: #a04167;
+}
+
+.header-row td,
+.data-row td {
+  border-bottom: 1px solid #27b3df;
+  padding: 25px;
+}
+
+.logo-cell p {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.logo-cell img {
+  width: 100%; /* Set width to 100% */
+  max-width: 200px;
+}
+
+.savings-amount span {
+  font-weight: bold;
+  font-size: 45px;
+}
+
+.border-right {
+  border-right: 1px solid #27b3df;
+}
+
+.border-left {
+  border-left: 1px solid #27b3df;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .intro-text p:last-child {
+    font-size: 36px;
+  }
+
+  .savings-table {
+    width: 95%;
+  }
+
+  .header-row,
+  .data-row {
+    font-size: 20px;
+  }
+
+  .header-row td,
+  .data-row td {
+    padding: 15px;
+  }
+
+  .logo-cell img {
+    max-width: none;
+  }
+
+  .savings-amount span {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 425px) {
+  .intro-text p:first-child {
+    font-size: 22px;
+  }
+
+  .intro-text p:last-child {
+    font-size: 28px;
+  }
+
+  .header-row,
+  .data-row {
+    font-size: 18px;
+  }
+
+  .savings-amount span {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 375px) {
+  .savings {
+    margin-top: 80px; /* Reduced margin-top */
+  }
+
+  .intro-text p:first-child {
+    font-size: 16px; /* Reduced font size */
+  }
+
+  .intro-text p:last-child {
+    font-size: 20px; /* Reduced font size */
+  }
+
+  .header-row,
+  .data-row {
+    font-size: 12px; /* Reduced font size */
+  }
+
+  .header-row td,
+  .data-row td {
+    padding: 10px; /* Reduced padding */
+  }
+
+  .logo-cell p {
+    font-size: 16px; /* Reduced font size */
+  }
+
+  .logo-cell img {
+    max-width: 150px; /* Reduced max-width */
+  }
+
+  .savings-amount span {
+    font-size: 24px; /* Reduced font size */
+  }
+
+  .savings-table {
+    margin-top: 50px; /* Reduced margin-top */
+  }
+}
