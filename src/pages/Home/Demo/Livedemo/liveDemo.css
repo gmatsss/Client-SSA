@@ -14,17 +14,305 @@
 .vidDemo {
   margin-top: 5rem;
   width: 100%;
+  position: relative;
 }
 
 .liveDemoImage {
-  width: 60%; /* Set image width to 100% of its container */
-  height: auto; /* Maintain aspect ratio */
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.livechat {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Distribute space between children */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 79%;
+  width: 49%;
+  background-color: rgb(255, 255, 255);
+  padding: 2px;
+}
+
+/* chat header */
+
+.headerchat {
+  background-color: #000434;
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Align children to the start and end of the container */
+  align-items: center; /* Vertically center-align children */
+  padding: 0 10px; /* Add some padding to the container */
+}
+
+.close-buttonchat {
+  background: none;
+  border: none;
+  font-size: 24px;
+
+  color: aliceblue;
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  display: none;
+}
+
+/* chat message*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+.wrapper {
+  height: 68%; /* Make header take the full width of the parent */
+}
+
+.wrapper ul {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 30px;
+}
+
+.wrapper ul li {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.65);
+  position: relative;
+  border-radius: 10px;
+  font: 1em/1.6 "arial";
+  clear: both;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: 0px 4px 2px -2px gray; /* Added shadow to li */
+}
+
+.wrapper ul li:nth-child(odd) {
+  float: left;
+  margin-left: 80px;
+}
+
+.wrapper ul li:nth-child(even) {
+  float: right;
+  margin-right: 80px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75);
+  background-color: rgb(39, 179, 223);
+}
+
+.wrapper ul li:before,
+.wrapper ul li:after {
+  position: absolute;
+  content: "";
+}
+
+.wrapper ul li:before {
+  width: 45px;
+  height: 45px;
+  top: 50%; /* Center the image vertically */
+  transform: translateY(-50%); /* Center the image vertically */
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensure the background image covers the entire element */
+}
+.wrapper ul li.sent {
+  float: right;
+  margin-right: 80px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75);
+  background-color: rgb(39, 179, 223);
+}
+
+.wrapper ul li.received {
+  float: left;
+  margin-left: 80px;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Set the text color for received messages */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.65
+  ); /* Set the background color for received messages */
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35); /* Set the text shadow for received messages */
+}
+
+.wrapper ul li.sent:before {
+  right: -80px;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png");
+}
+
+.wrapper ul li.received:before {
+  left: -80px;
+  background-image: url("../../../../img/logo_small.png");
+}
+
+/* chat footer */
+.footerchat {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%; /* Make footer take the full width of the parent */
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+
+.buttonchat {
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Center the text vertically */
+  justify-content: center; /* Center the text horizontally */
+}
+
+.searchBox {
+  display: flex;
+  position: relative; /* Relative positioning */
+  width: 100%;
+  align-items: center;
+  background: #2f3640;
+  border-radius: 15px;
+}
+
+.searchButton {
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(
+    --gradient-2,
+    linear-gradient(90deg, #2af598 0%, #009efd 100%)
+  );
+  border: 0;
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Center the text vertically */
+  justify-content: center; /* Center the text horizontally */
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  position: absolute; /* Absolute positioning */
+  right: 10px; /* Position at the end of the input */
+}
+
+/*hover effect*/
+.buttonchat:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
+}
+/*button pressing effect*/
+.buttonchat:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.sendimg {
+  width: 80%;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  padding: 24px 50px 24px 26px; /* Added padding to the right */
+  width: 100%;
+}
+
+.overlay {
+  position: fixed; /* Position the overlay fixed to the viewport */
+  top: 0; /* Set the top position to 0 */
+  right: 0; /* Set the right position to 0 */
+  bottom: 0; /* Set the bottom position to 0 */
+  left: 0; /* Set the left position to 0 */
+  width: 100%; /* Set the width to 100% of the viewport */
+  height: 100%; /* Set the height to 100% of the viewport */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Set a semi-transparent black background color */
+  z-index: 999; /* Ensure the overlay is displayed below the live chat and button */
 }
 
 @media (max-width: 1024px) {
   .liveDemoImage {
-    width: 90%; /* Set image width to 100% of its container */
+    width: 75%; /* Set image width to 100% of its container */
     height: auto; /* Maintain aspect ratio */
+  }
+  .livechat {
+    width: 61%;
+  }
+  .wrapper ul {
+    padding-right: 20px; /* Decrease padding */
+  }
+  .wrapper ul li {
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 8px;
+    box-shadow: 0px 3px 2px -2px gray;
+  }
+
+  .wrapper ul li:nth-child(odd),
+  .wrapper ul li:nth-child(even) {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .wrapper ul li:before {
+    width: 35px;
+    height: 35px;
+  }
+
+  .wrapper ul li:nth-child(odd):before {
+    left: -65px;
+  }
+
+  .wrapper ul li:nth-child(even):before {
+    right: -65px;
+  }
+
+  .searchBox {
+    width: 100%; /* Set width to 100% */
+  }
+
+  .searchButton {
+    width: 40px; /* Reduce width */
+    height: 40px; /* Reduce height */
+  }
+
+  .buttonchat {
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+  }
+
+  .searchInput {
+    padding: 18px 35px 18px 18px; /* Reduce padding */
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .sendimg {
+    width: 90%;
   }
 }
 
@@ -33,11 +321,126 @@
     width: 90%; /* Set image width to 100% of its container */
     height: auto; /* Maintain aspect ratio */
   }
+  .livechat {
+    width: 74%;
+  }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 668px) {
+  .wrapper ul {
+    padding-right: 15px; /* Decreased padding */
+  }
+  .wrapper ul li {
+    margin-bottom: 10px; /* Decreased margin */
+    padding: 6px 12px; /* Decreased padding */
+    font-size: 0.8em; /* Decreased font size */
+    border-radius: 6px; /* Decreased border-radius */
+    box-shadow: 0px 2px 1px -2px gray; /* Adjusted box-shadow */
+  }
+
+  .wrapper ul li:nth-child(odd),
+  .wrapper ul li:nth-child(even) {
+    margin-left: 50px; /* Decreased margin */
+    margin-right: 50px; /* Decreased margin */
+  }
+
+  .wrapper ul li:before {
+    width: 30px; /* Decreased width */
+    height: 30px; /* Decreased height */
+  }
+
+  .wrapper ul li:nth-child(odd):before {
+    left: -55px; /* Adjusted position */
+  }
+
+  .wrapper ul li:nth-child(even):before {
+    right: -55px; /* Adjusted position */
+  }
+
+  .searchBox {
+    width: 100%; /* Decreased width */
+  }
+
+  .searchButton {
+    width: 35px; /* Decreased width */
+    height: 35px; /* Decreased height */
+  }
+
+  .searchInput {
+    padding: 15px 30px 15px 15px; /* Decreased padding */
+    font-size: 13px; /* Decreased font size */
+  }
+
+  .sendimg {
+    width: 80%; /* Decreased width */
+  }
+}
+
+@media (max-width: 550px) {
   .liveDemoImage {
     width: 90%; /* Set image width to 100% of its container */
     height: auto; /* Maintain aspect ratio */
+  }
+
+  .livechat {
+    position: fixed; /* Position the live chat fixed to the viewport */
+
+    width: 100%; /* Set the width to 100% of the viewport */
+    height: 100%; /* Set the height to 100% of the viewport */
+    z-index: 1000; /* Ensure the live chat is displayed above other elements */
+  }
+
+  .close-buttonchat {
+    display: block;
+  }
+
+  .wrapper {
+    background-color: rgb(255, 255, 255);
+    height: 86%; /* Make header take the full width of the parent */
+  }
+
+  .show-chat-button {
+    display: block; /* Show the button */
+    position: absolute; /* Position the button absolutely */
+    top: 50%; /* Center the button vertically */
+    left: 50%; /* Center the button horizontally */
+    transform: translate(-50%, -50%); /* Ensure the button is centered */
+    padding: 10px;
+    background-color: #645bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .wrapper ul {
+    padding-right: 10px; /* Further decrease padding */
+  }
+
+  .wrapper ul li {
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    font-size: 0.8em;
+    border-radius: 6px;
+    box-shadow: 0px 2px 1px -1px gray;
+  }
+
+  .wrapper ul li:nth-child(odd),
+  .wrapper ul li:nth-child(even) {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .wrapper ul li:before {
+    width: 25px;
+    height: 25px;
+  }
+
+  .wrapper ul li:nth-child(odd):before {
+    left: -50px;
+  }
+
+  .wrapper ul li:nth-child(even):before {
+    right: -50px;
   }
 }

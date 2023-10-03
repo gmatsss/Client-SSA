@@ -10,7 +10,7 @@ import "./priceChoose.css";
 import Aos from "aos";
 import { useEffect } from "react";
 
-const PriceChoose = () => {
+const PriceChoose = ({ isYearly, toggleIsYearly }) => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
@@ -174,7 +174,7 @@ const PriceChoose = () => {
         </div>
       </div>
 
-      <div className="TailoredOffer_BG">
+      <div className="TailoredOffer_BG ">
         <div
           data-aos="fade-up"
           className="CardInfo d-flex mx-auto mb-4"
@@ -255,7 +255,8 @@ const PriceChoose = () => {
               Monthly
             </Typography>
             <AntSwitch
-              defaultChecked={false}
+              checked={isYearly}
+              onChange={toggleIsYearly}
               inputProps={{ "aria-label": "ant design" }}
             />
             <Typography

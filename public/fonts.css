@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "PublicaSansRound-Lt"; /* Name your font */
-  src: url("./fonts/PublicaSansRound-Lt.otf") format("opentype"); /* Adjust the path and format */
+  font-family: "PublicaSansRound-Lt";
+  src: url("./fonts/PublicaSansRound-Lt.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }

@@ -31,13 +31,9 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  z-index: 1002; /* Increased from 1001 to ensure it's above the menu container */
 
   position: relative;
   color: aliceblue;
-  position: fixed; /* Changed from relative to fixed */
-  top: 20px; /* Adjust as needed */
-  right: 20px; /* Adjust as needed */
 }
 
 .menu-container {
@@ -65,6 +61,22 @@
   animation: slideDown 0.5s ease-in-out forwards; /* Ensure animation completes and holds its last keyframe */
 }
 
+.close-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: aliceblue;
+  z-index: 1002;
+}
+
+.hidden {
+  display: none;
+}
+
 @keyframes slideDown {
   0% {
     transform: translateY(-100%);
@@ -90,9 +102,8 @@
 
 @media (max-width: 375px) {
   .header-content {
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
   }
 }

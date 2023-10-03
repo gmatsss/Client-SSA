@@ -26,7 +26,7 @@ const GetAgent = () => {
           <h1 className="title">Get your Super Smart Agents Today!</h1>
         </div>
 
-        <RouterLink to="/checkout">
+        <RouterLink to="/Signin">
           <button className="banner-button fw-bold" data-aos="flip-up">
             HIRE AGENT NOW!
           </button>

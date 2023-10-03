@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ButtonComponent from "../components/ButtonComponent";
 import logo from "../../../img/Logo.png";
 import { Link } from "react-scroll"; // Import Link from react-scroll
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./Header.css";
+import UserContext from "../../../Context/UserContext";
+import { fetchData } from "../../../api/FetchData";
+import { toast } from "react-toastify";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const { user, reloadUser } = useContext(UserContext); // Use UserContext here
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetchData("User/logoutuser", "POST");
+      if (response.message === "Successfully logged out.") {
+        toast.success(response.message);
+        navigate("/Signin");
+        reloadUser();
+      }
+    } catch (error) {
+      console.error("Logout Error:", error);
+    }
+  };
 
   return (
     <header className="header">
@@ -15,21 +33,24 @@ const Header = () => {
           <img src={logo} alt="" className="logo-style responsive-size" />
         </div>
         <div>
-          {isMenuOpen ? (
+          <button
+            className={`menu-toggle ${isMenuOpen ? "hidden" : ""}`}
+            onClick={() => setIsMenuOpen(true)}
+          >
+            ☰
+          </button>
+        </div>
+
+        <div className={`menu-container ${isMenuOpen ? "open" : ""}`}>
+          {isMenuOpen && (
             <button
-              className="menu-toggle"
+              className="close-button"
               onClick={() => setIsMenuOpen(false)}
             >
               ✖
             </button>
-          ) : (
-            <button className="menu-toggle" onClick={() => setIsMenuOpen(true)}>
-              ☰
-            </button>
           )}
-        </div>
 
-        <div className={`menu-container ${isMenuOpen ? "open" : ""}`}>
           <RouterLink to="/" className="router-link">
             <p className="mx-4 p-hover-color responsive-size">Home</p>
           </RouterLink>
@@ -78,9 +99,15 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <RouterLink to="/checkout" className="router-link">
-            <ButtonComponent text="Hire Agents" color="#E03F6D" />
-          </RouterLink>
+          {!user ? (
+            <RouterLink to="/Signin" className="router-link">
+              <ButtonComponent text="Hire Agents" color="#E03F6D" />
+            </RouterLink>
+          ) : (
+            <button onClick={handleLogout} className="router-link">
+              <p className="mx-4 p-hover-color responsive-size">Logout</p>
+            </button>
+          )}
         </div>
       </div>
     </header>

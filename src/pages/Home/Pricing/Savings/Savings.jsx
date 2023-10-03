@@ -8,13 +8,18 @@ const Savings = () => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
+
   return (
     <div className="savings">
       <div className="intro-text">
         <p>
           Let's say you have 3 agents in the Philippines all doing the same job
         </p>
-        <p>Check out your average savings with us over ONE YEAR</p>
+        <p>
+          Check out your average savings with us over{" "}
+          <span class="fire">ONE</span>
+          <span class="burn"> YEAR</span>
+        </p>
       </div>
       <table className="savings-table">
         <tbody>
@@ -42,15 +47,17 @@ const Savings = () => {
             </td>
             <td></td>
             <td className="border-left">
-              <div className="savings-amount ">
-                <span>$19,305</span>
+              <div className="savings-amount">
+                <span className="h1" data-text="$19,305">
+                  $19,305
+                </span>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
 
-      <RouterLink to="/checkout">
+      <RouterLink to="/Signin">
         <button className="banner-button fw-bold" data-aos="flip-up">
           HIRE AGENT NOW!
         </button>

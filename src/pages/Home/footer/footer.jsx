@@ -56,7 +56,7 @@ const Footer = () => {
         </p>
       </div>
       <div className="footer-buttons">
-        <RouterLink to="/checkout" className="router-link">
+        <RouterLink to="/Signin" className="router-link">
           <button className="banner-button fw-bold">Buy Now</button>
         </RouterLink>
         <Link
