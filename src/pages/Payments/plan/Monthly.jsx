@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const Payment = () => {
+const Monthly = () => {
   useEffect(() => {
     // Create script element
     const script = document.createElement("script");
@@ -39,4 +39,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default Monthly;

@@ -1,0 +1,67 @@
+.yearly-container {
+  padding: 30px;
+  text-align: center;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.yearly-title {
+  color: #0088cc;
+  font-size: 46px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.yearly-description,
+.yearly-footer {
+  font-size: 20px;
+  color: #ffffff;
+  margin: 20px 0;
+}
+
+.yearly-details {
+  margin: 40px 0;
+}
+
+.yearly-subtitle {
+  color: #e74c3c;
+  font-size: 29px;
+}
+
+.yearly-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.yearly-list li {
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+@media (max-width: 768px) {
+  .choose-title,
+  .yearly-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .choose-description,
+  .choose-footer,
+  .yearly-description,
+  .yearly-footer {
+    font-size: 18px;
+    margin: 15px 0;
+  }
+
+  .choose-subtitle,
+  .yearly-subtitle {
+    font-size: 24px;
+  }
+
+  .choose-list li,
+  .yearly-list li {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}

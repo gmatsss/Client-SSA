@@ -68,7 +68,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
   .CardInfo {
     width: 100%;
     flex-direction: column;

@@ -56,7 +56,7 @@ const Footer = () => {
         </p>
       </div>
       <div className="footer-buttons">
-        <RouterLink to="/Signin" className="router-link">
+        <RouterLink to="/Appointment" className="router-link">
           <button className="banner-button fw-bold">Buy Now</button>
         </RouterLink>
         <Link
@@ -68,10 +68,6 @@ const Footer = () => {
         >
           <button className="banner-button fw-bold">Live Demo</button>
         </Link>
-      </div>
-      <div className="footer-bottom">
-        <hr />
-        <p>c 2023 Super Smart Agents. All Rights Reserved</p>
       </div>
     </footer>
   );

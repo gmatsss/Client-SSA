@@ -18,7 +18,7 @@ const Header = () => {
       const response = await fetchData("User/logoutuser", "POST");
       if (response.message === "Successfully logged out.") {
         toast.success(response.message);
-        navigate("/Signin");
+        navigate("/Appointment");
         reloadUser();
       }
     } catch (error) {
@@ -99,15 +99,10 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          {!user ? (
-            <RouterLink to="/Signin" className="router-link">
-              <ButtonComponent text="Hire Agents" color="#E03F6D" />
-            </RouterLink>
-          ) : (
-            <button onClick={handleLogout} className="router-link">
-              <p className="mx-4 p-hover-color responsive-size">Logout</p>
-            </button>
-          )}
+
+          <RouterLink to="/Appointment" className="router-link">
+            <ButtonComponent text="Hire Agents" color="#E03F6D" />
+          </RouterLink>
         </div>
       </div>
     </header>

@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.logo-style {
+  width: 46%;
+}
+
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -86,9 +90,18 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .logo-style {
+    width: 65%;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
+  }
+  .logo-style {
+    width: 40%;
   }
 }
 
@@ -97,6 +110,18 @@
     display: flex;
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 616px) {
+  .logo-style {
+    width: 60%;
+  }
+}
+
+@media (max-width: 484px) {
+  .logo-style {
+    width: 80%;
   }
 }
 

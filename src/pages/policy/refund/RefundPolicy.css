@@ -1,0 +1,40 @@
+.refund-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f949;
+}
+
+.refund-title {
+  text-align: center;
+  color: #ffffff;
+}
+
+.refund-subtitle {
+  margin-top: 20px;
+  color: #8491db;
+}
+
+.refund-content {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.refund-divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #27b3df;
+}
+
+.refund-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.refund-footer-text {
+  color: #ffffff;
+}

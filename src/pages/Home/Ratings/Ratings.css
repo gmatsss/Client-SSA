@@ -30,15 +30,29 @@
   width: 100%;
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   padding-right: 20px;
 }
 
+.profile-image img {
+  border-radius: 50%; /* Makes the image round */
+  width: 80px; /* Adjust as needed */
+  height: 80px; /* Adjust as needed */
+  object-fit: cover; /* Ensures the image covers the entire space without distortion */
+}
+
 .footer-content {
+  margin-left: 8%;
   display: flex;
   flex-direction: column;
   align-items: start;
+}
+
+.company {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 5px;
 }
 
 .stars img {
@@ -54,6 +68,35 @@
 .headerRating p {
   font-weight: 700;
   font-size: 45px;
+  text-align: center;
+}
+
+/* Responsive Styles for 1024px */
+@media (max-width: 1440px) {
+  .card_rating_holder {
+    width: 75%;
+  }
+  .rating_card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1883px) {
+  .card_rating_holder {
+    width: 85%;
+  }
+  .rating_card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1069px) {
+  .card_rating_holder {
+    width: 95%;
+  }
+  .rating_card {
+    padding: 20px;
+  }
 }
 
 /* Responsive Styles for 1024px */
@@ -81,23 +124,83 @@
   }
 }
 
+/* Responsive Styles for 768px */
+@media (max-width: 679px) {
+  .rating_card {
+    width: 60%;
+    padding: 30px;
+  }
+  .stars img {
+    height: 1.5em;
+    width: 1.5em;
+  }
+  .headerRating p {
+    font-size: 40px;
+  }
+}
+
+/* Responsive Styles for 768px */
+@media (max-width: 567px) {
+  .rating_card {
+    width: 70%;
+    padding: 30px;
+  }
+  .stars img {
+    height: 1.5em;
+    width: 1.5em;
+  }
+  .headerRating p {
+    font-size: 40px;
+  }
+}
+
+/* Responsive Styles for 768px */
+@media (max-width: 500px) {
+  .rating_card {
+    width: 70%;
+    padding: 30px;
+  }
+  .stars img {
+    height: 1.5em;
+    width: 1.5em;
+  }
+  .headerRating p {
+    font-size: 40px;
+  }
+  .headerRating p {
+    text-align: center;
+  }
+}
+
 /* Responsive Styles for 425px */
-@media (max-width: 425px) {
+@media (max-width: 487px) {
   .card_rating_holder {
     width: 95%;
     gap: 10px;
   }
   .rating_card {
-    width: 100%; /* Full width for smaller screens */
+    width: 80%; /* Full width for smaller screens */
     padding: 20px;
     margin-bottom: 10px;
   }
   .stars img {
-    height: 1em;
-    width: 1em;
+    height: 1.3em;
+    width: 1.3em;
   }
   .headerRating p {
     text-align: center;
     font-size: 28px; /* Reduced font size for smaller screens */
+  }
+}
+
+@media (max-width: 487px) {
+  .card_rating_holder {
+    width: 95%;
+    gap: 10px;
+  }
+  .rating_card {
+    width: 90%; /* Full width for smaller screens */
+    padding: 20px;
+    margin-bottom: 10px;
   }
 }

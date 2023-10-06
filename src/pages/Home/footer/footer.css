@@ -6,11 +6,13 @@
 }
 
 .footer-logo {
-  margin-top: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-img {
-  height: 110px;
+  height: 220px;
 }
 
 .footer-links {
@@ -37,13 +39,6 @@
   display: flex;
   justify-content: space-around;
   width: 30%; /* Adjusted width */
-}
-
-.footer-bottom {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-  color: #27b3df;
 }
 
 /* Responsive Styles */
@@ -81,7 +76,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
   .footer-links {
     flex-direction: column;
     align-items: center;

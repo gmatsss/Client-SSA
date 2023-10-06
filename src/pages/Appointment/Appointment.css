@@ -1,0 +1,261 @@
+.appointment-container {
+  display: flex;
+  height: 100vh;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  text-align: center; /* Center the text */
+}
+
+.router-img-holder {
+  width: 50%;
+}
+.info-image {
+  width: 100%;
+}
+
+.highlight {
+  color: yellow;
+  font-weight: 600;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__group_book {
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+}
+
+.form__field_book {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-bottom: 5%;
+}
+
+.form__field_book::placeholder {
+  color: transparent;
+}
+
+.form__field_book:placeholder-shown ~ .form__label_book {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label_book {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #de416c;
+  pointer-events: none;
+}
+
+.form__field_book:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #de416c, #c46f85);
+  border-image-slice: 1;
+}
+
+.form__field_book:focus ~ .form__label_book {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #de416c;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field_book:required,
+.form__field_book:invalid {
+  box-shadow: none;
+}
+
+.book-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-holder {
+  padding: 3%;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: rgba(
+    76,
+    77,
+    98,
+    0.6
+  ); /* Reduced opacity for more transparency */
+  border-radius: 15px; /* Rounded borders */
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-col-left,
+.form-col-right {
+  flex: 1;
+}
+
+.form-col-left {
+  padding-right: 10px;
+}
+
+.form-col-right {
+  padding-left: 10px;
+}
+
+.info-image-book {
+  width: 80px;
+  height: 80px;
+}
+
+.cta {
+  border: none;
+  border-radius: 10px;
+  background: white;
+  position: absolute;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: rgb(0, 0, 0);
+  padding-bottom: 20px;
+}
+
+.btn-book {
+  display: flex; /* Add this line */
+  justify-content: center; /* Add this line */
+  align-items: center; /* Add this line */
+  min-width: 150px; /* Set a minimum width */
+  min-height: 50px; /* Set a minimum height */
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative; /* Add this line */
+}
+
+.btn-book:hover {
+  background-color: #de416c;
+  box-shadow: 0px 15px 20px #c26f85;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.btn-book:active {
+  transform: translateY(-1px);
+}
+
+/* Media query for screens with a width of 768px or less */
+@media (max-width: 840px) {
+  .appointment-container {
+    flex-direction: column; /* Stack children vertically */
+    height: 100%;
+  }
+
+  .column {
+    width: 100%; /* Take up the full width */
+    padding: 10px 0; /* Adjust padding as needed */
+  }
+
+  .book-col {
+    height: auto; /* Allow the content to define the height */
+  }
+
+  .book-holder {
+    width: 95%; /* Adjust width for smaller screens */
+    height: auto; /* Allow the content to define the height */
+    padding: 2%; /* Adjust padding for smaller screens */
+  }
+
+  .router-img-holder {
+    width: 55%;
+  }
+  .info-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .router-img-holder {
+    width: 80%;
+  }
+  .info-image {
+    width: 100%;
+  }
+  .info h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    text-align: center; /* Center the text */
+  }
+}

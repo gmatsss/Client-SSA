@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo_small from "../../../../img/logo_small.png";
 import LiveDemos from "../../../../img/ipad_live_demo.png";
-import ssalogo from "../../../../img/ssalogo.png";
+import ssalogo from "../../../../img/Logo.png";
 import sendchat from "../../../../img/sendchat.png";
 import "./liveDemo.css"; // Import the CSS file
 import { fetchData } from "../../../../api/FetchData";

@@ -57,7 +57,7 @@ const Savings = () => {
         </tbody>
       </table>
 
-      <RouterLink to="/Signin">
+      <RouterLink to="/Appointment">
         <button className="banner-button fw-bold" data-aos="flip-up">
           HIRE AGENT NOW!
         </button>

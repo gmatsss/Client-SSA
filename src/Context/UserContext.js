@@ -21,8 +21,6 @@ export const UserProvider = ({ children }) => {
 
   useOnce(loadUser);
 
-  console.log(user);
-
   return (
     <UserContext.Provider value={{ user, isLoggedIn, reloadUser: loadUser }}>
       {children}

@@ -21,12 +21,12 @@ const GetAgent = () => {
         </p>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <img src={logo} alt="" className="logo" />
-        <div className="mt-5">
+        <img src={logo} alt="" className="logoget" />
+        <div className="mt-2">
           <h1 className="title">Get your Super Smart Agents Today!</h1>
         </div>
 
-        <RouterLink to="/Signin">
+        <RouterLink to="/Appointment">
           <button className="banner-button fw-bold" data-aos="flip-up">
             HIRE AGENT NOW!
           </button>

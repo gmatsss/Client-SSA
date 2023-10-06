@@ -1,0 +1,56 @@
+/* TermsOfService.css */
+.tos-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f949;
+}
+
+.tos-title {
+  text-align: center;
+  color: #ffffff;
+}
+
+.tos-section h2 {
+  margin-top: 20px;
+  color: #8491db;
+}
+
+.tos-section p,
+.tos-section ul {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.tos-section ul {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+.tos-section a {
+  color: #27b3df;
+  text-decoration: none;
+}
+
+.tos-section a:hover {
+  text-decoration: underline;
+}
+
+.tos-divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #27b3df;
+}
+
+.tos-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.tos-address {
+  font-style: normal;
+}

@@ -53,10 +53,6 @@ body {
   z-index: 1;
 }
 
-.logo-style {
-  height: 90px;
-}
-
 .custom-button {
   background-color: #e03f6d;
   color: white;
@@ -363,6 +359,36 @@ body {
 
 .signup {
   background-image: url("./img/loginbg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto; /* You can set a specific height if needed */
+  width: 100%;
+  display: block;
+}
+
+.appointment {
+  position: relative;
+}
+
+.appointment::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(6, 11, 48, 0.7), rgba(6, 11, 48, 0.7)),
+    url("./img/bgdemo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1); /* This will flip the background horizontally */
+  z-index: -1; /* This ensures the background is behind the content */
+}
+
+.payment-bg {
+  background-image: url("./img/bglivedemo.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
