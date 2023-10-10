@@ -1,3 +1,185 @@
 .onBoard {
-  padding: 5%;
+  padding: 2%;
+}
+
+.btn-onboard-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-file-upload {
+  display: block;
+  position: relative;
+  padding: 7px 0;
+  border: 2px solid #9b9b9b;
+  color: #fff;
+  background-color: #4c4d62;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.custom-file-upload:hover {
+  border-color: #27b3df;
+}
+
+#file-name {
+  margin-left: 10px;
+}
+
+.btn-onboard {
+  display: flex; /* Add this line */
+  justify-content: center; /* Add this line */
+  align-items: center; /* Add this line */
+  min-width: 120px;
+  min-height: 50px; /* Set a minimum height */
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative; /* Add this line */
+}
+
+.btn-onboard:hover {
+  background-color: #27b3df;
+  box-shadow: 0px 15px 20px rgba(51, 125, 235, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.btn-onboard:active {
+  transform: translateY(-1px);
+}
+
+.lds-dual-ring-onboard {
+  position: absolute; /* Add this line */
+  top: 50%; /* Add this line */
+  left: 50%; /* Add this line */
+  transform: translate(-50%, -50%); /* Add this line */
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 28px;
+  margin-bottom: 5px;
+}
+
+.lds-dual-ring-onboard:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 6px solid #27b3df; /* Default color */
+  border-color: #27b3df transparent #27b3df transparent; /* Default color */
+  animation: lds-dual-ring-onboard 1.2s linear infinite;
+}
+
+/* Change the loader color when the button is hovered */
+.btn-onboard:hover .lds-dual-ring-onboard:after {
+  border-color: #fff transparent #fff transparent; /* Hover color */
+}
+
+@keyframes lds-dual-ring-onboard {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.highlighted-text {
+  color: rgb(39, 179, 223);
+  font-weight: bold;
+}
+
+.form__group_onboard {
+  position: relative;
+  padding: 10px 0 0;
+  width: 100%;
+}
+
+.form__field_onboard {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field_onboard::placeholder {
+  color: transparent;
+}
+
+.form__field_onboard:placeholder-shown ~ .form__label_onboard {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label_onboard {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #9b9b9b;
+  pointer-events: none;
+}
+
+.form__field_onboard:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #116399, #38caef);
+  border-image-slice: 1;
+}
+
+.form__field_onboard:focus ~ .form__label_onboard {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #38caef;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field_onboard:required,
+.form__field_onboard:invalid {
+  box-shadow: none;
+}
+
+/* This will apply the margin-bottom only for screens 768px and below */
+@media (max-width: 768px) {
+  .mb-sm-4 {
+    margin-bottom: 1.5rem; /* Adjust this value as needed */
+  }
+}
+
+@media (min-width: 426px) {
+  .onBoard {
+    padding: 5%;
+  }
+  .form__group_onboard {
+    padding: 20px 0 0;
+  }
+  .btn-onboard {
+    min-width: 150px;
+  }
 }

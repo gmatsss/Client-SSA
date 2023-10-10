@@ -39,9 +39,7 @@
   font-size: 25px;
 }
 
-/* ... Your existing CSS ... */
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .choose-title,
   .yearly-title {
     font-size: 36px;

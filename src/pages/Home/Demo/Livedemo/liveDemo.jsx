@@ -5,6 +5,7 @@ import ssalogo from "../../../../img/Logo.png";
 import sendchat from "../../../../img/sendchat.png";
 import "./liveDemo.css"; // Import the CSS file
 import { fetchData } from "../../../../api/FetchData";
+import { toast } from "react-toastify";
 
 const LiveDemo = () => {
   const [showChat, setShowChat] = useState(
@@ -45,7 +46,7 @@ const LiveDemo = () => {
         try {
           const headers = {
             "Content-Type": "application/json",
-            "X-Retune-API-Key": "11ee3f2c-5d89-3c90-982f-e3db3ec65684",
+            "X-Retune-API-Key": "11ee5dba-8b3c-c560-9350-6bb73f8e0f27",
           };
           const response = await fetchData(
             "retune/api/create-thread",
@@ -66,7 +67,7 @@ const LiveDemo = () => {
         try {
           const headers = {
             "Content-Type": "application/json",
-            "X-Retune-API-Key": "11ee3f2c-5d89-3c90-982f-e3db3ec65684",
+            "X-Retune-API-Key": "11ee5dba-8b3c-c560-9350-6bb73f8e0f27",
           };
           const data = {
             threadId: storedThreadId,
@@ -109,7 +110,13 @@ const LiveDemo = () => {
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
-    const message = e.target.elements.message.value;
+    const message = e.target.elements.message.value.trim(); // Trim to remove any whitespace
+
+    // Check if the message is empty
+    if (!message) {
+      toast.error("Please enter a message before sending.");
+      return; // Exit the function early
+    }
     setMessages([...messages, { text: message, type: "sent" }]);
     e.target.elements.message.value = "";
 
@@ -124,10 +131,10 @@ const LiveDemo = () => {
         input: message,
       };
       const headers = {
-        "X-Retune-API-Key": "11ee3f2c-5d89-3c90-982f-e3db3ec65684",
+        "X-Retune-API-Key": "11ee5dba-8b3c-c560-9350-6bb73f8e0f27",
       };
       const response = await fetchData(
-        "retune/api/chat/11ee5547-2718-3180-8654-63b6aca533f6/response",
+        "retune/api/chat/11ee5dba-b5d3-05f0-849b-e7dd1f1034f3/response",
         "POST",
         data,
         headers

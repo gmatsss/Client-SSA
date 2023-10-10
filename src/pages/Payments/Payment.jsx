@@ -9,7 +9,6 @@ import Yearly from "./plan/Yearly";
 import { useState } from "react";
 import logo from "../../img/Logo.png";
 import "./Payments.css";
-import Header from "../../pages/Home/Header/Header";
 
 const Payments = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -68,8 +67,7 @@ const Payments = () => {
   }));
 
   return (
-    <div>
-      <Header />
+    <div className="">
       <div className="payments-container ">
         <div className="payments-column">
           <div className="toggle-container">
@@ -102,7 +100,7 @@ const Payments = () => {
           </div>
         </div>
 
-        <div className="payments-column ">
+        <div className="payments-column">
           {isYearly ? <Yearly /> : <Monthly />}
         </div>
       </div>

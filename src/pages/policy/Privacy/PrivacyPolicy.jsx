@@ -1,11 +1,9 @@
 import React from "react";
 import "./PrivacyPolicy.css";
-import Header from "../../Home/Header/Header";
 
 const PrivacyPolicy = () => {
   return (
     <div>
-      <Header />
       <div className="tos-container">
         <h1 className="tos-title">Privacy Policy for Super Smart Agents</h1>
         <hr className="tos-divider" />

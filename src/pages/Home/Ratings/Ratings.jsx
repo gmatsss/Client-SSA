@@ -38,7 +38,7 @@ const testimonials = [
     title: "COO, Thompson Industries",
     testimonial:
       "Ang Super Smart Agents ay hindi lang nakapag-salita ng Tagalog ng kahanga-hanga, kundi nakatutok din sa aming kustomisasyon. Ang kanilang serbisyo ay walang katulad.",
-    tagline: "Ang daming kustimisasyon!",
+    tagline: "Ang daming kustomisasyon!",
   },
   {
     image:

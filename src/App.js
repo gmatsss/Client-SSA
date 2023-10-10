@@ -9,16 +9,79 @@ import "react-toastify/dist/ReactToastify.css";
 import TermsOfService from "./pages/policy/TOS/TermsOfService";
 import RefundPolicy from "./pages/policy/refund/RefundPolicy";
 import PrivacyPolicy from "./pages/policy/Privacy/PrivacyPolicy";
+import Header from "./pages/Home/Header/Header";
+import CheckOut from "./pages/Checkout/checkOut";
+import MoonclerkEmbed from "./pages/test/MoonclerkEmbed ";
+
+function Layout({ children }) {
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
+}
 
 function MainContent() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Payments" element={<Payments />} />
+      <Route
+        path="/"
+        element={
+          <Layout>
+            <Home />
+          </Layout>
+        }
+      />
+      <Route
+        path="/Payments"
+        element={
+          <Layout>
+            <Payments />
+          </Layout>
+        }
+      />
+      <Route
+        path="/onboarding"
+        element={
+          <Layout>
+            <CheckOut />
+          </Layout>
+        }
+      />
       <Route path="/Appointment" element={<Appointment />} />
-      <Route path="/termsofservice" element={<TermsOfService />} />
-      <Route path="/RefundPolicy" element={<RefundPolicy />} />
-      <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+      <Route
+        path="/termsofservice"
+        element={
+          <Layout>
+            <TermsOfService />
+          </Layout>
+        }
+      />
+      <Route
+        path="/RefundPolicy"
+        element={
+          <Layout>
+            <RefundPolicy />
+          </Layout>
+        }
+      />
+      <Route
+        path="/PrivacyPolicy"
+        element={
+          <Layout>
+            <PrivacyPolicy />
+          </Layout>
+        }
+      />
+      <Route
+        path="/test"
+        element={
+          <Layout>
+            <MoonclerkEmbed />
+          </Layout>
+        }
+      />
     </Routes>
   );
 }

@@ -1,11 +1,9 @@
 import React from "react";
 import "./RefundPolicy.css";
-import Header from "../../Home/Header/Header";
 
 const RefundPolicy = () => {
   return (
     <div>
-      <Header />
       <div className="refund-container">
         <h1 className="refund-title">Refund Policy for Super Smart Agents</h1>
         <hr className="refund-divider" />

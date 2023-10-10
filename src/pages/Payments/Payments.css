@@ -1,7 +1,7 @@
 .payments-container {
   display: flex;
   justify-content: space-between;
-  height: 89vh;
+  padding: 1% 0;
 }
 
 .payments-column {
@@ -25,6 +25,21 @@
   width: 50%;
 }
 
+.payment-containerplan {
+  height: 750px; /* or any appropriate value that fits the maximum content size */
+}
+
+@media (max-width: 768px) {
+  .payments-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payments-column {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
 @media (max-width: 700px) {
   .payments-container {
     flex-direction: column;

@@ -55,7 +55,7 @@ const Footer = () => {
           like for just $19/mo each
         </p>
       </div>
-      <div className="footer-buttons">
+      <div className="footer-buttons mb-3">
         <RouterLink to="/Appointment" className="router-link">
           <button className="banner-button fw-bold">Buy Now</button>
         </RouterLink>

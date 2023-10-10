@@ -5,13 +5,13 @@ const Yearly = () => {
     const script = document.createElement("script");
     script.src = "https://d2l7e0y6ygya2s.cloudfront.net/assets/embed.js";
     script.async = true;
-    script.onload = script.onreadystatechange = function () {
-      var opts = {
-        checkoutToken: "4qvheetk41y1",
-        width: "100%",
-      };
+    script.onload = () => {
       try {
-        new window.MoonclerkEmbed(opts).display();
+        new window.MoonclerkEmbed({
+          checkoutToken: "4qvheetk41y1",
+          width: "100%",
+          height: "100%",
+        }).display();
       } catch (e) {
         console.error("[MC]", e);
       }
@@ -24,7 +24,11 @@ const Yearly = () => {
     };
   }, []);
 
-  return <div id="mc4qvheetk41y1"></div>;
+  return (
+    <div className="payment-containerplan">
+      <div id="mc4qvheetk41y1"></div>
+    </div>
+  );
 };
 
 export default Yearly;

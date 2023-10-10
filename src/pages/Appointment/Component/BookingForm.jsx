@@ -76,8 +76,6 @@ const BookingForm = ({ initialData, timeZones }) => {
     // Use only the dateTimeOnly as the selectedSlot and append the timeZoneOffset
     const selectedSlot = `${dateTimeOnly}${timeZoneOffset}`;
 
-    console.log("Selected Slot:", selectedSlot);
-
     const myHeaders = new Headers();
     myHeaders.append(
       "Authorization",
@@ -105,7 +103,6 @@ const BookingForm = ({ initialData, timeZones }) => {
 
       // Check if the response was successful
       if (!response.ok) {
-        // console.log(data.selectedSlot.message);
         throw new Error(data.selectedSlot.message || "An error occurred.");
       }
 
@@ -149,9 +146,6 @@ const BookingForm = ({ initialData, timeZones }) => {
       .then((result) => {
         // Access the slots using the selected date as the key
         const selectedDateSlots = result[appointmentData.selectedDate];
-
-        console.log(result);
-        console.log(selectedDateSlots);
 
         setIsFetching(false); // Set fetching status to false once fetch is complete
 
@@ -257,7 +251,7 @@ const BookingForm = ({ initialData, timeZones }) => {
       <div className="d-flex justify-content-center">
         <button type="submit" className="btn-book" disabled={loading}>
           {loading ? (
-            <div className="lds-dual-ring1"></div> // Show loading spinner if loading
+            <div className="lds-dual-ring1book"></div> // Show loading spinner if loading
           ) : (
             "  Submit"
           )}

@@ -1,12 +1,10 @@
 // TermsOfService.js
 import React from "react";
 import "./TermsOfService.css";
-import Header from "../../Home/Header/Header";
 
 const TermsOfService = () => {
   return (
     <div>
-      <Header />
       <div className="tos-container">
         <h1 className="tos-title ">Terms of Service (TOS)</h1>
 

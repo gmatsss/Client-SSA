@@ -216,6 +216,42 @@
   transform: translateY(-1px);
 }
 
+.lds-dual-ring1book {
+  position: absolute; /* Add this line */
+  top: 50%; /* Add this line */
+  left: 50%; /* Add this line */
+  transform: translate(-50%, -50%); /* Add this line */
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 28px;
+  margin-bottom: 5px;
+}
+
+.lds-dual-ring1book:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 6px solid #de416c; /* Default color */
+  border-color: #de416c transparent #de416c transparent; /* Default color */
+  animation: lds-dual-ring1 1.2s linear infinite;
+}
+
+/* Change the loader color when the button is hovered */
+.btn-book:hover .lds-dual-ring1book:after {
+  border-color: #fff transparent #fff transparent; /* Hover color */
+}
+@keyframes lds-dual-ring1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Media query for screens with a width of 768px or less */
 @media (max-width: 840px) {
   .appointment-container {

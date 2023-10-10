@@ -3,15 +3,12 @@ import Onboarding from "./onBoarding";
 
 const CheckOut = () => {
   return (
-    <div
-      className="container-fluid mt-3 p-5 Onboarding"
-      style={{ height: "87.5vh", overflow: "auto" }} // Set the height to 100vh
-    >
+    <div className="container-fluid mt-3 p-5 Onboarding Onboarding-hold">
       <div className="row align-items-center">
-        <div className="col-12 col-xl-6 d-flex flex-column align-items-center">
+        <div className="col-lg-6 col-sm-12 order-2 order-lg-1">
           <Onboarding />
         </div>
-        <div className="col-12 col-xl-6">
+        <div className="col-lg-6 col-sm-12 order-1 order-lg-2 mb-sm-4">
           <Info />
         </div>
       </div>
