@@ -4,13 +4,34 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import Monthlytext from "./Choose/Monthly-text";
 import YearlyPlan from "./Choose/Yearly-text";
-import Monthly from "./plan/Monthly";
-import Yearly from "./plan/Yearly";
-import { useState } from "react";
-import logo from "../../img/Logo.png";
+import Monthly from "./plan/Monthly/Monthly";
+import Yearly from "./plan/Yearly/Yearly";
+import { useEffect, useState } from "react";
 import "./Payments.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import YearlyDiscount1 from "./plan/Yearly/YearlyDiscount1";
+import YearlyDiscount2 from "./plan/Yearly/YearlyDiscount2";
+import YearlyDiscount3 from "./plan/Yearly/YearlyDiscount3";
+import MonthlyPlanDiscount2 from "./plan/Monthly/MonthlyPlanDiscount2";
+import MonthlyPlanDiscount3 from "./plan/Monthly/MonthlyPlanDiscount3";
+import MonthlyPlanDiscount4 from "./plan/Monthly/MonthlyPlanDiscount4";
+
+import MoonclerkEmbed from "../test/MoonclerkEmbed ";
 
 const Payments = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const agentCount = String(location.state?.agentCount); // Convert to string
+  const formData = location.state?.formData; // Access the completeFormData
+
+  const [currentFormId, setCurrentFormId] = useState(null);
+
+  useEffect(() => {
+    if (!formData || !agentCount) {
+      navigate("/onboarding"); // Redirect to onboarding if data is missing
+    }
+  }, [formData, agentCount, navigate]);
+
   const [isYearly, setIsYearly] = useState(false);
 
   // 2. Handle Toggle Change
@@ -66,6 +87,29 @@ const Payments = () => {
     },
   }));
 
+  console.log("Received Form Data in Payments:", formData);
+  console.log("Formid", currentFormId);
+  useEffect(() => {
+    if (!isYearly) {
+      switch (agentCount) {
+        case "1":
+          setCurrentFormId(474911);
+          break;
+        case "2":
+          setCurrentFormId(475045);
+          break;
+        case "3":
+          setCurrentFormId(475046);
+          break;
+        case "4":
+        default:
+          if (parseInt(agentCount) > 4) {
+            setCurrentFormId(475047);
+          }
+          break;
+      }
+    }
+  }, [agentCount, isYearly]);
   return (
     <div className="">
       <div className="payments-container ">
@@ -96,12 +140,51 @@ const Payments = () => {
                 Yearly
               </Typography>
             </Stack>
-            {isYearly ? <YearlyPlan /> : <Monthlytext />}
+            {isYearly ? (
+              <YearlyPlan numberOfBots={agentCount} />
+            ) : (
+              <Monthlytext numberOfBots={agentCount} />
+            )}
+
+            <h1>Your Verification Code is</h1>
+            <h3>{formData.verificationCode}</h3>
           </div>
         </div>
 
-        <div className="payments-column">
-          {isYearly ? <Yearly /> : <Monthly />}
+        <div className="payments-column moonclerkholder">
+          {isYearly ? (
+            <>
+              {agentCount === "1" && <Yearly />}
+              {agentCount === "2" && <YearlyDiscount1 />}
+              {agentCount === "3" && <YearlyDiscount2 />}
+              {(agentCount === "4" || parseInt(agentCount) > 4) && (
+                <YearlyDiscount3 />
+              )}
+            </>
+          ) : (
+            <>
+              {agentCount === "1" && (
+                <>
+                  <MoonclerkEmbed />
+                </>
+              )}
+              {agentCount === "2" && (
+                <>
+                  <MonthlyPlanDiscount2 />
+                </>
+              )}
+              {agentCount === "3" && (
+                <>
+                  <MonthlyPlanDiscount3 />
+                </>
+              )}
+              {(agentCount === "4" || parseInt(agentCount) > 4) && (
+                <>
+                  <MonthlyPlanDiscount4 />
+                </>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>

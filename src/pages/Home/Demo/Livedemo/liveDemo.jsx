@@ -14,7 +14,7 @@ const LiveDemo = () => {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width: 550px)").matches
   );
-  // Initialize messages with a message from the server
+  const [threadId, setThreadId] = useState(null); // New state variable to hold the thread ID
   const [messages, setMessages] = useState([
     { text: "Hey! How can I help you today?", type: "received" },
   ]);
@@ -22,17 +22,13 @@ const LiveDemo = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 551px)");
     const mobileQuery = window.matchMedia("(max-width: 550px)");
-    const handleScreenChange = (e) => {
-      setShowChat(e.matches);
-    };
-    const handleMobileChange = (e) => {
-      setIsMobile(e.matches);
-    };
+
+    const handleScreenChange = (e) => setShowChat(e.matches);
+    const handleMobileChange = (e) => setIsMobile(e.matches);
 
     mediaQuery.addListener(handleScreenChange);
     mobileQuery.addListener(handleMobileChange);
 
-    // Clean up the event listener on component unmount
     return () => {
       mediaQuery.removeListener(handleScreenChange);
       mobileQuery.removeListener(handleMobileChange);
@@ -40,63 +36,27 @@ const LiveDemo = () => {
   }, []);
 
   useEffect(() => {
-    const storedThreadId = localStorage.getItem("threadId");
-    if (!storedThreadId) {
-      const createNewThread = async () => {
-        try {
-          const headers = {
-            "Content-Type": "application/json",
-            "X-Retune-API-Key": "11ee5dba-8b3c-c560-9350-6bb73f8e0f27",
-          };
-          const response = await fetchData(
-            "retune/api/create-thread",
-            "POST",
-            null,
-            headers
-          );
-          if (response && response.threadId) {
-            localStorage.setItem("threadId", response.threadId);
-          }
-        } catch (error) {
-          console.error("Error creating new thread:", error);
-        }
-      };
-      createNewThread();
-    } else {
-      const getMessages = async () => {
-        try {
-          const headers = {
-            "Content-Type": "application/json",
-            "X-Retune-API-Key": "11ee5dba-8b3c-c560-9350-6bb73f8e0f27",
-          };
-          const data = {
-            threadId: storedThreadId,
-            // add other data like 'from' and 'total' if needed
-          };
+    const createNewThread = async () => {
+      try {
+        const headers = {
+          "Content-Type": "application/json",
+          "X-Retune-API-Key": "11ee5dba-8b3c-c560-9350-6bb73f8e0f27",
+        };
+        const response = await fetchData(
+          "retune/api/create-thread",
+          "POST",
+          null,
+          headers
+        );
 
-          const response = await fetchData(
-            "retune/api/get-messages",
-            "POST",
-            data,
-            headers
-          );
-
-          if (response && response.messages) {
-            // Map the messages to the desired format
-            const formattedMessages = response.messages
-              .map((msg) => ({
-                text: msg.content, // use msg.content as text
-                type: msg.from === "assistant" ? "received" : "sent", // set type based on msg.from
-              }))
-              .reverse(); // reverse the order of messages
-            setMessages(formattedMessages);
-          }
-        } catch (error) {
-          console.error("Error getting messages:", error);
+        if (response && response.threadId) {
+          setThreadId(response.threadId);
         }
-      };
-      getMessages();
-    }
+      } catch (error) {
+        console.error("Error creating new thread:", error);
+      }
+    };
+    createNewThread();
   }, []);
 
   const handleShowChat = () => {
@@ -110,24 +70,17 @@ const LiveDemo = () => {
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
-    const message = e.target.elements.message.value.trim(); // Trim to remove any whitespace
-
-    // Check if the message is empty
+    const message = e.target.elements.message.value.trim();
     if (!message) {
       toast.error("Please enter a message before sending.");
-      return; // Exit the function early
+      return;
     }
     setMessages([...messages, { text: message, type: "sent" }]);
     e.target.elements.message.value = "";
 
-    // Get threadId from localStorage
-    const threadId =
-      localStorage.getItem("threadId") ||
-      "11ee5e84-f388-d8f0-9f4b-63dfdf1a3f9c"; // replace "defaultThreadId" with the action to create a new threadId
-
     try {
       const data = {
-        threadId: threadId, // use the threadId from localStorage
+        threadId: threadId, // use the threadId from state
         input: message,
       };
       const headers = {
@@ -140,6 +93,8 @@ const LiveDemo = () => {
         headers
       );
 
+      console.log(response);
+
       if (response && response.response && response.response.value) {
         setMessages((prevMessages) => [
           ...prevMessages,
@@ -147,6 +102,7 @@ const LiveDemo = () => {
         ]);
       }
     } catch (error) {
+      console.log(error);
       console.error("Error sending message:", error);
     }
   };
@@ -155,12 +111,12 @@ const LiveDemo = () => {
     <div className="liveDemo" id="liveDemo">
       <div className="content-overlay-live">
         <div className="textDemo text-center mt-5">
-          <img src={logo_small} alt="" />
-          <h1 className="liveDemoHeader">View Live Demo</h1>
+          <img src={logo_small} alt="Super Smart Agents Logo" />
+          <h1 className="liveDemoHeader mt-3">Live Agent Demo</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            animi quos aspernatur inventore provident, voluptatum aliquam a
-            sapiente sequi tempore.
+            See how Super Smart Agents will help your business eliminate any
+            communication roadblocks with your customers and new business
+            prospects.
           </p>
         </div>
 

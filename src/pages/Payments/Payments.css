@@ -9,14 +9,14 @@
   margin: 0 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   padding: 2%;
 }
 
 .toggle-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: 100%;
 }
@@ -29,6 +29,18 @@
   height: 750px; /* or any appropriate value that fits the maximum content size */
 }
 
+.moonclerkholder {
+  height: auto; /* This will make the div adjust its height based on its content */
+  min-height: 950px; /* This sets a minimum height. Adjust the value as needed. */
+}
+
+@media (max-width: 1024px) {
+  .moonclerkholder {
+    height: auto;
+    min-height: 1100px;
+  }
+}
+
 @media (max-width: 768px) {
   .payments-container {
     flex-direction: column;
@@ -39,7 +51,12 @@
     width: 100%;
     margin: 10px 0;
   }
+  .moonclerkholder {
+    height: auto;
+    min-height: 950px;
+  }
 }
+
 @media (max-width: 700px) {
   .payments-container {
     flex-direction: column;
@@ -49,5 +66,8 @@
   .payments-column {
     width: 100%;
     margin: 10px 0;
+  }
+  .moonclerkholder {
+    min-height: 1050px;
   }
 }
