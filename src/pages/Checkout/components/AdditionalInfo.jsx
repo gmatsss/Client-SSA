@@ -73,7 +73,7 @@ const AdditionalInfo = ({
   ];
 
   return (
-    <>
+    <div>
       <div className="form__group_onboard field ">
         <textarea
           className="form__field_onboard non-resizable-textarea"
@@ -153,7 +153,7 @@ const AdditionalInfo = ({
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

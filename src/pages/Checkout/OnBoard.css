@@ -109,6 +109,7 @@
   padding: 10px 0 0;
   width: 100%;
   margin-top: 60px;
+  padding: 20px 0 0;
 }
 
 .form__field_onboard {
@@ -249,9 +250,23 @@
   .mb-sm-4 {
     margin-bottom: 1.5rem; /* Adjust this value as needed */
   }
+  .form__group_onboard {
+    padding: 20px 0 0;
+  }
 }
 
-@media (min-width: 426px) {
+@media (max-width: 500px) {
+  .tooltip {
+    width: 250px; /* Adjust this value as needed */
+    font-size: 12px; /* Optionally, decrease the font size for smaller screens */
+  }
+
+  .title_onboard {
+    font-size: 2em; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 500px) {
   .onBoard {
     padding: 5%;
   }
@@ -259,6 +274,21 @@
     padding: 20px 0 0;
   }
   .btn-onboard {
-    min-width: 150px;
+    min-width: 130px;
+  }
+  .form__group_onboard {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 425px) {
+  .onBoard {
+    padding: 2%;
+  }
+  .form__group_onboard {
+    padding: 20px 0 0;
+  }
+  .btn-onboard {
+    min-width: 120px;
   }
 }

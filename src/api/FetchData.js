@@ -11,10 +11,13 @@ export async function fetchData(
   const options = {
     method: method,
     headers: {
-      ...headers, // spread the headers here
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      ...headers,
+      Accept: headers.Accept ? headers.Accept : "application/json",
+      "Content-Type": headers["Content-Type"]
+        ? headers["Content-Type"]
+        : "application/json",
     },
+
     credentials: "include",
   };
 

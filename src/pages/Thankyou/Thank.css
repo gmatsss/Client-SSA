@@ -1,0 +1,25 @@
+.thankYouContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.thankYouMessage {
+  text-align: center;
+  font-size: 1.5em;
+  color: #ffffff; /* Saddle Brown color for a rich text contrast */
+  border: 2px dashed #8b4513;
+  padding: 50px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.thankYouMessage h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.thankYouMessage p {
+  font-size: 1.5em;
+}

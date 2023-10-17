@@ -3,10 +3,11 @@ import React, { useContext, useState } from "react";
 import "./SignIn.css";
 import { fetchData } from "../../../api/FetchData";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../../Context/UserContext";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const { reloadUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,12 +35,12 @@ const SignIn = () => {
         password,
       });
 
-      console.log(response);
       if (response.user) {
         // Handle successful login
         toast.success("Login Success:", response.user);
         setLoading(false);
-        reloadUser(); // Reload the user after successful login
+        await reloadUser(); // Reload the user after successful login
+        navigate("/Admin");
       } else {
         // Handle error
         toast.error(response.message || "Login Failed");
@@ -52,20 +53,14 @@ const SignIn = () => {
   };
 
   return (
-    <div
-      className="container-fluid d-flex justify-content-center align-items-center login"
-      style={{ minHeight: "89.2vh" }} // Set the min-height to 100vh
-    >
+    <div className="container-fluid d-flex justify-content-center align-items-center login">
       <div
         className="loginHolder p-5 rounded"
         style={{ backgroundColor: "rgba(76, 77, 98, 0.95)" }}
       >
         <h1 style={{ color: "#de416c", fontWeight: "600" }}>Sign In</h1>
         <hr />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-          provident molestiae amet mollitia, omnis facere.
-        </p>
+        <p>Please login using the credentials provided in the email.</p>
         <form onSubmit={handleSubmit}>
           <div className="inputs">
             <div className="form__group field mb-4 ">
@@ -104,19 +99,6 @@ const SignIn = () => {
             </button>
           </div>
         </form>
-
-        <div className="mt-4">
-          <p>
-            No account yet?{" "}
-            <Link
-              to="/Signup"
-              style={{ textDecoration: "none", color: "#27b3df" }}
-            >
-              {" "}
-              Signup Here{" "}
-            </Link>{" "}
-          </p>
-        </div>
       </div>
     </div>
   );

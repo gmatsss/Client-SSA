@@ -66,7 +66,8 @@ const OnboardingForm = ({
     const completeFormData = {
       ...formData,
       uploadedFiles: uploadedFiles,
-      verificationCode: generateVerificationCode(), // Adding verification code
+      // verificationCode: "GDbnJqHY2Qda7rEfBfIezPwHH0autx",
+      verificationCode: generateVerificationCode(),
     };
 
     // Check the number of agents
@@ -120,6 +121,12 @@ const OnboardingForm = ({
         toast.error(`Please fill out the ${field} field.`);
       }
     });
+
+    // Validate numberOfAgents to ensure it's greater than 0
+    if (formData.numberOfAgents <= 0) {
+      isValid = false;
+      toast.error("Number of agents must be greater than 0.");
+    }
 
     // Check if serviceIndustry is set to "Other" and validate the otherServiceIndustry field
     if (

@@ -31,13 +31,83 @@
 
 .moonclerkholder {
   height: auto; /* This will make the div adjust its height based on its content */
-  min-height: 950px; /* This sets a minimum height. Adjust the value as needed. */
+  min-height: 1100px; /* This sets a minimum height. Adjust the value as needed. */
+}
+
+.btn-validate {
+  display: flex; /* Add this line */
+  justify-content: center; /* Add this line */
+  align-items: center; /* Add this line */
+  min-width: 150px; /* Set a minimum width */
+  min-height: 50px; /* Set a minimum height */
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative; /* Add this line */
+}
+
+.btn-validate:hover {
+  background-color: #de416c;
+  box-shadow: 0px 15px 20px #c26f85;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.btn-validate:active {
+  transform: translateY(-1px);
+}
+
+.lds-dual-ring1validate {
+  position: absolute; /* Add this line */
+  top: 50%; /* Add this line */
+  left: 50%; /* Add this line */
+  transform: translate(-50%, -50%); /* Add this line */
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 28px;
+  margin-bottom: 5px;
+}
+
+.lds-dual-ring1validate:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 6px solid #de416c; /* Default color */
+  border-color: #de416c transparent #de416c transparent; /* Default color */
+  animation: lds-dual-ring1 1.2s linear infinite;
+}
+
+/* Change the loader color when the button is hovered */
+.btn-validate:hover .lds-dual-ring1validate:after {
+  border-color: #fff transparent #fff transparent; /* Hover color */
+}
+
+@keyframes lds-dual-ring1validate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 1024px) {
   .moonclerkholder {
     height: auto;
-    min-height: 1100px;
+    min-height: 1250px;
   }
 }
 
@@ -46,14 +116,13 @@
     flex-direction: column;
     align-items: center;
   }
-
   .payments-column {
     width: 100%;
     margin: 10px 0;
   }
   .moonclerkholder {
     height: auto;
-    min-height: 950px;
+    min-height: 1050px;
   }
 }
 
@@ -62,12 +131,11 @@
     flex-direction: column;
     align-items: center;
   }
-
   .payments-column {
     width: 100%;
     margin: 10px 0;
   }
   .moonclerkholder {
-    min-height: 1050px;
+    min-height: 1250px;
   }
 }

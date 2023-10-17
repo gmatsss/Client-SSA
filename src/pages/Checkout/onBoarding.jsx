@@ -31,7 +31,7 @@ const Onboarding = ({ currentStep, setCurrentStep }) => {
       className="onBoard rounded container-fluid"
       style={{ backgroundColor: "#4c4d62" }}
     >
-      <h1 className="fs-1" style={{ color: "rgb(39, 179, 223)" }}>
+      <h1 className="fs-1 title_onboard" style={{ color: "rgb(39, 179, 223)" }}>
         {titles[currentStep - 1]}
       </h1>
 

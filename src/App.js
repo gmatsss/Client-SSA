@@ -12,77 +12,47 @@ import PrivacyPolicy from "./pages/policy/Privacy/PrivacyPolicy";
 import Header from "./pages/Home/Header/Header";
 import CheckOut from "./pages/Checkout/checkOut";
 import MoonclerkEmbed from "./pages/test/MoonclerkEmbed ";
+import ThankYouPage from "./pages/Thankyou/Thankyou";
+import SignIn from "./pages/Auth/SignIn/SignIn";
+import Admin from "./pages/Admin/Admin";
 
 function Layout({ children }) {
   return (
     <>
       <Header />
       {children}
+      <FooterAll />
     </>
+  );
+}
+
+function RenderRoute(path, Component) {
+  return (
+    <Route
+      path={path}
+      element={
+        <Layout>
+          <Component />
+        </Layout>
+      }
+    />
   );
 }
 
 function MainContent() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <Layout>
-            <Home />
-          </Layout>
-        }
-      />
-
-      <Route
-        path="/Payments"
-        element={
-          <Layout>
-            <Payments />
-          </Layout>
-        }
-      />
-      <Route
-        path="/onboarding"
-        element={
-          <Layout>
-            <CheckOut />
-          </Layout>
-        }
-      />
+      {RenderRoute("/", Home)}
+      {RenderRoute("/Payments", Payments)}
+      {RenderRoute("/onboarding", CheckOut)}
+      {RenderRoute("/termsofservice", TermsOfService)}
+      {RenderRoute("/RefundPolicy", RefundPolicy)}
+      {RenderRoute("/PrivacyPolicy", PrivacyPolicy)}
+      {RenderRoute("/test", MoonclerkEmbed)}
+      {RenderRoute("/Thank", ThankYouPage)}
       <Route path="/Appointment" element={<Appointment />} />
-      <Route
-        path="/termsofservice"
-        element={
-          <Layout>
-            <TermsOfService />
-          </Layout>
-        }
-      />
-      <Route
-        path="/RefundPolicy"
-        element={
-          <Layout>
-            <RefundPolicy />
-          </Layout>
-        }
-      />
-      <Route
-        path="/PrivacyPolicy"
-        element={
-          <Layout>
-            <PrivacyPolicy />
-          </Layout>
-        }
-      />
-      <Route
-        path="/test"
-        element={
-          <Layout>
-            <MoonclerkEmbed />
-          </Layout>
-        }
-      />
+      <Route path="/Signin" element={<SignIn />} />
+      <Route path="/Admin/*" element={<Admin />} /> {/* Note the trailing * */}
     </Routes>
   );
 }
@@ -104,7 +74,6 @@ function App() {
         transition={Zoom}
       />
       <MainContent />
-      <FooterAll />
     </Router>
   );
 }

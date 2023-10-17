@@ -36,7 +36,7 @@ const PriceMarket = () => {
             </div>
             <div className="feature_item" data-aos="fade-down">
               <img src={check} className="CheckImg" alt="" />
-              <p>Sells an Sets Appointment Better</p>
+              <p>Sells and Sets Appointment Better</p>
             </div>
           </div>
           <div className="feature_column">

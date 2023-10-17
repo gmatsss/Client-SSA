@@ -93,8 +93,6 @@ const LiveDemo = () => {
         headers
       );
 
-      console.log(response);
-
       if (response && response.response && response.response.value) {
         setMessages((prevMessages) => [
           ...prevMessages,

@@ -61,9 +61,10 @@ const Info = ({ currentStep }) => {
       content = (
         <ul className="list-unstyled text-white fs-md-1 mt-3">
           <li>
-            <span className="highlighted-text">Select Your Channels:</span> Tell
-            us where you would like your bot published (Twilio, FB Messenger,
-            Telegram, WhatsApp, Web Chat or Custom API).
+            <span className="highlighted-text">Select Your Channels:</span>{" "}
+            Please specify where you'd like your bot to be published: Twilio, FB
+            Messenger, Telegram, WhatsApp, Web Chat, or Custom API. Note:
+            Choosing each channel will incur a cost of $19 per channel.
           </li>
           <li>
             <span className="highlighted-text">
