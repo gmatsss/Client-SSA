@@ -41,6 +41,11 @@
   width: 30%; /* Adjusted width */
 }
 
+.affiliate-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits the text color from the parent */
+}
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .footer-links {

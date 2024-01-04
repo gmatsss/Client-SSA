@@ -45,6 +45,15 @@ const Footer = () => {
           <p className="p-hover-color responsive-size">Testimonials</p>
         </Link>
         <p className="p-hover-color">About</p>
+
+        <a
+          className="p-hover-color responsive-size affiliate-link"
+          href="https://supersmartagents.firstpromoter.com/"
+          target="_blank" // This opens the link in a new tab
+          rel="noopener noreferrer" // For security reasons
+        >
+          <p className="p-hover-color responsive-size">Affiliates</p>
+        </a>
       </div>
       <div className="footer-text">
         <p>

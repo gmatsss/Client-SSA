@@ -7,6 +7,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { UserProvider } from "./Context/UserContext";
 
+function getURLParameter(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+// Capture and store the referral code
+const referralCode = getURLParameter("fpr");
+if (referralCode) {
+  localStorage.setItem("referralCode", referralCode);
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

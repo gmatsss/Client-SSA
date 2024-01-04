@@ -5,15 +5,15 @@ const ThankYouPage = () => {
   return (
     <div className="thankYouContainer">
       <div className="thankYouMessage">
-        <h1>Thank You for Trusting on SSA</h1>
+        <h1>Thank You for Placing Your Trust in SSA</h1>
         <p>
-          We genuinely appreciate your payment. Your new Super Smart Agent is
-          currently in the making! Kindly allow 2-3 days for us to meticulously
-          craft and optimize it for you. Once everything is set and your agent
-          is ready to serve, we'll send you an email with all the necessary
-          details and subsequent steps. Your trust and commitment to our
-          services drive us to deliver excellence. Rest assured, we're committed
-          to ensuring you receive a top-tier experience.
+          We sincerely thank you for your payment. Your Super Smart Agent is now
+          under production! Please give us 2-3 days as we carefully design and
+          fine-tune it to meet your expectations. As soon as your agent is
+          primed and ready to assist, we'll notify you via email with all
+          pertinent details and next steps. Your trust and dedication to our
+          services inspire us to uphold the highest standards. Be confident that
+          we are dedicated to providing you with an exceptional experience.
         </p>
       </div>
     </div>

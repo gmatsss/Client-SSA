@@ -2,22 +2,14 @@ import React, { useState } from "react";
 import "./OnBoard.css";
 import OnboardingForm from "./components/OnboardingForm";
 
-const Onboarding = ({ currentStep, setCurrentStep }) => {
+const Onboarding = ({
+  currentStep,
+  setCurrentStep,
+  currentBotCount,
+  setCurrentBotCount,
+}) => {
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    numberOfAgents: "",
-    agentType: "",
-    serviceIndustry: "",
-    uploadedFiles: [],
-    toneOfVoice: "",
-    additionalGuidelines: "",
-    otherServiceIndustry: "",
-    botChannel: [],
-  });
+
   const [showTooltip, setShowTooltip] = useState(false);
 
   const titles = [
@@ -36,14 +28,14 @@ const Onboarding = ({ currentStep, setCurrentStep }) => {
       </h1>
 
       <OnboardingForm
-        formData={formData}
-        setFormData={setFormData}
         loading={loading}
         setLoading={setLoading}
         showTooltip={showTooltip}
         setShowTooltip={setShowTooltip}
         currentStep={currentStep} // Pass currentStep as prop
         setCurrentStep={setCurrentStep} // Pass setCurrentStep as prop
+        currentBotCount={currentBotCount}
+        setCurrentBotCount={setCurrentBotCount}
       />
     </div>
   );

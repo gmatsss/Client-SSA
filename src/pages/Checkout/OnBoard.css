@@ -99,6 +99,16 @@
   }
 }
 
+.bot-count-info {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #4c4d62;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+}
+
 .highlighted-text {
   color: rgb(39, 179, 223);
   font-weight: bold;

@@ -16,6 +16,7 @@ const AdditionalInfo = ({
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
+
     const totalFiles = uploadedFiles.length + files.length;
 
     if (totalFiles > 3) {
@@ -29,22 +30,24 @@ const AdditionalInfo = ({
       return;
     }
 
-    const validFiles = files.filter((file) => file.size <= 25 * 1024 * 1024);
+    // Calculate the total size of all selected files plus already uploaded files
+    const totalSize = files.reduce(
+      (acc, file) => acc + file.size,
+      uploadedFiles.reduce((acc, file) => acc + file.size, 0)
+    );
 
-    if (validFiles.length !== files.length) {
-      toast.warning("Please ensure each file is under 25MB.");
+    if (totalSize > 25 * 1024 * 1024) {
+      toast.warning("The total size of all files must be under 25MB.");
       return;
     }
 
-    setUploadedFiles((prevFiles) => [
-      ...prevFiles,
-      ...validFiles.map((file) => file.name),
-    ]);
+    // Store the actual file objects in state, not just the names
+    setUploadedFiles((prevFiles) => [...prevFiles, ...files]);
   };
 
-  const handleFileDelete = (fileName) => {
+  const handleFileDelete = (fileToDelete) => {
     setUploadedFiles((prevFiles) =>
-      prevFiles.filter((file) => file !== fileName)
+      prevFiles.filter((file) => file !== fileToDelete)
     );
   };
 
@@ -140,12 +143,12 @@ const AdditionalInfo = ({
       </label>
       <div>
         <ul>
-          {uploadedFiles.map((fileName, index) => (
+          {uploadedFiles.map((file, index) => (
             <li key={index}>
-              File {index + 1}: {fileName}
+              File {index + 1}: {file.name}
               <span
                 style={{ cursor: "pointer", marginLeft: "10px", color: "red" }}
-                onClick={() => handleFileDelete(fileName)}
+                onClick={() => handleFileDelete(file)}
               >
                 X
               </span>

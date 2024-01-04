@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo_small from "../../../../img/logo_small.png";
 import LiveDemos from "../../../../img/ipad_live_demo.png";
 import ssalogo from "../../../../img/Logo.png";
@@ -8,6 +8,8 @@ import { fetchData } from "../../../../api/FetchData";
 import { toast } from "react-toastify";
 
 const LiveDemo = () => {
+  const [isTyping, setIsTyping] = useState(false);
+
   const [showChat, setShowChat] = useState(
     window.matchMedia("(min-width: 551px)").matches
   );
@@ -16,8 +18,27 @@ const LiveDemo = () => {
   );
   const [threadId, setThreadId] = useState(null); // New state variable to hold the thread ID
   const [messages, setMessages] = useState([
-    { text: "Hey! How can I help you today?", type: "received" },
+    {
+      text: "Hey! How can I help you today?",
+      type: "received",
+      ref: React.createRef(),
+    },
   ]);
+  const lastSentMessageRef = useRef(null);
+  const chatContainerRef = useRef(null);
+
+  const [typewriterEffect, setTypewriterEffect] = useState(false);
+
+  useEffect(() => {
+    if (typewriterEffect) {
+      // Turn off the typewriter effect after it's done (based on your animation duration)
+      const timer = setTimeout(() => {
+        setTypewriterEffect(false);
+      }, 2000); // The duration here should match your CSS animation duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [typewriterEffect]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 551px)");
@@ -75,17 +96,25 @@ const LiveDemo = () => {
       toast.error("Please enter a message before sending.");
       return;
     }
-    setMessages([...messages, { text: message, type: "sent" }]);
+
+    const newMessage = { text: message, type: "sent", ref: React.createRef() };
+    lastSentMessageRef.current = newMessage.ref.current;
+
+    setMessages([...messages, newMessage]);
+
     e.target.elements.message.value = "";
 
     try {
       const data = {
-        threadId: threadId, // use the threadId from state
+        threadId: threadId,
         input: message,
       };
       const headers = {
         "X-Retune-API-Key": "11ee5dba-8b3c-c560-9350-6bb73f8e0f27",
       };
+
+      setIsTyping(true);
+
       const response = await fetchData(
         "retune/api/chat/11ee5dba-b5d3-05f0-849b-e7dd1f1034f3/response",
         "POST",
@@ -93,15 +122,35 @@ const LiveDemo = () => {
         headers
       );
 
+      setIsTyping(false); // Set typing indicator to false after receiving the response
+
       if (response && response.response && response.response.value) {
+        setTypewriterEffect(true);
+        // Wrap each line in a <p> tag and join them to form a single message
+        const formattedMessage = response.response.value
+          .split("\n")
+          .filter((msg) => msg.trim() !== "")
+          .map((msg) => `<p>${msg}</p>`)
+          .join("");
+
         setMessages((prevMessages) => [
           ...prevMessages,
-          { text: response.response.value, type: "received" },
+          { text: formattedMessage, type: "received" },
         ]);
       }
     } catch (error) {
-      console.log(error);
+      setIsTyping(false);
       console.error("Error sending message:", error);
+
+      if (
+        error.response &&
+        error.response.error &&
+        error.response.error.message
+      ) {
+        toast.error(error.response.error.message);
+      } else {
+        toast.error("An unexpected error occurred.");
+      }
     }
   };
 
@@ -139,13 +188,35 @@ const LiveDemo = () => {
               </button>
             </div>
 
-            <div className="wrapper">
+            <div className="wrapper" ref={chatContainerRef}>
               <ul>
                 {messages.map((message, index) => (
-                  <li key={index} className={message.type}>
-                    {message.text}
+                  <li
+                    key={index}
+                    className={`message ${message.type} ${
+                      message.typing ? "typing" : ""
+                    }`}
+                    ref={message.ref}
+                  >
+                    {message.type === "received" ? (
+                      <div
+                        className={
+                          typewriterEffect && index === messages.length - 1
+                            ? "typewriter"
+                            : ""
+                        }
+                        dangerouslySetInnerHTML={{ __html: message.text }}
+                      />
+                    ) : (
+                      message.text
+                    )}
                   </li>
                 ))}
+                {isTyping && (
+                  <li className="message received">
+                    <div className="typing-indicator"></div>
+                  </li>
+                )}
               </ul>
             </div>
 

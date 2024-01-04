@@ -13,8 +13,6 @@ import Header from "./pages/Home/Header/Header";
 import CheckOut from "./pages/Checkout/checkOut";
 import MoonclerkEmbed from "./pages/test/MoonclerkEmbed ";
 import ThankYouPage from "./pages/Thankyou/Thankyou";
-import SignIn from "./pages/Auth/SignIn/SignIn";
-import Admin from "./pages/Admin/Admin";
 
 function Layout({ children }) {
   return (
@@ -51,8 +49,6 @@ function MainContent() {
       {RenderRoute("/test", MoonclerkEmbed)}
       {RenderRoute("/Thank", ThankYouPage)}
       <Route path="/Appointment" element={<Appointment />} />
-      <Route path="/Signin" element={<SignIn />} />
-      <Route path="/Admin/*" element={<Admin />} /> {/* Note the trailing * */}
     </Routes>
   );
 }

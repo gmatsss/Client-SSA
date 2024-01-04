@@ -31,7 +31,7 @@
 
 .moonclerkholder {
   height: auto; /* This will make the div adjust its height based on its content */
-  min-height: 1100px; /* This sets a minimum height. Adjust the value as needed. */
+  min-height: 1300px; /* This sets a minimum height. Adjust the value as needed. */
 }
 
 .btn-validate {
@@ -107,7 +107,22 @@
 @media (max-width: 1024px) {
   .moonclerkholder {
     height: auto;
-    min-height: 1250px;
+    min-height: 1450px;
+  }
+}
+
+@media (max-width: 900px) {
+  .payments-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .payments-column {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .moonclerkholder {
+    height: auto;
+    min-height: 1480px;
   }
 }
 
@@ -122,7 +137,7 @@
   }
   .moonclerkholder {
     height: auto;
-    min-height: 1050px;
+    min-height: 1480px;
   }
 }
 
@@ -136,6 +151,6 @@
     margin: 10px 0;
   }
   .moonclerkholder {
-    min-height: 1250px;
+    min-height: 1450px;
   }
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import logo_small from "../../../../img/logo_small.png";
 import "./watchDemo.css";
 
@@ -15,13 +16,24 @@ const WatchDemo = () => {
         </p>
       </div>
 
-      <div className="vidDemo ">
-        <video controls>
-          <source src="path_to_your_video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <div className="vidDemos">
+        <iframe
+          src="https://fast.wistia.net/embed/iframe/gruk8nj2qd?videoFoam=true"
+          title="Wistia video player"
+          allowtransparency="true"
+          frameborder="0"
+          scrolling="no"
+          className="wistia_embed"
+          name="wistia_embed"
+          allowfullscreen
+          mozallowfullscreen
+          webkitallowfullscreen
+          oallowfullscreen
+          msallowfullscreen
+        ></iframe>
       </div>
     </div>
   );
 };
+
 export default WatchDemo;

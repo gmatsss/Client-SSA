@@ -3,9 +3,10 @@ import "./YearlyPlan.css";
 
 const YearlyPlan = ({ numberOfBots = 1 }) => {
   const botBuildFees = [495, 395, 295, 195];
-  const monthlyUpkeepFee = 99.95;
+  const monthlyUpkeepFee = 99.95; // Using the same fee as in YearlyPlan
   const buildFee = botBuildFees[numberOfBots - 1] || botBuildFees[3];
-  const totalYearlyPayment = buildFee + monthlyUpkeepFee * 12;
+  const yearlySubscription = monthlyUpkeepFee * 12; // Yearly subscription cost
+  const totalYearlyPayment = buildFee + yearlySubscription; // Total yearly payment
 
   return (
     <div className="yearly-container">

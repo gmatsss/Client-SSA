@@ -79,7 +79,7 @@ li {
 }
 
 .wrapper {
-  height: 68%; /* Make header take the full width of the parent */
+  height: 69%; /* Make header take the full width of the parent */
 }
 
 .wrapper ul {
@@ -251,6 +251,67 @@ li {
     0.5
   ); /* Set a semi-transparent black background color */
   z-index: 999; /* Ensure the overlay is displayed below the live chat and button */
+}
+
+.message.received p {
+  margin: 0; /* Remove default margin */
+  padding: 0.5em 0; /* Add some vertical padding for spacing */
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCursor {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+.typewriter {
+  max-width: fit-content;
+
+  white-space: nowrap; /* Keep text in one line */
+  overflow: hidden; /* Hide text outside of the box */
+  animation: typewriter 2s steps(25, end), blinkCursor 0.5s step-end infinite;
+}
+
+.typing-indicator {
+  display: inline-block;
+  color: #888;
+  font-style: italic;
+}
+
+.typing-indicator::after {
+  content: " .";
+  animation: typingDots 1s steps(10, end) infinite;
+}
+
+@keyframes typingDots {
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: white;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: 0.25em 0 0 white, 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%,
+  100% {
+    text-shadow: 0.25em 0 0 white, 0.5em 0 0 white;
+  }
 }
 
 @media (max-width: 1024px) {

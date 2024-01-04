@@ -15,7 +15,7 @@ const AdditionalCharge = ({ botChannelValue }) => {
       </div>
       <div className="yearly-details">
         <span className="yearly-subtitle">Total Additional Cost:</span>
-        <span className="total-cost-value">${totalCost}</span>
+        <span className="total-cost-value"> ${totalCost}.00</span>
       </div>
 
       <div className="yearly-footer">

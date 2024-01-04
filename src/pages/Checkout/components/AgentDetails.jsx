@@ -7,6 +7,7 @@ const AgentDetails = ({
   handleInputChange,
   showTooltip,
   setShowTooltip,
+  botCount,
 }) => {
   const options = industryData.map((categoryData) => ({
     label: categoryData.category,
@@ -58,22 +59,7 @@ const AgentDetails = ({
   return (
     <div>
       <div className="row">
-        <div className="col-md-6">
-          {/* Number of Agents */}
-          <div className="form__group_onboard field mb-3 ">
-            <input
-              type="number"
-              className="form__field_onboard"
-              placeholder="Number of Agents"
-              name="numberOfAgents"
-              value={formData.numberOfAgents}
-              onChange={handleInputChange}
-              tabIndex="5"
-            />
-            <label htmlFor="numberOfAgents" className="form__label_onboard">
-              Number of Agents (Bots)
-            </label>
-          </div>
+        <div className="col-md-12">
           {/* Agent Type */}
           <div className="form__group_onboard field mb-4">
             <select
@@ -98,8 +84,6 @@ const AgentDetails = ({
               Agent Type
             </label>
           </div>
-        </div>
-        <div className="col-md-6">
           <div className="form__group_onboard field mb-3 position-relative">
             <input
               type="text"
@@ -200,6 +184,13 @@ const AgentDetails = ({
                 })
               }
             />
+
+            <div className="bot-count-info">
+              <p>
+                ⓘ Current Bot Count: <strong>{botCount}</strong>
+              </p>
+            </div>
+
             {formData.serviceIndustry === "Other" && (
               <input
                 type="text"

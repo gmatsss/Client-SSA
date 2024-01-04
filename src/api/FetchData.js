@@ -1,28 +1,31 @@
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 export async function fetchData(
-  endpoint, // change this to endpoint
+  endpoint,
   method = "GET",
   data = null,
-  headers = {} // add headers parameter here
+  headers = {}
 ) {
-  const url = `${API_ENDPOINT}${endpoint}`; // use API_ENDPOINT here
+  const url = `${API_ENDPOINT}${endpoint}`;
 
   const options = {
     method: method,
     headers: {
       ...headers,
       Accept: headers.Accept ? headers.Accept : "application/json",
-      "Content-Type": headers["Content-Type"]
-        ? headers["Content-Type"]
-        : "application/json",
     },
-
     credentials: "include",
   };
 
   if (data) {
-    options.body = JSON.stringify(data);
+    if (data instanceof FormData) {
+      options.body = data; // Use the FormData directly
+    } else {
+      options.headers["Content-Type"] = headers["Content-Type"]
+        ? headers["Content-Type"]
+        : "application/json";
+      options.body = JSON.stringify(data);
+    }
   }
 
   try {
@@ -36,18 +39,12 @@ export async function fetchData(
 
     const responseData = await response.json();
 
-    switch (response.status) {
-      case 200: // OK
-      case 201: // Created
-      case 400: // Bad Request
-      case 401: // Unauthorized
-      case 403: // Forbidden
-      case 404: // Not Found
-      case 409: // Conflict
-      case 500: // Internal Server Error
-        return responseData;
-      default:
-        throw new Error(responseData.error || "An unexpected error occurred");
+    if (response.ok) {
+      // If the response status is in the range 200-299
+      return responseData;
+    } else {
+      // Throw the server's error message
+      throw new Error(responseData.message || "An unexpected error occurred");
     }
   } catch (error) {
     console.log(error);

@@ -6,18 +6,36 @@ import AgentDetails from "./AgentDetails";
 import AdditionalInfo from "./AdditionalInfo";
 
 const OnboardingForm = ({
-  formData,
-  setFormData,
   loading,
   setLoading,
   showTooltip,
   setShowTooltip,
   currentStep,
   setCurrentStep,
+  setCurrentBotCount,
 }) => {
   const navigate = useNavigate();
+  const [savedAgents, setSavedAgents] = useState([]);
 
-  const [uploadedFiles, setUploadedFiles] = useState([]); // Moved to OnboardingForm
+  // Initial state for an agent
+  const initialAgentData = {
+    agentType: "",
+    toneOfVoice: "",
+    serviceIndustry: "",
+    otherServiceIndustry: "",
+  };
+
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    numberOfAgents: 1,
+    agents: [initialAgentData],
+    botChannel: [], // <-- Initialize this here
+  });
+
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +43,24 @@ const OnboardingForm = ({
       ...formData,
       [name]: value,
     });
+  };
+
+  const handleAgentInputChange = (index, event) => {
+    const newAgents = [...formData.agents];
+    newAgents[index][event.target.name] = event.target.value;
+    setFormData((prevData) => ({ ...prevData, agents: newAgents }));
+  };
+
+  const addMoreBot = () => {
+    if (validateStep2()) {
+      setSavedAgents([...savedAgents, ...formData.agents]);
+      setFormData((prevData) => ({
+        ...prevData,
+        numberOfAgents: prevData.numberOfAgents + 1,
+        agents: [{ ...initialAgentData }],
+      }));
+      setCurrentBotCount((prevCount) => prevCount + 1); // Update the bot count here
+    }
   };
 
   const generateVerificationCode = () => {
@@ -50,6 +86,7 @@ const OnboardingForm = ({
       return;
     }
 
+    console.log(uploadedFiles);
     let isValid = true;
     Fields.forEach((field) => {
       if (!formData[field]) {
@@ -62,17 +99,17 @@ const OnboardingForm = ({
 
     setLoading(true);
 
-    // Merging uploadedFiles with formData
+    const allAgentsData = [...savedAgents, ...formData.agents];
     const completeFormData = {
       ...formData,
+      agents: allAgentsData,
       uploadedFiles: uploadedFiles,
-      // verificationCode: "GDbnJqHY2Qda7rEfBfIezPwHH0autx",
+      // verificationCode: "OpPhHnxLBKi0I2fD5vHlAkZyX5whN5", // payment plan 1 bot
       verificationCode: generateVerificationCode(),
     };
 
     // Check the number of agents
     const numAgents = parseInt(completeFormData.numberOfAgents, 10);
-    console.log(`Redirecting to link for ${numAgents} agent(s)...`);
     navigate("/payments", {
       state: { agentCount: numAgents, formData: completeFormData },
     });
@@ -107,35 +144,25 @@ const OnboardingForm = ({
   };
 
   const validateStep2 = () => {
-    const fields = [
-      "numberOfAgents",
-      "toneOfVoice",
-      "agentType",
-      "serviceIndustry",
-    ];
+    const fields = ["toneOfVoice", "agentType", "serviceIndustry"];
     let isValid = true;
 
-    fields.forEach((field) => {
-      if (!formData[field]) {
+    formData.agents.forEach((agent) => {
+      fields.forEach((field) => {
+        if (!agent[field]) {
+          isValid = false;
+          toast.error(
+            `Please fill out the ${field} field for one of the agents.`
+          );
+        }
+      });
+
+      // Check if serviceIndustry is set to "Other" and validate the otherServiceIndustry field
+      if (agent.serviceIndustry === "Other" && !agent.otherServiceIndustry) {
         isValid = false;
-        toast.error(`Please fill out the ${field} field.`);
+        toast.error("Please specify the industry for one of the agents.");
       }
     });
-
-    // Validate numberOfAgents to ensure it's greater than 0
-    if (formData.numberOfAgents <= 0) {
-      isValid = false;
-      toast.error("Number of agents must be greater than 0.");
-    }
-
-    // Check if serviceIndustry is set to "Other" and validate the otherServiceIndustry field
-    if (
-      formData.serviceIndustry === "Other" &&
-      !formData.otherServiceIndustry
-    ) {
-      isValid = false;
-      toast.error("Please specify the industry.");
-    }
 
     return isValid;
   };
@@ -164,13 +191,22 @@ const OnboardingForm = ({
           />
         )}
 
+        {currentStep === 2 &&
+          formData.agents.map((agentData, index) => (
+            <AgentDetails
+              key={index + formData.numberOfAgents} // Update the key here
+              formData={agentData}
+              handleInputChange={(e) => handleAgentInputChange(index, e)}
+              showTooltip={showTooltip}
+              setShowTooltip={setShowTooltip}
+              botCount={formData.numberOfAgents}
+            />
+          ))}
+
         {currentStep === 2 && (
-          <AgentDetails
-            formData={formData}
-            handleInputChange={handleInputChange}
-            showTooltip={showTooltip}
-            setShowTooltip={setShowTooltip}
-          />
+          <button className="btn btn-dark" type="button" onClick={addMoreBot}>
+            Add More Bot
+          </button>
         )}
 
         {currentStep === 3 && (

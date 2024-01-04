@@ -1,8 +1,8 @@
 import React from "react";
 
-const Info = ({ currentStep }) => {
+const Info = ({ currentStep, currentBotCount }) => {
   let content;
-
+  console.log(currentBotCount);
   switch (currentStep) {
     case 1:
       content = (
@@ -34,14 +34,6 @@ const Info = ({ currentStep }) => {
       content = (
         <ul className="list-unstyled text-white fs-md-1 mt-3">
           <li>
-            <span className="highlighted-text">
-              Specify the Number of Agents:
-            </span>{" "}
-            Clearly indicate the number of agents you need. This helps in the
-            efficient allocation of resources tailored to your service
-            requirements.
-          </li>
-          <li>
             <span className="highlighted-text">Choose the Agent Type:</span> Opt
             between Customer Service or Sales Agents. Your selection aids in
             customizing the training and orientation for the agents dedicated to
@@ -53,6 +45,12 @@ const Info = ({ currentStep }) => {
             </span>{" "}
             Choose from a diverse list of industries. This step ensures that our
             services are contextually optimized for your business field.
+          </li>
+          <li>
+            <span className="highlighted-text">Number of Agents (Bot):</span>{" "}
+            The "Add More Bot" button you see is for you to determine the number
+            of bots you want. Each click will request an additional bot for your
+            services. As of now, you have {currentBotCount} bot set up.
           </li>
         </ul>
       );

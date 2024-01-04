@@ -15,11 +15,17 @@ import YearlyDiscount3 from "./plan/Yearly/YearlyDiscount3";
 import MonthlyPlanDiscount2 from "./plan/Monthly/MonthlyPlanDiscount2";
 import MonthlyPlanDiscount3 from "./plan/Monthly/MonthlyPlanDiscount3";
 import MonthlyPlanDiscount4 from "./plan/Monthly/MonthlyPlanDiscount4";
-import MoonclerkEmbed from "../test/MoonclerkEmbed ";
-import TestChannel from "../test/testchannel";
 import { fetchData } from "../../api/FetchData";
 import { toast } from "react-toastify";
 import AdditionalCharge from "./Choose/AdditionalCharge";
+import ChannelOne from "./plan/Channel/ChannelOne";
+import ChannelTwo from "./plan/Channel/ChannelTwo";
+import ChannelThree from "./plan/Channel/ChannelThree";
+import ChannelSix from "./plan/Channel/ChannelSix";
+import ChannelFive from "./plan/Channel/ChannelFive";
+import ChannelFour from "./plan/Channel/ChannelFour";
+import Tooltip from "@mui/material/Tooltip";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 const Payments = () => {
   const navigate = useNavigate();
@@ -33,10 +39,23 @@ const Payments = () => {
 
   const [isVerificationMatched, setIsVerificationMatched] = useState(false);
   const [paymentVerified, setPaymentVerified] = useState(false);
-
   const [currentFormId, setCurrentFormId] = useState(null);
   const [currentChannelFormId, setChannelCurrentFormId] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [newVerificationCode, setNewVerificationCode] = useState();
+  const [ammountref, setAmountref] = useState();
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        toast.info("Verification code copied!");
+      },
+      (err) => {
+        console.error("Failed to copy: ", err);
+        toast.error("Failed to copy the code.");
+      }
+    );
+  };
 
   useEffect(() => {
     if (!formData || !agentCount) {
@@ -98,23 +117,27 @@ const Payments = () => {
       border: "1px solid white",
     },
   }));
+
+  const [paymentidplan, setPaymentidplan] = useState();
+
   useEffect(() => {
+    let formId;
+
     if (isYearly) {
       // Yearly plans
       switch (agentCount) {
         case "1":
-          setCurrentFormId(474438); // Yearly
+          formId = 474438; // Yearly
           break;
         case "2":
-          setCurrentFormId(475039); // YearlyDiscount1
+          formId = 475039; // YearlyDiscount1
           break;
         case "3":
-          setCurrentFormId(475040); // YearlyDiscount2
+          formId = 475040; // YearlyDiscount2
           break;
-        case "4":
         default:
-          if (parseInt(agentCount) > 4) {
-            setCurrentFormId(475044); // YearlyDiscount3
+          if (parseInt(agentCount) >= 4) {
+            formId = 475044; // YearlyDiscount3
           }
           break;
       }
@@ -122,46 +145,216 @@ const Payments = () => {
       // Monthly plans
       switch (agentCount) {
         case "1":
-          setCurrentFormId(474911);
+          // 474911 test
+          formId = 474170; // Monthly
+          // formId = 474911; // test
           break;
         case "2":
-          setCurrentFormId(475045);
+          formId = 475045; // MonthlyDiscount
+          // formId = 474911; // test
           break;
         case "3":
-          setCurrentFormId(475046);
+          formId = 475046; // MonthlyDiscount2
           break;
-        case "4":
         default:
-          if (parseInt(agentCount) > 4) {
-            setCurrentFormId(475047);
+          if (parseInt(agentCount) >= 4) {
+            formId = 475047; // MonthlyDiscount3
           }
           break;
       }
     }
+
+    setCurrentFormId(formId);
   }, [agentCount, isYearly]);
 
+  const channelFormIdMapping = {
+    // 475469 test for channel
+    1: 475832,
+    2: 475833,
+    // 2: 475469, // test
+    3: 475834,
+    4: 475835,
+    5: 475836,
+    6: 475837,
+  };
+
   useEffect(() => {
-    switch (agentCount) {
-      case "1":
-        setChannelCurrentFormId(475469); // Yearly
-        break;
-      case "2":
-        //setCurrentFormId(475039); // YearlyDiscount1
-        break;
-      case "3":
-        //setCurrentFormId(475040); // YearlyDiscount2
-        break;
-      case "4":
-      default:
-        if (parseInt(agentCount) > 4) {
-          //setCurrentFormId(475044); // YearlyDiscount3
-        }
-        break;
+    if (channelFormIdMapping[botChannelValue]) {
+      setChannelCurrentFormId(channelFormIdMapping[botChannelValue]);
     }
   }, [botChannelValue]);
 
-  const navigateToThankYou = () => {
-    navigate("/Thank");
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  const navigateToThankYou = async (customerID, paymentPlanID) => {
+    try {
+      setLoading(true); // Control UI loading state
+      const { firstname, lastname, email, phone } = formData;
+
+      const registrationPayload = {
+        name: `${firstname} ${lastname}`,
+        email: email,
+        phone: phone,
+        password: firstname, // Use a more secure way to generate passwords
+        role: "user",
+      };
+
+      const registrationResponse = await fetchData(
+        "User/register",
+        "POST",
+        registrationPayload
+      );
+
+      if (registrationResponse.data.userId) {
+        // User registration was successful, proceed with onboarding
+
+        const onboardingPayload = new FormData();
+
+        // Append simple key-value pairs to the FormData
+        onboardingPayload.append("numberOfAgents", formData.numberOfAgents);
+        onboardingPayload.append(
+          "additionalGuidelines",
+          formData.additionalGuidelines
+        );
+        onboardingPayload.append(
+          "verificationCodebotplan",
+          formData.verificationCode
+        );
+
+        onboardingPayload.append("userId", registrationResponse.data.userId);
+
+        if (newVerificationCode) {
+          onboardingPayload.append("verifchannelcode", newVerificationCode);
+        }
+
+        if (customerID) {
+          onboardingPayload.append("customerID", customerID);
+        }
+
+        //monthly plan
+        if (paymentPlanID) {
+          onboardingPayload.append("paymentPlanID", paymentPlanID);
+        }
+
+        // For arrays or objects, convert them to string using JSON.stringify
+        onboardingPayload.append("agents", JSON.stringify(formData.agents));
+        onboardingPayload.append(
+          "botChannel",
+          JSON.stringify(formData.botChannel)
+        );
+
+        // Append each file to the FormData. Ensure that 'uploadedFiles' is an array of File objects.
+        formData.uploadedFiles.forEach((file, index) => {
+          onboardingPayload.append(`uploadedFiles[${index}]`, file, file.name);
+        });
+
+        const onboardingResponse = await fetchData(
+          "bot/postinfo",
+          "POST",
+          onboardingPayload
+        );
+
+        // Check if the onboarding response was successful
+        if (onboardingResponse.data) {
+          if (window.location.origin === "https://www.supersmartagents.com") {
+            try {
+              const headers = {
+                Authorization: "Token 08bf9295738475d4afc3362ba53678df",
+                Accept: "application/vnd.moonclerk+json;version=1",
+              };
+
+              const result = await fetchData(
+                "moonclerk/api/payments",
+                "GET",
+                null,
+                headers
+              );
+
+              const matchingPaymentDataArray = result.payments.filter(
+                (payment) => payment.form_id === currentFormId
+              );
+
+              const successfulPaymentData = matchingPaymentDataArray.find(
+                (paymentData) =>
+                  paymentData.custom_fields &&
+                  paymentData.custom_fields.verification_code &&
+                  paymentData.custom_fields.verification_code.response ===
+                    formData?.verificationCode
+              );
+
+              const fpromTid = getCookie("_fprom_tid");
+              const fpromRef = getCookie("_fprom_ref");
+
+              // First Promoter sale tracking API call
+              const saleTrackingPayload = {
+                email: formData.email,
+                uid: `${firstname}_${lastname}`,
+                currency: "USD",
+                event_id: customerID,
+                plan: customerID,
+                amount: successfulPaymentData.amount,
+                ref_id: fpromRef,
+                tid: fpromTid,
+              };
+
+              console.log(saleTrackingPayload);
+
+              const response = await fetch(
+                "https://firstpromoter.com/api/v1/track/sale",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "x-api-key": "4450bd7ad1136ceebcd94195f7cd6787",
+                  },
+                  body: JSON.stringify(saleTrackingPayload),
+                }
+              );
+
+              window.fpr("referral", { email: formData.email });
+              console.log(response);
+
+              // Your code for handling successful response
+            } catch (error) {
+              if (error instanceof Error) {
+                console.error(
+                  "Error during First Promoter tracking:",
+                  error.message
+                );
+              } else if (error.response) {
+                console.error(
+                  "API response error:",
+                  await error.response.text()
+                );
+              } else {
+                console.error("Unknown error during First Promoter tracking.");
+              }
+              toast.error("Error in tracking referral. Please check logs.");
+            }
+          }
+
+          toast.success("Payment Success");
+          navigate("/Thank");
+        } else {
+          // Handle onboarding errors
+          const errorMessage = onboardingResponse.error || "Onboarding Failed";
+          toast.error(errorMessage);
+        }
+      } else {
+        // If there's no userId, handle it as an error
+        const errorMessage = "Registration failed, please try again.";
+        toast.error(errorMessage);
+      }
+    } catch (error) {
+      console.error("Error during registration or onboarding:", error);
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setLoading(false); // Ensure loading state is reset
+    }
   };
 
   const fetchPaymentData = async () => {
@@ -183,54 +376,53 @@ const Payments = () => {
         (payment) => payment.form_id === currentFormId
       );
 
-      if (matchingPaymentDataArray.length > 0) {
-        console.log(
-          "Found matching payment data records:",
-          matchingPaymentDataArray
-        );
+      const successfulPaymentData = matchingPaymentDataArray.find(
+        (paymentData) =>
+          paymentData.custom_fields &&
+          paymentData.custom_fields.verification_code &&
+          paymentData.custom_fields.verification_code.response ===
+            formData?.verificationCode
+      );
 
-        // Flag to determine if there's a successful verification code match
-        let isVerificationCodeMatched = false;
-
-        // Iterate over each matching record to check the verification code
-        matchingPaymentDataArray.forEach((paymentData) => {
-          // Ensure custom_fields.verification_code exists before accessing its properties
-          if (
-            paymentData.custom_fields &&
-            paymentData.custom_fields.verification_code &&
-            paymentData.custom_fields.verification_code.response ===
-              formData?.verificationCode
-          ) {
-            setIsVerificationMatched(true);
-            isVerificationCodeMatched = true;
-
-            if (isVerificationCodeMatched) {
-              if (botChannelValue === 0) {
-                setLoading(false);
-                toast.success("Payment Success", {
-                  onClose: () => navigateToThankYou(),
-                });
-              } else {
-                setLoading(false);
-                toast.success("Payment Success");
-                setPaymentVerified(true);
-              }
-            }
+      if (successfulPaymentData) {
+        if (botChannelValue === 0) {
+          await navigateToThankYou(successfulPaymentData.customer_id);
+        } else {
+          // Check for bot involvement and generate a new verification code if necessary
+          let newVerificationCode = null;
+          if (botChannelValue > 0) {
+            // newVerificationCode = "MAfig7QtlODoXZYY5YBagFdwabP4lT";
+            newVerificationCode = generateNewVerificationCode();
+            setNewVerificationCode(newVerificationCode);
           }
-        });
 
-        if (!isVerificationCodeMatched) {
+          setPaymentidplan(successfulPaymentData.customer_id);
           setLoading(false);
-          toast.warning("Please pay your balance first.");
+          toast.success("Payment Success");
+          setPaymentVerified(true);
+          setIsVerificationMatched(true);
         }
       } else {
         setLoading(false);
-        toast.error("No payment data found");
+        toast.warning("Please pay your balance first.");
       }
     } catch (error) {
       console.error("Error fetching payment data:", error);
+      setLoading(false); // Make sure to set loading to false even in case of an error
     }
   };
+
+  function generateNewVerificationCode() {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < 30; i++) {
+      result += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+    return result;
+  }
 
   const checkFormData = async () => {
     try {
@@ -247,47 +439,28 @@ const Payments = () => {
         headers
       );
 
-      console.log("All payment data:", result);
-
       const matchingPaymentDataArray = result.payments.filter(
         (payment) => payment.form_id === currentChannelFormId
       );
 
-      console.log(matchingPaymentDataArray);
+      // Use find to get the first matching payment data record
+      const successfulPaymentData = matchingPaymentDataArray.find(
+        (paymentData) =>
+          paymentData.custom_fields &&
+          paymentData.custom_fields.verification_code &&
+          paymentData.custom_fields.verification_code.response ===
+            (newVerificationCode || formData?.verificationCode)
+      );
 
-      if (matchingPaymentDataArray.length > 0) {
-        console.log(
-          "Found matching payment data records:",
-          matchingPaymentDataArray
-        );
-
-        let isVerificationSuccessful = false;
-
-        matchingPaymentDataArray.forEach((paymentData) => {
-          if (
-            paymentData.custom_fields &&
-            paymentData.custom_fields.verification_code &&
-            paymentData.custom_fields.verification_code.response ===
-              formData?.verificationCode
-          ) {
-            isVerificationSuccessful = true;
-          }
-        });
-
-        if (isVerificationSuccessful) {
-          setLoading(false);
-          toast.success("Payment Success", {
-            onClose: () => navigateToThankYou(),
-          });
-        } else {
-          setLoading(false);
-          toast.warning("Please pay your balance first.");
-        }
+      if (successfulPaymentData) {
+        navigateToThankYou(successfulPaymentData.customer_id, paymentidplan);
       } else {
-        console.log(`No payment data found `);
+        setLoading(false);
+        toast.warning("Please pay your balance first.");
       }
     } catch (error) {
       console.error("Error fetching payment data:", error);
+      setLoading(false);
     }
   };
 
@@ -336,8 +509,50 @@ const Payments = () => {
                 )}
               </div>
             )}
-            <h1>Your Verification Code is</h1>
-            <h3>{formData?.verificationCode}</h3>
+
+            {newVerificationCode ? (
+              <>
+                <h1>
+                  Your New Verification Code is{" "}
+                  <Tooltip title="Click to copy">
+                    <InfoOutlinedIcon
+                      style={{ marginLeft: "10px", cursor: "pointer" }}
+                    />
+                  </Tooltip>
+                </h1>
+                <div className="verification-code-tooltip">
+                  <Tooltip title="Click to copy">
+                    <h3
+                      onClick={() => copyToClipboard(newVerificationCode)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {newVerificationCode}
+                    </h3>
+                  </Tooltip>
+                </div>
+              </>
+            ) : (
+              <>
+                <h1>
+                  Your Verification Code is{" "}
+                  <Tooltip title="Click to copy">
+                    <InfoOutlinedIcon style={{ cursor: "pointer" }} />
+                  </Tooltip>
+                </h1>
+                <div className="verification-code-tooltip">
+                  <Tooltip title="Click to copy">
+                    <h3
+                      onClick={() =>
+                        copyToClipboard(formData?.verificationCode)
+                      }
+                      style={{ cursor: "pointer" }}
+                    >
+                      {formData?.verificationCode}
+                    </h3>
+                  </Tooltip>
+                </div>
+              </>
+            )}
           </div>
 
           {(!isVerificationMatched || botChannelValue === 0) &&
@@ -390,7 +605,7 @@ const Payments = () => {
                 </>
               ) : (
                 <>
-                  {agentCount === "1" && <MoonclerkEmbed />}
+                  {agentCount === "1" && <Monthly />}
                   {agentCount === "2" && <MonthlyPlanDiscount2 />}
                   {agentCount === "3" && <MonthlyPlanDiscount3 />}
                   {(agentCount === "4" || parseInt(agentCount) > 4) && (
@@ -401,9 +616,16 @@ const Payments = () => {
             </>
           ) : null}
 
-          {botChannelValue >= 1 &&
-            botChannelValue <= 6 &&
-            isVerificationMatched && <TestChannel />}
+          {isVerificationMatched && (
+            <>
+              {botChannelValue === 1 && <ChannelOne />}
+              {botChannelValue === 2 && <ChannelTwo />}
+              {botChannelValue === 3 && <ChannelThree />}
+              {botChannelValue === 4 && <ChannelFour />}
+              {botChannelValue === 5 && <ChannelFive />}
+              {botChannelValue === 6 && <ChannelSix />}
+            </>
+          )}
         </div>
       </div>
     </div>
