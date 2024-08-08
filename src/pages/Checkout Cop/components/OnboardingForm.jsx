@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import PersonalDetails from "./PersonalDetails";
 import AgentDetails from "./AgentDetails";
 import AdditionalInfo from "./AdditionalInfo";
-import "./OnboardingForm.css";
-import "./Responsive.css";
 
 const OnboardingForm = ({
   loading,
@@ -19,6 +17,7 @@ const OnboardingForm = ({
   const navigate = useNavigate();
   const [savedAgents, setSavedAgents] = useState([]);
 
+  // Initial state for an agent
   const initialAgentData = {
     agentType: "",
     toneOfVoice: "",
@@ -60,7 +59,7 @@ const OnboardingForm = ({
         numberOfAgents: prevData.numberOfAgents + 1,
         agents: [{ ...initialAgentData }],
       }));
-      setCurrentBotCount((prevCount) => prevCount + 1);
+      setCurrentBotCount((prevCount) => prevCount + 1); // Update the bot count here
     }
   };
 
@@ -79,6 +78,7 @@ const OnboardingForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validation for the last step
     const Fields = ["additionalGuidelines"];
 
     if (uploadedFiles.length === 0) {
@@ -86,6 +86,7 @@ const OnboardingForm = ({
       return;
     }
 
+    console.log(uploadedFiles);
     let isValid = true;
     Fields.forEach((field) => {
       if (!formData[field]) {
@@ -103,16 +104,15 @@ const OnboardingForm = ({
       ...formData,
       agents: allAgentsData,
       uploadedFiles: uploadedFiles,
+      // verificationCode: "OpPhHnxLBKi0I2fD5vHlAkZyX5whN5", // payment plan 1 bot
       verificationCode: generateVerificationCode(),
     };
 
+    // Check the number of agents
     const numAgents = parseInt(completeFormData.numberOfAgents, 10);
     navigate("/payments", {
       state: { agentCount: numAgents, formData: completeFormData },
     });
-
-    console.log(numAgents);
-    console.log(completeFormData);
   };
 
   const validateStep1 = () => {
@@ -126,12 +126,14 @@ const OnboardingForm = ({
       }
     });
 
+    // Email validation
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (formData.email && !emailPattern.test(formData.email)) {
       isValid = false;
       toast.error("Please enter a valid email address.");
     }
 
+    // Phone validation (only numbers)
     const phonePattern = /^[0-9]+$/;
     if (formData.phone && !phonePattern.test(formData.phone)) {
       isValid = false;
@@ -179,8 +181,8 @@ const OnboardingForm = ({
   };
 
   return (
-    <form className="my-onboarding-form" onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className="p-4">
+      <div className="row g-3">
         {currentStep === 1 && (
           <PersonalDetails
             formData={formData}
@@ -191,7 +193,7 @@ const OnboardingForm = ({
         {currentStep === 2 &&
           formData.agents.map((agentData, index) => (
             <AgentDetails
-              key={index + formData.numberOfAgents}
+              key={index + formData.numberOfAgents} // Update the key here
               formData={agentData}
               handleInputChange={(e) => handleAgentInputChange(index, e)}
               showTooltip={showTooltip}
@@ -201,11 +203,7 @@ const OnboardingForm = ({
           ))}
 
         {currentStep === 2 && (
-          <button
-            className="onboarding-add-Agent"
-            type="button"
-            onClick={addMoreBot}
-          >
+          <button className="btn btn-dark" type="button" onClick={addMoreBot}>
             Add More Bot
           </button>
         )}
@@ -216,16 +214,16 @@ const OnboardingForm = ({
             handleInputChange={handleInputChange}
             uploadedFiles={uploadedFiles}
             setUploadedFiles={setUploadedFiles}
-            setFormData={setFormData}
+            setFormData={setFormData} // Pass setFormData here
           />
         )}
       </div>
 
-      <div className="button-container">
+      <div className="mt-5 btn-onboard-holder">
         {currentStep > 1 && (
           <button
-            className="my-onboarding-button"
             type="button"
+            className="btn-onboard mr-2 mx-2"
             onClick={handleBack}
           >
             Back
@@ -234,8 +232,8 @@ const OnboardingForm = ({
 
         {currentStep < 3 && (
           <button
-            className="my-onboarding-button"
             type="button"
+            className="btn-onboard mr-2 mx-2"
             onClick={handleNext}
           >
             Next
@@ -243,12 +241,8 @@ const OnboardingForm = ({
         )}
 
         {currentStep === 3 && (
-          <button
-            className="my-onboarding-button"
-            type="submit"
-            disabled={loading}
-          >
-            {loading ? <div></div> : "Submit"}
+          <button type="submit" className="btn-onboard mx-2" disabled={loading}>
+            {loading ? <div className="lds-dual-ring-onboard"></div> : "Submit"}
           </button>
         )}
       </div>

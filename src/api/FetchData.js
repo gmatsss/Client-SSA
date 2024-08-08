@@ -1,11 +1,10 @@
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
-
 export async function fetchData(
   endpoint,
   method = "GET",
   data = null,
   headers = {}
 ) {
+  const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
   const url = `${API_ENDPOINT}${endpoint}`;
 
   const options = {
@@ -19,7 +18,7 @@ export async function fetchData(
 
   if (data) {
     if (data instanceof FormData) {
-      options.body = data; // Use the FormData directly
+      options.body = data;
     } else {
       options.headers["Content-Type"] = headers["Content-Type"]
         ? headers["Content-Type"]
@@ -30,24 +29,26 @@ export async function fetchData(
 
   try {
     const response = await fetch(url, options);
-
-    // Check if the response is an image
     const contentType = response.headers.get("content-type");
+
     if (contentType && contentType.startsWith("image/")) {
       return { blob: await response.blob() };
     }
 
-    const responseData = await response.json();
+    const responseData = await response.json(); // Assuming all other responses are in JSON format
 
     if (response.ok) {
-      // If the response status is in the range 200-299
       return responseData;
     } else {
-      // Throw the server's error message
-      throw new Error(responseData.message || "An unexpected error occurred");
+      // Check if the server sent a specific error message and use it
+      throw new Error(
+        responseData.error ||
+          responseData.message ||
+          "An unexpected error occurred"
+      );
     }
   } catch (error) {
-    console.log(error);
-    throw error; // Re-throw the error so it can be handled by the calling code
+    console.error("FetchData Error:", error);
+    throw error; // Ensuring to rethrow the error for it to be caught in the calling function
   }
 }

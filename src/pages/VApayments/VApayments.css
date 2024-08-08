@@ -1,0 +1,125 @@
+.vapayments-container {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #001f3f;
+}
+
+.vapayments-container h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.pricing-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-item {
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.pricing-item h2 {
+  margin-bottom: 20px;
+  font-size: 42px; /* Increased font size */
+  color: #ff4081;
+  font-weight: 700; /* Increased font weight */
+}
+
+.pricing-item p {
+  font-size: 24px;
+  margin: 15px 0;
+  color: #ffffff;
+}
+
+.pricing-item p:first-of-type {
+  font-weight: bold;
+  font-size: 28px; /* Increased font size */
+  color: #c5c5c5;
+}
+
+.pricing-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px; /* Slightly increased padding */
+  font-size: 20px; /* Increased font size */
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.pricing-button:hover {
+  background-color: #0056b3;
+}
+
+.monthly-button {
+  background-color: #ff4081;
+}
+
+.monthly-button:hover {
+  background-color: #cc3361;
+}
+
+.pricing-item.no-background {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 12px;
+  padding: 20px; /* Reduced padding */
+  max-width: 800px;
+}
+
+.pricing-item.no-background .pricing-button {
+  margin-top: 10px; /* Reduced margin */
+}
+
+.plan-content {
+  max-height: 700px; /* Set a max-height */
+  overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.verification-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.verification-code {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.verification-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.verification-button:hover {
+  background-color: #218838;
+}
+
+.verification-button svg {
+  margin-right: 5px;
+}

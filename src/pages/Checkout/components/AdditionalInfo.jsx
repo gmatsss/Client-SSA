@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 const AdditionalInfo = ({
   formData,
@@ -8,10 +10,14 @@ const AdditionalInfo = ({
   setUploadedFiles,
   setFormData,
 }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltip, setTooltip] = useState({});
 
-  const handleTooltipToggle = () => {
-    setShowTooltip(!showTooltip);
+  const handleMouseEnter = (tooltipId) => {
+    setTooltip((prev) => ({ ...prev, [tooltipId]: true }));
+  };
+
+  const handleMouseLeave = (tooltipId) => {
+    setTooltip((prev) => ({ ...prev, [tooltipId]: false }));
   };
 
   const handleFileChange = (e) => {
@@ -30,7 +36,6 @@ const AdditionalInfo = ({
       return;
     }
 
-    // Calculate the total size of all selected files plus already uploaded files
     const totalSize = files.reduce(
       (acc, file) => acc + file.size,
       uploadedFiles.reduce((acc, file) => acc + file.size, 0)
@@ -41,7 +46,6 @@ const AdditionalInfo = ({
       return;
     }
 
-    // Store the actual file objects in state, not just the names
     setUploadedFiles((prevFiles) => [...prevFiles, ...files]);
   };
 
@@ -76,10 +80,26 @@ const AdditionalInfo = ({
   ];
 
   return (
-    <div>
-      <div className="form__group_onboard field ">
+    <div className="additional-info-container">
+      <div className="my-input-item">
+        <label className="my-onboarding-label" htmlFor="additionalGuidelines">
+          Provide Restrictions or Guidelines
+          <span className="tooltip-container">
+            <FontAwesomeIcon
+              icon={faInfoCircle}
+              className="tooltip-icon"
+              onMouseEnter={() => handleMouseEnter("additionalGuidelines")}
+              onMouseLeave={() => handleMouseLeave("additionalGuidelines")}
+            />
+            {tooltip.additionalGuidelines && (
+              <span className="tooltip">
+                Provide any specific restrictions or guidelines for the bot.
+              </span>
+            )}
+          </span>
+        </label>
         <textarea
-          className="form__field_onboard non-resizable-textarea"
+          className="my-onboarding-input my-onboarding-textarea"
           placeholder="Additional Restrictions or Guidelines"
           name="additionalGuidelines"
           value={formData.additionalGuidelines}
@@ -87,74 +107,85 @@ const AdditionalInfo = ({
           rows={2}
           tabIndex="9"
         ></textarea>
-        <label htmlFor="additionalGuidelines" className="form__label_onboard">
-          Provide Restrictions or Guidelines
-        </label>
-        <style jsx>{`
-          .non-resizable-textarea {
-            resize: none;
-          }
-        `}</style>
       </div>
 
-      <div className="form__group_onboard field mb-5">
-        <label
-          onMouseEnter={handleTooltipToggle}
-          onMouseLeave={handleTooltipToggle}
-          style={{ position: "relative" }}
-        >
-          Bot Channels: ?
-          {showTooltip && (
-            <span className="tooltipchannel">
-              Choose where you'd like to add the bot. Options are:{" "}
-              {channels.join(", ")}
-            </span>
-          )}
+      <div className="my-input-item">
+        <label className="my-onboarding-label">
+          Bot Channels
+          <span className="tooltip-container">
+            <FontAwesomeIcon
+              icon={faInfoCircle}
+              className="tooltip-icon"
+              onMouseEnter={() => handleMouseEnter("botChannels")}
+              onMouseLeave={() => handleMouseLeave("botChannels")}
+            />
+            {tooltip.botChannels && (
+              <span className="tooltip">
+                Choose where you'd like to add the bot. Options are:{" "}
+                {channels.join(", ")}
+              </span>
+            )}
+          </span>
         </label>
-        <div className="channel-container">
+        <div className="bot-channels">
           {channels.map((channel, index) => (
-            <label key={index} className="channel-item">
+            <label key={index} className="bot-channel">
               <input
                 type="checkbox"
                 name="botChannel"
                 value={channel}
                 id={channel}
                 onChange={handleCheckboxChange}
-                className="channel-checkbox"
               />
-              <span className="channel-label">{channel}</span>
+              <span>{channel}</span>
             </label>
           ))}
         </div>
       </div>
 
-      <label className="custom-file-upload">
-        Upload up to 3 Company-Related PDFs (Max 25MB each):
-        <input
-          type="file"
-          name="uploadedFiles"
-          onChange={handleFileChange}
-          multiple
-          id="uploadedFiles"
-          accept=".pdf" // This attribute ensures only PDF files can be selected
-          style={{ display: "none" }}
-        />
-        <span id="file-name">Choose files...</span>
-      </label>
-      <div>
-        <ul>
-          {uploadedFiles.map((file, index) => (
-            <li key={index}>
-              File {index + 1}: {file.name}
-              <span
-                style={{ cursor: "pointer", marginLeft: "10px", color: "red" }}
-                onClick={() => handleFileDelete(file)}
-              >
-                X
+      <div className="my-input-item">
+        <label className="my-onboarding-label">
+          Upload up to 3 Company-Related PDFs (Max 25MB each)
+          <span className="tooltip-container">
+            <FontAwesomeIcon
+              icon={faInfoCircle}
+              className="tooltip-icon"
+              onMouseEnter={() => handleMouseEnter("uploadedFiles")}
+              onMouseLeave={() => handleMouseLeave("uploadedFiles")}
+            />
+            {tooltip.uploadedFiles && (
+              <span className="tooltip">
+                Upload PDF files related to your company. The total size of all
+                files must be under 25MB.
               </span>
-            </li>
-          ))}
-        </ul>
+            )}
+          </span>
+          <input
+            type="file"
+            name="uploadedFiles"
+            onChange={handleFileChange}
+            multiple
+            id="uploadedFiles"
+            accept=".pdf"
+            style={{ display: "none" }}
+          />
+          <span className="file-upload">Choose files...</span>
+        </label>
+        <div>
+          <ul>
+            {uploadedFiles.map((file, index) => (
+              <li key={index}>
+                File {index + 1}: {file.name}
+                <span
+                  className="file-delete"
+                  onClick={() => handleFileDelete(file)}
+                >
+                  X
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

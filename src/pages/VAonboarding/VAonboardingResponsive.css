@@ -1,0 +1,204 @@
+@media (max-width: 600px) {
+  .vaonboarding-container {
+    padding-top: 20px;
+  }
+
+  .vaonboarding-title {
+    font-size: 1.5em;
+  }
+
+  .vaonboarding-subtitle {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+
+  .progress-indicator {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .progress-step {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .progress-step::before,
+  .progress-step::after {
+    display: none;
+  }
+
+  .vaonboarding-form {
+    width: 100%;
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  .input-group {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .vaonboarding-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .vaonboarding-button {
+    width: 100%;
+    padding: 0.8em 0;
+  }
+
+  .vaonboarding-add-Agent {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 768px) {
+  .vaonboarding-container {
+    padding-top: 30px;
+  }
+
+  .vaonboarding-title {
+    font-size: 1.8em;
+  }
+
+  .vaonboarding-subtitle {
+    font-size: 1.1em;
+    margin-bottom: 18px;
+  }
+
+  .progress-indicator {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .progress-step {
+    margin: 0 3px;
+    flex: 1;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 4px 8px;
+  }
+
+  .progress-step::before,
+  .progress-step::after {
+    width: 40%;
+  }
+
+  .vaonboarding-form {
+    width: 90%;
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  .input-group {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .vaonboarding-options {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .vaonboarding-button {
+    width: auto;
+    padding: 0.8em 1.5em;
+  }
+
+  .vaonboarding-add-Agent {
+    width: auto;
+    padding: 9px 18px;
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 470px) {
+  .vaonboarding-container {
+    padding-top: 15px;
+  }
+
+  .vaonboarding-title {
+    font-size: 1.2em;
+  }
+
+  .vaonboarding-subtitle {
+    font-size: 0.9em;
+    margin-bottom: 12px;
+  }
+
+  .progress-indicator {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .progress-step {
+    margin: 0 2px;
+    flex: 1;
+    text-align: center;
+    font-size: 0.6em;
+    padding: 2px 4px;
+  }
+
+  .progress-step::before,
+  .progress-step::after {
+    width: 50%;
+  }
+
+  .vaonboarding-form {
+    width: 95%;
+    padding: 8px;
+    box-shadow: none;
+  }
+
+  .input-group {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .input-group label {
+    font-size: 0.8em;
+  }
+
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    font-size: 0.8em;
+    padding: 10px;
+  }
+
+  .vaonboarding-options {
+    flex-direction: row;
+    gap: 4px;
+    justify-content: space-between;
+  }
+
+  .vaonboarding-button {
+    width: 100%;
+    padding: 0.4em 0.6em;
+    font-size: 0.8em;
+  }
+
+  .vaonboarding-add-Agent {
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .vaonboarding-container {
+    height: 120vh;
+  }
+}

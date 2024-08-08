@@ -5,8 +5,8 @@
   background-repeat: no-repeat;
   height: 70vh;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-title,
@@ -52,14 +52,13 @@
 }
 
 .text-overlay {
-  width: 100%; /* Set to full width of the parent */
-  padding: 0 4%; /* Add padding instead of setting width to 92% */
+  width: 100%;
+  padding: 0 4%;
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
-/* Media queries to adjust sizes for smaller screens */
 @media (max-width: 1024px) {
   .banner-title {
     font-size: 50px;
@@ -73,26 +72,26 @@
 @media (max-width: 768px) {
   .banner-bg {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
   }
 
   .text-overlay {
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
   }
 
   .banner-title {
     font-size: 40px;
-    text-align: center; /* Center the text */
+    text-align: center;
   }
 
   .banner-subtitle {
     font-size: 30px;
-    text-align: center; /* Center the text */
+    text-align: center;
   }
 
   .text-center {
-    align-items: center; /* Center vertically */
+    align-items: center;
   }
 }

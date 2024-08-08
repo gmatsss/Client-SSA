@@ -30,23 +30,23 @@
   width: 100%;
   margin-top: 20px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding-right: 20px;
 }
 
 .profile-image img {
-  border-radius: 50%; /* Makes the image round */
-  width: 80px; /* Adjust as needed */
-  height: 80px; /* Adjust as needed */
-  object-fit: cover; /* Ensures the image covers the entire space without distortion */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .footer-content {
   margin-left: 8%;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .company {
@@ -71,7 +71,6 @@
   text-align: center;
 }
 
-/* Responsive Styles for 1024px */
 @media (max-width: 1440px) {
   .card_rating_holder {
     width: 75%;
@@ -99,7 +98,6 @@
   }
 }
 
-/* Responsive Styles for 1024px */
 @media (max-width: 1024px) {
   .card_rating_holder {
     width: 95%;
@@ -109,7 +107,6 @@
   }
 }
 
-/* Responsive Styles for 768px */
 @media (max-width: 768px) {
   .rating_card {
     width: 50%;
@@ -124,7 +121,6 @@
   }
 }
 
-/* Responsive Styles for 768px */
 @media (max-width: 679px) {
   .rating_card {
     width: 60%;
@@ -139,7 +135,6 @@
   }
 }
 
-/* Responsive Styles for 768px */
 @media (max-width: 567px) {
   .rating_card {
     width: 70%;
@@ -154,7 +149,6 @@
   }
 }
 
-/* Responsive Styles for 768px */
 @media (max-width: 500px) {
   .rating_card {
     width: 70%;
@@ -172,14 +166,13 @@
   }
 }
 
-/* Responsive Styles for 425px */
 @media (max-width: 487px) {
   .card_rating_holder {
     width: 95%;
     gap: 10px;
   }
   .rating_card {
-    width: 80%; /* Full width for smaller screens */
+    width: 80%;
     padding: 20px;
     margin-bottom: 10px;
   }
@@ -189,7 +182,7 @@
   }
   .headerRating p {
     text-align: center;
-    font-size: 28px; /* Reduced font size for smaller screens */
+    font-size: 28px;
   }
 }
 
@@ -199,7 +192,7 @@
     gap: 10px;
   }
   .rating_card {
-    width: 90%; /* Full width for smaller screens */
+    width: 90%;
     padding: 20px;
     margin-bottom: 10px;
   }

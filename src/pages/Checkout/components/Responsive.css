@@ -1,0 +1,164 @@
+@media (max-width: 1200px) {
+  .my-onboarding-form {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .my-input-group {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .bot-channels {
+    flex-wrap: nowrap;
+    gap: 15px;
+  }
+
+  .bot-channel {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .file-upload {
+    font-size: 0.9em;
+  }
+
+  .file-delete {
+    font-size: 0.9em;
+  }
+
+  .tooltip-container .tooltip {
+    width: 300px;
+    margin-left: -100px;
+  }
+
+  .agent-input-group {
+    width: 500px;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-onboarding-title {
+    font-size: 1.75em;
+  }
+
+  .my-onboarding-subtitle {
+    font-size: 1.2em;
+  }
+
+  .agent-input-group {
+    width: 500px;
+    max-width: 800px;
+  }
+
+  .my-onboarding-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 25px;
+  }
+
+  .my-onboarding-input {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1em;
+  }
+
+  .my-onboarding-button {
+    font-size: 1em;
+    padding: 0.75em;
+  }
+
+  .bot-channels {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .bot-channel {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .file-upload {
+    font-size: 0.9em;
+  }
+
+  .file-delete {
+    font-size: 0.9em;
+  }
+
+  .tooltip-container .tooltip {
+    width: 250px;
+    margin-left: -75px;
+  }
+}
+
+@media (max-width: 480px) {
+  .onboarding-container {
+    height: 120vh;
+  }
+
+  .my-onboarding-title {
+    font-size: 1.5em;
+  }
+
+  .my-onboarding-subtitle {
+    font-size: 1.1em;
+  }
+
+  .agent-input-group {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .my-onboarding-form {
+    padding: 20px;
+  }
+
+  .my-input-group {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .my-onboarding-input {
+    padding: 0.75em;
+    font-size: 1em;
+  }
+
+  .my-onboarding-button {
+    font-size: 0.9em;
+    padding: 0.6em;
+  }
+
+  .bot-channels {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bot-channel {
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  .file-upload {
+    font-size: 1em;
+  }
+
+  .file-delete {
+    font-size: 1em;
+  }
+
+  .my-onboarding-button {
+    width: 100%;
+  }
+
+  .tooltip-container .tooltip {
+    width: 200px;
+    margin-left: -50px;
+  }
+}

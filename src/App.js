@@ -5,7 +5,6 @@ import Payments from "./pages/Payments/Payment";
 import Appointment from "./pages/Appointment/Appointment";
 import FooterAll from "./pages/Footer/Footer";
 import { ToastContainer, Zoom } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import TermsOfService from "./pages/policy/TOS/TermsOfService";
 import RefundPolicy from "./pages/policy/refund/RefundPolicy";
 import PrivacyPolicy from "./pages/policy/Privacy/PrivacyPolicy";
@@ -13,6 +12,9 @@ import Header from "./pages/Home/Header/Header";
 import CheckOut from "./pages/Checkout/checkOut";
 import MoonclerkEmbed from "./pages/test/MoonclerkEmbed ";
 import ThankYouPage from "./pages/Thankyou/Thankyou";
+import VAonboarding from "./pages/VAonboarding/VAonboarding";
+import VApayments from "./pages/VApayments/VApayments";
+import "react-toastify/dist/ReactToastify.css";
 
 function Layout({ children }) {
   return (
@@ -48,6 +50,8 @@ function MainContent() {
       {RenderRoute("/PrivacyPolicy", PrivacyPolicy)}
       {RenderRoute("/test", MoonclerkEmbed)}
       {RenderRoute("/Thank", ThankYouPage)}
+      {RenderRoute("/VAonboarding", VAonboarding)}
+      {RenderRoute("/VApayments", VApayments)}
       <Route path="/Appointment" element={<Appointment />} />
     </Routes>
   );

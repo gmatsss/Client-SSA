@@ -19,24 +19,22 @@ const Onboarding = ({
   ];
 
   return (
-    <div
-      className="onBoard rounded container-fluid"
-      style={{ backgroundColor: "#4c4d62" }}
-    >
-      <h1 className="fs-1 title_onboard" style={{ color: "rgb(39, 179, 223)" }}>
-        {titles[currentStep - 1]}
-      </h1>
+    <div className="onboarding-container">
+      <h1 className="my-onboarding-title">Onboarding For SSA Bot Agents</h1>
+      <h2 className="my-onboarding-subtitle">{titles[currentStep - 1]}</h2>
 
-      <OnboardingForm
-        loading={loading}
-        setLoading={setLoading}
-        showTooltip={showTooltip}
-        setShowTooltip={setShowTooltip}
-        currentStep={currentStep} // Pass currentStep as prop
-        setCurrentStep={setCurrentStep} // Pass setCurrentStep as prop
-        currentBotCount={currentBotCount}
-        setCurrentBotCount={setCurrentBotCount}
-      />
+      <div className="onboarding-form">
+        <OnboardingForm
+          loading={loading}
+          setLoading={setLoading}
+          showTooltip={showTooltip}
+          setShowTooltip={setShowTooltip}
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+          currentBotCount={currentBotCount}
+          setCurrentBotCount={setCurrentBotCount}
+        />
+      </div>
     </div>
   );
 };

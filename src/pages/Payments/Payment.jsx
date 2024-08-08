@@ -30,8 +30,8 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 const Payments = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const agentCount = String(location.state?.agentCount); // Convert to string
-  const formData = location.state?.formData; // Access the completeFormData
+  const agentCount = String(location.state?.agentCount);
+  const formData = location.state?.formData;
   const botChannelValue =
     formData?.botChannel && formData.botChannel.length > 0
       ? formData.botChannel.length
@@ -357,7 +357,7 @@ const Payments = () => {
     }
   };
 
-  const fetchPaymentData = async () => {
+  const fetchPaymentDataBot = async () => {
     try {
       setLoading(true);
       const headers = {
@@ -386,17 +386,28 @@ const Payments = () => {
 
       if (successfulPaymentData) {
         if (botChannelValue === 0) {
+          console.log(
+            "Navigating to Thank You page with Customer ID:",
+            successfulPaymentData.customer_id
+          );
           await navigateToThankYou(successfulPaymentData.customer_id);
         } else {
-          // Check for bot involvement and generate a new verification code if necessary
           let newVerificationCode = null;
           if (botChannelValue > 0) {
-            // newVerificationCode = "MAfig7QtlODoXZYY5YBagFdwabP4lT";
             newVerificationCode = generateNewVerificationCode();
             setNewVerificationCode(newVerificationCode);
+            console.log(
+              "Generated new verification code:",
+              newVerificationCode
+            );
           }
 
           setPaymentidplan(successfulPaymentData.customer_id);
+          console.log(
+            "Set payment ID plan:",
+            successfulPaymentData.customer_id
+          );
+
           setLoading(false);
           toast.success("Payment Success");
           setPaymentVerified(true);
@@ -408,7 +419,7 @@ const Payments = () => {
       }
     } catch (error) {
       console.error("Error fetching payment data:", error);
-      setLoading(false); // Make sure to set loading to false even in case of an error
+      setLoading(false);
     }
   };
 
@@ -424,7 +435,7 @@ const Payments = () => {
     return result;
   }
 
-  const checkFormData = async () => {
+  const checkFormDataChannel = async () => {
     try {
       setLoading(true);
       const headers = {
@@ -443,7 +454,6 @@ const Payments = () => {
         (payment) => payment.form_id === currentChannelFormId
       );
 
-      // Use find to get the first matching payment data record
       const successfulPaymentData = matchingPaymentDataArray.find(
         (paymentData) =>
           paymentData.custom_fields &&
@@ -562,7 +572,7 @@ const Payments = () => {
                   type="submit"
                   className="btn-validate"
                   disabled={loading}
-                  onClick={fetchPaymentData}
+                  onClick={fetchPaymentDataBot}
                 >
                   {loading ? (
                     <div className="lds-dual-ring1validate"></div> // Show loading spinner if loading
@@ -579,10 +589,10 @@ const Payments = () => {
                 type="submit"
                 className="btn-validate"
                 disabled={loading}
-                onClick={checkFormData}
+                onClick={checkFormDataChannel}
               >
                 {loading ? (
-                  <div className="lds-dual-ring1validate"></div> // Show loading spinner if loading
+                  <div className="lds-dual-ring1validate"></div>
                 ) : (
                   "Validate Payment"
                 )}
