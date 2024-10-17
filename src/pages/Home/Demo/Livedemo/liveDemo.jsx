@@ -126,12 +126,18 @@ const LiveDemo = () => {
 
       if (response && response.response && response.response.value) {
         setTypewriterEffect(true);
-        // Wrap each line in a <p> tag and join them to form a single message
+
+        console.log(response.response);
+
         const formattedMessage = response.response.value
-          .split("\n")
-          .filter((msg) => msg.trim() !== "")
-          .map((msg) => `<p>${msg}</p>`)
-          .join("");
+          .replace(/(\*\*.+?\*\*):\n/g, "$1: ")
+          .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+          .replace(
+            /\[(.+?)\]\((https?:\/\/.+?)\)/g,
+            '<a href="$2" target="_blank">$1</a>'
+          )
+
+          .replace(/\n/g, "<br>");
 
         setMessages((prevMessages) => [
           ...prevMessages,
@@ -161,8 +167,8 @@ const LiveDemo = () => {
           <img src={logo_small} alt="Super Smart Agents Logo" />
           <h1 className="liveDemoHeader mt-3">Live Agent Demo</h1>
           <p>
-            See how Super Smart Agents will help your business eliminate any
-            communication roadblocks with your customers and new business
+            See how Super Smart Agents will help your business eliminate <br />
+            any communication roadblocks with your customers and new business
             prospects.
           </p>
         </div>

@@ -1,4 +1,4 @@
-/* TermsOfService.css */
+/* General Styles */
 .tos-container {
   margin: 20px;
   padding: 20px;
@@ -39,6 +39,20 @@
   text-decoration: underline;
 }
 
+/* Added classes for email links */
+.email-link {
+  font-size: 18px;
+  color: #27b3df;
+}
+
+.sales-email {
+  font-weight: bold;
+}
+
+.support-email {
+  font-style: italic;
+}
+
 .tos-divider {
   margin: 20px 0;
   border: none;
@@ -53,4 +67,80 @@
 
 .tos-address {
   font-style: normal;
+}
+
+/* Responsive Styles for 768px and below */
+@media (max-width: 768px) {
+  .tos-section h2 {
+    font-size: 20px;
+  }
+
+  .tos-section p,
+  .tos-section ul {
+    font-size: 16px;
+  }
+
+  .email-link {
+    font-size: 14px; /* Decrease font size for email links */
+  }
+
+  .tos-section ul {
+    padding-left: 30px;
+  }
+}
+
+/* Responsive Styles for 500px and below */
+@media (max-width: 500px) {
+  .tos-container {
+    padding: 15px;
+  }
+
+  .tos-title {
+    font-size: 24px;
+  }
+
+  .tos-section h2 {
+    font-size: 18px;
+  }
+
+  .tos-section p,
+  .tos-section ul {
+    font-size: 14px;
+  }
+
+  .email-link {
+    font-size: 12px; /* Further decrease font size for email links */
+  }
+
+  .tos-section ul {
+    padding-left: 20px;
+  }
+}
+
+/* Responsive Styles for 280px and below */
+@media (max-width: 320px) {
+  .tos-container {
+    padding: 10px;
+  }
+
+  .tos-title {
+    font-size: 18px;
+  }
+
+  .tos-section h2 {
+    font-size: 16px;
+  }
+
+  .tos-section p,
+  .tos-section ul {
+    font-size: 12px;
+  }
+
+  .email-link {
+    font-size: 15px; /* Further decrease font size for email links */
+  }
+
+  .tos-section ul {
+    padding-left: 15px;
+  }
 }

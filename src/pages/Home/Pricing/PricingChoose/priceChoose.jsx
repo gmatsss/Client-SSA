@@ -67,7 +67,7 @@ const PriceChoose = ({ isYearly, toggleIsYearly }) => {
   return (
     <div>
       <div className="pricing_choose">
-        <div className="">
+        <div className="mb-5">
           <div
             style={{
               display: "inline-block",
@@ -95,17 +95,9 @@ const PriceChoose = ({ isYearly, toggleIsYearly }) => {
           </div>
         </div>
 
-        <h3>Why Choose Super Smart Agent</h3>
+        <h3 className="whytitle">Why Choose Super Smart Agent</h3>
         <div className="d-flex flex-column mt-5">
-          <div
-            data-aos="fade-up"
-            className="CardInfo d-flex mx-auto mb-4"
-            style={{
-              backgroundColor: "#4C4D62",
-              padding: "13px",
-              width: "50%",
-            }}
-          >
+          <div data-aos="fade-up" className="CardInfo d-flex">
             <div
               style={{
                 marginRight: "20px",
@@ -121,15 +113,7 @@ const PriceChoose = ({ isYearly, toggleIsYearly }) => {
             </div>
           </div>
 
-          <div
-            data-aos="fade-up"
-            className="CardInfo d-flex mx-auto mb-4"
-            style={{
-              backgroundColor: "#4C4D62",
-              padding: "13px",
-              width: "50%",
-            }}
-          >
+          <div data-aos="fade-up" className="CardInfo d-flex">
             <div
               style={{
                 marginRight: "20px",
@@ -147,15 +131,7 @@ const PriceChoose = ({ isYearly, toggleIsYearly }) => {
             </div>
           </div>
 
-          <div
-            data-aos="fade-up"
-            className="CardInfo d-flex mx-auto mb-4"
-            style={{
-              backgroundColor: "#4C4D62",
-              padding: "13px",
-              width: "50%",
-            }}
-          >
+          <div data-aos="fade-up" className="CardInfo d-flex">
             <div
               style={{
                 marginRight: "20px",
@@ -175,15 +151,7 @@ const PriceChoose = ({ isYearly, toggleIsYearly }) => {
       </div>
 
       <div className="TailoredOffer_BG ">
-        <div
-          data-aos="fade-up"
-          className="CardInfo d-flex mx-auto mb-4"
-          style={{
-            backgroundColor: "#4C4D62",
-            padding: "13px",
-            width: "50%",
-          }}
-        >
+        <div data-aos="fade-up" className="CardInfo-tail d-flex">
           <div
             style={{
               marginRight: "20px",
@@ -199,15 +167,7 @@ const PriceChoose = ({ isYearly, toggleIsYearly }) => {
             </h5>
           </div>
         </div>
-        <div
-          data-aos="fade-up"
-          className="CardInfo d-flex mx-auto mb-4"
-          style={{
-            backgroundColor: "#4C4D62",
-            padding: "13px",
-            width: "50%",
-          }}
-        >
+        <div data-aos="fade-up" className="CardInfo-tail d-flex">
           <div
             style={{
               marginRight: "20px",

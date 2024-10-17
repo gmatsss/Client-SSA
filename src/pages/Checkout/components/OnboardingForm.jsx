@@ -103,6 +103,8 @@ const OnboardingForm = ({
       ...formData,
       agents: allAgentsData,
       uploadedFiles: uploadedFiles,
+      // verificationCode: "7xVJxzju0KMq94Vj2EJWHeD7N4qzBV",//yearly2
+      // verificationCode: "J8jcyQbmnRKeBGaT502aZNhIzwJpSA", //monthly1
       verificationCode: generateVerificationCode(),
     };
 

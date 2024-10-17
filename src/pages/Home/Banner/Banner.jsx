@@ -6,8 +6,8 @@ const Banner = () => {
   return (
     <div className="banner">
       <div className=" banner-bg">
-        <div className="text-overlay">
-          <div className="text-center">
+        <div className="text-overlays">
+          <div className="text-centerss">
             <h1 className="banner-title">
               Unlock the Future of Sales <br /> and Customer Service
             </h1>

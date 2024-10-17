@@ -11,8 +11,20 @@
 
 .banner-title,
 .banner-subtitle {
-  font-family: "PublicaSansRound-Lt";
-  letter-spacing: 5px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
+
+.banner-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.banner-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
 }
 
 .glowing-text {
@@ -21,6 +33,22 @@
   -webkit-text-stroke-width: 3px;
   text-stroke-width: 3px;
   animation: strokeAnimation 6s infinite alternate;
+}
+
+.text-overlays {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.text-centerss {
+  margin-right: 15rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 @keyframes strokeAnimation {
@@ -40,43 +68,38 @@
   }
 }
 
-.banner-title {
-  font-weight: 500;
-  font-size: 60px;
+@media (max-width: 1440px) {
+  .text-centerss {
+    margin-right: 5rem;
+    width: 50%;
+  }
 }
 
-.banner-subtitle {
-  font-weight: 200;
-  margin-top: 1rem;
-  font-size: 40px;
-}
-
-.text-overlay {
-  width: 100%;
-  padding: 0 4%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+@media (max-width: 1240px) {
+  .text-centerss {
+    margin-right: 3rem;
+    width: 70%;
+  }
 }
 
 @media (max-width: 1024px) {
   .banner-title {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   .banner-subtitle {
-    font-size: 35px;
+    font-size: 30px;
+  }
+
+  .text-centerss {
+    margin-right: 3rem;
+    width: 60%;
   }
 }
 
 @media (max-width: 768px) {
   .banner-bg {
     display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .text-overlay {
     justify-content: center;
     align-items: center;
   }
@@ -91,7 +114,128 @@
     text-align: center;
   }
 
-  .text-center {
+  .text-overlays {
+    display: flex;
+    justify-content: center;
     align-items: center;
+  }
+
+  .text-centerss {
+    margin-right: 0rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 280px) {
+  .banner-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .banner-subtitle {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .banner-bg {
+    height: 50vh;
+  }
+
+  .text-overlays {
+    padding: 0 2%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .glowing-text {
+    -webkit-text-stroke-width: 1px;
+    text-stroke-width: 1px;
+  }
+}
+
+@media (max-width: 964px) {
+  .banner-title {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .banner-subtitle {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .text-centerss {
+    margin-right: -2rem;
+    width: 80%;
+  }
+
+  .glowing-text {
+    font-size: 32px;
+    -webkit-text-stroke-width: 2px;
+    text-stroke-width: 2px;
+  }
+}
+
+@media (max-width: 637px) {
+  .banner-title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .banner-subtitle {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .text-centerss {
+    width: 100%; /* Adjusting width for better fitting */
+    margin-right: 0; /* Centering the text */
+  }
+
+  .glowing-text {
+    font-size: 24px; /* Adjusting font size for smaller screens */
+    -webkit-text-stroke-width: 1.5px;
+    text-stroke-width: 1.5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .banner-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .banner-subtitle {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-button {
+    font-size: 14px; /* Reduce the button text size */
+    padding: 6px 12px; /* Reduce padding for a smaller button */
+    width: 140px; /* Reduce button width */
+  }
+}
+
+@media (max-width: 320px) {
+  .banner-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .banner-subtitle {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner-button {
+    font-size: 14px; /* Reduce the button text size */
+    padding: 6px 12px; /* Reduce padding for a smaller button */
+    width: 140px; /* Reduce button width */
   }
 }

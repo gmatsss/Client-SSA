@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Appointment.css";
+import "./bookingresponsive.css";
 import calendar from "../../img/calendar.png";
 
 import { Link as RouterLink } from "react-router-dom";

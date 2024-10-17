@@ -26,12 +26,15 @@ import ChannelFive from "./plan/Channel/ChannelFive";
 import ChannelFour from "./plan/Channel/ChannelFour";
 import Tooltip from "@mui/material/Tooltip";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import FormSubmited from "./FormSubmited";
 
 const Payments = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const agentCount = String(location.state?.agentCount);
-  const formData = location.state?.formData;
+  const [formData, setFormData] = useState(location.state?.formData || {});
+  const [agentCount, setAgentCount] = useState(
+    String(location.state?.agentCount || formData.agents?.length || 0)
+  );
   const botChannelValue =
     formData?.botChannel && formData.botChannel.length > 0
       ? formData.botChannel.length
@@ -43,7 +46,38 @@ const Payments = () => {
   const [currentChannelFormId, setChannelCurrentFormId] = useState(0);
   const [loading, setLoading] = useState(false);
   const [newVerificationCode, setNewVerificationCode] = useState();
-  const [ammountref, setAmountref] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const updateFormData = (updatedData) => {
+    const updatedAgentCount = updatedData.agents?.length;
+    const updatedBotChannelValue = updatedData.botChannel.length;
+
+    setFormData({
+      ...updatedData,
+      numberOfAgents: updatedAgentCount,
+    });
+
+    setAgentCount(String(updatedAgentCount));
+    navigate(location.pathname, {
+      state: {
+        ...location.state,
+        formData: {
+          ...updatedData,
+          numberOfAgents: updatedAgentCount,
+        },
+        agentCount: String(updatedAgentCount),
+        botChannelValue: updatedBotChannelValue,
+      },
+    });
+  };
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(
@@ -58,17 +92,27 @@ const Payments = () => {
   };
 
   useEffect(() => {
-    if (!formData || !agentCount) {
-      navigate("/onboarding"); // Redirect to onboarding if data is missing
+    // Check if formData is an empty object or missing expected properties
+    const isFormDataEmpty =
+      !formData ||
+      Object.keys(formData).length === 0 ||
+      !formData.agents ||
+      formData.agents.length === 0;
+
+    const isAgentCountEmpty = !agentCount || agentCount === "0";
+
+    if (isFormDataEmpty || isAgentCountEmpty) {
+      console.log("Navigating to onboarding due to missing data");
+      navigate("/onboarding");
     }
   }, [formData, agentCount, navigate]);
 
   const [isYearly, setIsYearly] = useState(false);
 
-  // 2. Handle Toggle Change
   const handleToggleChange = (event) => {
     setIsYearly(event.target.checked);
   };
+
   const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 95,
     height: 22,
@@ -145,13 +189,10 @@ const Payments = () => {
       // Monthly plans
       switch (agentCount) {
         case "1":
-          // 474911 test
           formId = 474170; // Monthly
-          // formId = 474911; // test
           break;
         case "2":
           formId = 475045; // MonthlyDiscount
-          // formId = 474911; // test
           break;
         case "3":
           formId = 475046; // MonthlyDiscount2
@@ -165,7 +206,7 @@ const Payments = () => {
     }
 
     setCurrentFormId(formId);
-  }, [agentCount, isYearly]);
+  }, [agentCount, isYearly]); // Recalculate when either agentCount or isYearly changes
 
   const channelFormIdMapping = {
     // 475469 test for channel
@@ -179,8 +220,10 @@ const Payments = () => {
   };
 
   useEffect(() => {
-    if (channelFormIdMapping[botChannelValue]) {
+    if (botChannelValue > 0 && botChannelValue <= 6) {
       setChannelCurrentFormId(channelFormIdMapping[botChannelValue]);
+    } else {
+      setChannelCurrentFormId(null);
     }
   }, [botChannelValue]);
 
@@ -476,6 +519,14 @@ const Payments = () => {
 
   return (
     <div className="">
+      <div className="Header-Onboaring text-center">
+        <h1>SSA ChatBot</h1>
+        <div class="modal-container-link">
+          <span class="text-open-modal" onClick={openModal}>
+            Edit Form Submited
+          </span>
+        </div>
+      </div>
       <div className="payments-container ">
         <div className="payments-column">
           <div className="toggle-container">
@@ -506,6 +557,7 @@ const Payments = () => {
                     Yearly
                   </Typography>
                 </Stack>
+
                 {isYearly ? (
                   <YearlyPlan numberOfBots={agentCount} />
                 ) : (
@@ -600,7 +652,6 @@ const Payments = () => {
             </div>
           )}
         </div>
-
         <div className="payments-column moonclerkholder">
           {!isVerificationMatched || botChannelValue === 0 ? (
             <>
@@ -638,6 +689,14 @@ const Payments = () => {
           )}
         </div>
       </div>
+
+      {isModalOpen && (
+        <FormSubmited
+          formData={formData}
+          onClose={closeModal}
+          updateFormData={updateFormData}
+        />
+      )}
     </div>
   );
 };

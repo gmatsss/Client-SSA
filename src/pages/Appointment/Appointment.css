@@ -18,12 +18,13 @@
 .info h1 {
   font-size: 3em;
   margin-bottom: 10px;
-  text-align: center; /* Center the text */
+  text-align: center;
 }
 
 .router-img-holder {
   width: 50%;
 }
+
 .info-image {
   width: 100%;
 }
@@ -98,7 +99,6 @@
   font-weight: 700;
 }
 
-/* reset input */
 .form__field_book:required,
 .form__field_book:invalid {
   box-shadow: none;
@@ -118,13 +118,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
-  background-color: rgba(
-    76,
-    77,
-    98,
-    0.6
-  ); /* Reduced opacity for more transparency */
-  border-radius: 15px; /* Rounded borders */
+  background-color: rgba(76, 77, 98, 0.6);
+  border-radius: 15px;
 }
 
 .form-row {
@@ -184,11 +179,11 @@
 }
 
 .btn-book {
-  display: flex; /* Add this line */
-  justify-content: center; /* Add this line */
-  align-items: center; /* Add this line */
-  min-width: 150px; /* Set a minimum width */
-  min-height: 50px; /* Set a minimum height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  min-height: 50px;
   padding: 1.3em 3em;
   font-size: 12px;
   text-transform: uppercase;
@@ -202,7 +197,7 @@
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
-  position: relative; /* Add this line */
+  position: relative;
 }
 
 .btn-book:hover {
@@ -217,10 +212,10 @@
 }
 
 .lds-dual-ring1book {
-  position: absolute; /* Add this line */
-  top: 50%; /* Add this line */
-  left: 50%; /* Add this line */
-  transform: translate(-50%, -50%); /* Add this line */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   width: 50px;
@@ -234,15 +229,15 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 6px solid #de416c; /* Default color */
-  border-color: #de416c transparent #de416c transparent; /* Default color */
+  border: 6px solid #de416c;
+  border-color: #de416c transparent #de416c transparent;
   animation: lds-dual-ring1 1.2s linear infinite;
 }
 
-/* Change the loader color when the button is hovered */
 .btn-book:hover .lds-dual-ring1book:after {
-  border-color: #fff transparent #fff transparent; /* Hover color */
+  border-color: #fff transparent #fff transparent;
 }
+
 @keyframes lds-dual-ring1 {
   0% {
     transform: rotate(0deg);
@@ -252,31 +247,31 @@
   }
 }
 
-/* Media query for screens with a width of 768px or less */
 @media (max-width: 840px) {
   .appointment-container {
-    flex-direction: column; /* Stack children vertically */
+    flex-direction: column;
     height: 100%;
   }
 
   .column {
-    width: 100%; /* Take up the full width */
-    padding: 10px 0; /* Adjust padding as needed */
+    width: 100%;
+    padding: 10px 0;
   }
 
   .book-col {
-    height: auto; /* Allow the content to define the height */
+    height: auto;
   }
 
   .book-holder {
-    width: 95%; /* Adjust width for smaller screens */
-    height: auto; /* Allow the content to define the height */
-    padding: 2%; /* Adjust padding for smaller screens */
+    width: 95%;
+    height: auto;
+    padding: 2%;
   }
 
   .router-img-holder {
     width: 55%;
   }
+
   .info-image {
     width: 100%;
   }
@@ -286,12 +281,14 @@
   .router-img-holder {
     width: 80%;
   }
+
   .info-image {
     width: 100%;
   }
+
   .info h1 {
     font-size: 2.8em;
     margin-bottom: 10px;
-    text-align: center; /* Center the text */
+    text-align: center;
   }
 }

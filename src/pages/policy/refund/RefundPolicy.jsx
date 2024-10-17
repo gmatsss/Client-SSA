@@ -35,7 +35,14 @@ const RefundPolicy = () => {
           <div className="refund-content">
             <p>
               Initiation: If you wish to request a refund, please contact our
-              Support Department by emailing support@supersmartagents.com.
+              Support Department by emailing{" "}
+              <a
+                href="mailto:support@supersmartagents.com"
+                className="email-link"
+              >
+                support@supersmartagents.com
+              </a>
+              .
             </p>
             <p>
               Information Required: When requesting a refund, please provide
@@ -90,7 +97,14 @@ const RefundPolicy = () => {
             to this refund policy. We recommend reviewing this policy
             periodically for any updates or changes. If you have any questions
             or concerns regarding our refund policy, please contact our Support
-            Department.
+            Department by emailing{" "}
+            <a
+              href="mailto:support@supersmartagents.com"
+              className="email-link"
+            >
+              support@supersmartagents.com
+            </a>
+            .
           </p>
         </footer>
       </div>

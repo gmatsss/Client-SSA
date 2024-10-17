@@ -107,6 +107,30 @@
   }
 }
 
+@media (max-width: 885px) {
+  .profile-image img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer-content {
+    margin-left: 5%;
+  }
+
+  .company {
+    font-size: 0.9em;
+  }
+
+  .stars img {
+    height: 1em;
+    width: 1em;
+  }
+
+  .card_footer {
+    padding-right: 10px;
+  }
+}
+
 @media (max-width: 768px) {
   .rating_card {
     width: 50%;
@@ -195,5 +219,45 @@
     width: 90%;
     padding: 20px;
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 280px) {
+  .rating_card {
+    width: 90%; /* Make the rating card take up the full width */
+    padding: 15px; /* Reduce padding */
+  }
+
+  .profile-image img {
+    width: 65px; /* Decrease profile image size */
+    height: 65px;
+  }
+
+  .footer-content {
+    margin-left: 3%; /* Reduce the margin for footer content */
+  }
+
+  .company {
+    font-size: 1.1em; /* Decrease the company text size */
+  }
+
+  .stars img {
+    height: 1em; /* Decrease the size of the stars */
+    width: 1em;
+    margin-right: 2px; /* Adjust the margin between stars */
+  }
+
+  .headerRating p {
+    font-size: 18px; /* Decrease the font size of the header rating */
+    text-align: center; /* Ensure the text remains centered */
+  }
+
+  .card_footer {
+    padding-right: 5px; /* Reduce padding on the right of card footer */
+  }
+
+  .card_rating_holder {
+    width: 100%; /* Ensure the container takes up full width */
+    gap: 5px; /* Reduce the gap between cards */
   }
 }

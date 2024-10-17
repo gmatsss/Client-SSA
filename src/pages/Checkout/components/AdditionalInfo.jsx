@@ -11,6 +11,7 @@ const AdditionalInfo = ({
   setFormData,
 }) => {
   const [tooltip, setTooltip] = useState({});
+  const [channelSelected, setChannelSelected] = useState(false);
 
   const handleMouseEnter = (tooltipId) => {
     setTooltip((prev) => ({ ...prev, [tooltipId]: true }));
@@ -57,17 +58,22 @@ const AdditionalInfo = ({
 
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;
+    let updatedChannels;
+
     if (checked) {
-      setFormData((prevData) => ({
-        ...prevData,
-        botChannel: [...prevData.botChannel, value],
-      }));
+      updatedChannels = [...formData.botChannel, value];
     } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        botChannel: prevData.botChannel.filter((channel) => channel !== value),
-      }));
+      updatedChannels = formData.botChannel.filter(
+        (channel) => channel !== value
+      );
     }
+
+    setFormData((prevData) => ({
+      ...prevData,
+      botChannel: updatedChannels,
+    }));
+
+    setChannelSelected(updatedChannels.length > 0);
   };
 
   const channels = [
@@ -136,11 +142,18 @@ const AdditionalInfo = ({
                 value={channel}
                 id={channel}
                 onChange={handleCheckboxChange}
+                checked={formData.botChannel.includes(channel)}
               />
               <span>{channel}</span>
             </label>
           ))}
         </div>
+        {channelSelected && (
+          <p className="channel-info">
+            Selecting a channel will add an additional charge of $19 per
+            selection.
+          </p>
+        )}
       </div>
 
       <div className="my-input-item">

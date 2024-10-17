@@ -3,21 +3,21 @@
   flex-direction: column;
   align-items: center;
   margin-top: 140px;
-  width: 100%; /* Ensure the width does not exceed the viewport */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .intro-text p:first-child {
   font-weight: 600;
   font-size: 30px;
   color: #27b3df;
-  text-align: center; /* Center the text */
+  text-align: center;
 }
 
 .intro-text p:last-child {
   font-weight: 600;
   font-size: 60px;
-  text-align: center; /* Center the text */
+  text-align: center;
 }
 
 .savings-table {
@@ -30,7 +30,7 @@
 .header-row,
 .data-row {
   font-weight: 700;
-  text-align: center; /* Center the text in the cells */
+  text-align: center;
 }
 
 .header-row {
@@ -50,7 +50,7 @@
 }
 
 .logo-cell img {
-  width: 100%; /* Set width to 100% */
+  width: 100%;
   max-width: 230px;
 }
 
@@ -71,23 +71,23 @@
   --gold: #ffb338;
   --light-shadow: #77571d;
   --dark-shadow: #3e2904;
-
   display: grid;
   grid-template-areas: "overlap";
   place-content: center;
   text-transform: uppercase;
 }
+
 .wrappers > div {
   background-clip: text;
   -webkit-background-clip: text;
   color: #363833;
-
   font-weight: 900;
   font-size: 60px;
   grid-area: overlap;
   letter-spacing: 1px;
   -webkit-text-stroke: 4px transparent;
 }
+
 div.bg {
   background-image: repeating-linear-gradient(
     105deg,
@@ -100,6 +100,7 @@ div.bg {
   transform: scaleY(1.05);
   transform-origin: top;
 }
+
 div.fg {
   background-image: repeating-linear-gradient(
     5deg,
@@ -186,14 +187,23 @@ div.fg {
   }
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .intro-text p:last-child {
-    font-size: 36px;
+@media (max-width: 1024px) {
+  .intro-text p:first-child {
+    font-size: 28px;
   }
 
-  .savings-table {
-    width: 95%;
+  .intro-text p:last-child {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-text p:first-child {
+    font-size: 24px;
+  }
+
+  .intro-text p:last-child {
+    font-size: 36px;
   }
 
   .header-row,
@@ -207,7 +217,7 @@ div.fg {
   }
 
   .logo-cell img {
-    max-width: none;
+    max-width: 180px;
   }
 
   .savings-amount span {
@@ -231,8 +241,7 @@ div.fg {
 
   .header-row td,
   .data-row td {
-    padding: 10px; /* Adjusted padding for uniform spacing */
-    border-bottom: 1px solid #27b3df; /* Ensure border is consistent */
+    padding: 10px;
   }
 
   .savings-amount span {
@@ -240,50 +249,101 @@ div.fg {
   }
 
   .logo-cell p {
-    font-size: 14px; /* Adjusted font size */
+    font-size: 14px;
   }
 
   .logo-cell img {
-    max-width: 160px; /* Adjusted max-width */
+    max-width: 160px;
   }
 }
 
 @media (max-width: 375px) {
   .savings {
-    margin-top: 80px; /* Reduced margin-top */
+    margin-top: 80px;
   }
 
   .intro-text p:first-child {
-    font-size: 16px; /* Reduced font size */
+    font-size: 16px;
   }
 
   .intro-text p:last-child {
-    font-size: 20px; /* Reduced font size */
+    font-size: 20px;
   }
 
   .header-row,
   .data-row {
-    font-size: 12px; /* Reduced font size */
+    font-size: 12px;
   }
 
   .header-row td,
   .data-row td {
-    padding: 10px; /* Reduced padding */
+    padding: 10px;
   }
 
   .logo-cell p {
-    font-size: 16px; /* Reduced font size */
+    font-size: 12px;
   }
 
   .logo-cell img {
-    max-width: 150px; /* Reduced max-width */
+    max-width: 150px;
   }
 
   .savings-amount span {
-    font-size: 24px; /* Reduced font size */
+    font-size: 24px;
   }
 
   .savings-table {
-    margin-top: 50px; /* Reduced margin-top */
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 820px) {
+  .intro-text p:first-child {
+    font-size: 24px;
+  }
+
+  .intro-text p:last-child {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .savings {
+    margin-top: 20px;
+  }
+
+  .intro-text p:first-child {
+    font-size: 15px;
+  }
+
+  .intro-text p:last-child {
+    font-size: 15px;
+  }
+
+  .header-row,
+  .data-row {
+    font-size: 5px;
+  }
+
+  .header-row td,
+  .data-row td {
+    padding: 0.5px;
+    font-size: 15px;
+  }
+
+  .logo-cell p {
+    font-size: 15px;
+  }
+
+  .logo-cell img {
+    max-width: 120px;
+  }
+
+  .savings-amount span {
+    font-size: 20px;
+  }
+
+  .savings-table {
+    margin-top: 5px;
   }
 }

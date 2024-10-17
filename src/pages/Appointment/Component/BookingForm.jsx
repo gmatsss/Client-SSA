@@ -3,10 +3,13 @@ import { toast } from "react-toastify";
 import moment from "moment-timezone";
 import TimeZoneSelect from "./TimeZoneSelect";
 import TimeSlotSelect from "./TimeSlotSelect";
+import BookingFormFields from "./BookingFormFields";
 
 const BookingForm = ({ initialData, timeZones }) => {
   const [timeSlots, setTimeSlots] = useState([]);
-  const [isFetching, setIsFetching] = useState(false); // State to track fetching status
+  const [isFetching, setIsFetching] = useState(false);
+
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 425);
 
   const [appointmentData, setAppointmentData] = useState({
     ...initialData,
@@ -157,21 +160,45 @@ const BookingForm = ({ initialData, timeZones }) => {
       .catch((error) => console.log("error", error));
   }, [appointmentData.selectedTimezone, appointmentData.selectedDate]); // Added dependency on selectedTimezone
 
-  return (
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 425);
+    };
+
+    // Set initial view based on the window size
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return isMobileView ? (
+    <BookingFormFields
+      appointmentData={appointmentData}
+      handleInputChange={handleInputChange}
+      timeSlots={timeSlots}
+      isFetching={isFetching}
+      timeZones={timeZones}
+      loading={loading}
+      handleSubmit={handleSubmit}
+    />
+  ) : (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="form-col-left">
           <div className="form__group_book field mb-5">
             <input
               className="form__field_book"
-              placeholder="first name"
+              placeholder="First name"
               type="text"
               name="firstName"
               value={appointmentData.firstName}
               onChange={handleInputChange}
             />
-            <label htmlFor="name" className="form__label_book">
-              First name
+            <label htmlFor="firstName" className="form__label_book">
+              First Name
             </label>
           </div>
 
@@ -180,11 +207,11 @@ const BookingForm = ({ initialData, timeZones }) => {
               type="tel"
               name="phone"
               className="form__field_book"
-              placeholder="phone"
+              placeholder="Phone"
               value={appointmentData.phone}
               onChange={handleInputChange}
             />
-            <label htmlFor="name" className="form__label_book">
+            <label htmlFor="phone" className="form__label_book">
               Phone No
             </label>
           </div>
@@ -193,12 +220,11 @@ const BookingForm = ({ initialData, timeZones }) => {
             <input
               type="date"
               className="form__field_book"
-              placeholder="date"
               name="selectedDate"
               value={appointmentData.selectedDate}
               onChange={handleInputChange}
             />
-            <label htmlFor="name" className="form__label_book">
+            <label htmlFor="selectedDate" className="form__label_book">
               Date
             </label>
           </div>
@@ -208,14 +234,14 @@ const BookingForm = ({ initialData, timeZones }) => {
           <div className="form__group_book field mb-5">
             <input
               className="form__field_book"
-              placeholder="last name"
+              placeholder="Last name"
               type="text"
               name="lastName"
               value={appointmentData.lastName}
               onChange={handleInputChange}
             />
-            <label htmlFor="name" className="form__label_book">
-              Last name
+            <label htmlFor="lastName" className="form__label_book">
+              Last Name
             </label>
           </div>
 
@@ -224,11 +250,11 @@ const BookingForm = ({ initialData, timeZones }) => {
               type="email"
               name="email"
               className="form__field_book"
-              placeholder="phone"
+              placeholder="Email"
               value={appointmentData.email}
               onChange={handleInputChange}
             />
-            <label htmlFor="name" className="form__label_book">
+            <label htmlFor="email" className="form__label_book">
               Email
             </label>
           </div>
@@ -237,7 +263,7 @@ const BookingForm = ({ initialData, timeZones }) => {
             handleInputChange={handleInputChange}
             timeSlots={timeSlots}
             isFetching={isFetching}
-            selectedTimeZone={appointmentData.selectedTimezone} // Pass the selectedTimeZone prop
+            selectedTimeZone={appointmentData.selectedTimezone}
           />
         </div>
       </div>
@@ -250,11 +276,7 @@ const BookingForm = ({ initialData, timeZones }) => {
 
       <div className="d-flex justify-content-center">
         <button type="submit" className="btn-book" disabled={loading}>
-          {loading ? (
-            <div className="lds-dual-ring1book"></div> // Show loading spinner if loading
-          ) : (
-            "  Submit"
-          )}
+          {loading ? <div className="lds-dual-ring1book"></div> : "Submit"}
         </button>
       </div>
     </form>

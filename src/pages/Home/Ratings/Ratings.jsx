@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     image:
-      "https://www.theladders.com/api/public-profile/profile-photo/eric-doubler-2abae6/profile",
+      "https://media.licdn.com/dms/image/v2/C5603AQEphc39WxeXMA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1602013173976?e=1732752000&v=beta&t=GiVUfCu9RxAkrFN0e4M5zlrPN-p_2Pz5KPKluuDx7WE",
     name: "Raymark Smith",
     title: "Marketing Director, Smith & Co.",
     testimonial:
@@ -69,7 +69,7 @@ const testimonials = [
   },
   {
     image:
-      "https://foodphilippines.com/wp-content/uploads/2021/11/FILIPINO-PASTRY-CHEFS-ABROAD_INSET_Miko-Aspiras-5-scaled.jpg",
+      "https://venchitotampon.com/wp-content/uploads/2023/06/young-filipino-entrepreneur-alvin-ong-1024x683.webp",
     name: "Michael Gabing",
     title: "Chef, Mikey’s Kitchen",
     testimonial:

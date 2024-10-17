@@ -9,37 +9,41 @@ const Monthlyplan = ({ numberOfBots = 1 }) => {
 
   return (
     <div className="choose-container">
-      <h1 className="choose-title">
-        Introducing Our Monthly Plan for {numberOfBots} Bot
-        {numberOfBots > 1 ? "s" : ""}
-      </h1>
-      <p className="choose-description">
-        Unlock the full potential of our platform with our exclusive monthly
-        plan tailored for {numberOfBots} bot{numberOfBots > 1 ? "s" : ""}.
-      </p>
-      <div className="choose-details">
-        <h2 className="choose-subtitle">Your Customized Package Details:</h2>
-        <ul className="choose-list">
-          <li>
-            <strong>Bot Build Fee:</strong> A special one-time fee of $
-            {buildFee.toFixed(2)} for a personalized bot setup.
-          </li>
-          <li>
-            <strong>Monthly Subscription:</strong> Only $
-            {monthlySubscription.toFixed(2)}/month for continued access and
-            support.
-          </li>
-          <li>
-            <strong>Total Payment:</strong> Get started with an upfront payment
-            of just ${totalPayment.toFixed(2)}.
-          </li>
-        </ul>
+      <div className="choose-continer">
+        <h1 className="choose-title">Introducing Our Monthly Plan</h1>
+        <h4>
+          Get the perfect plan for {numberOfBots} {""}
+          and elevate your business to new heights effortlessly!
+        </h4>
       </div>
-      <p className="choose-footer">
-        Join our community of satisfied customers and elevate your business to
-        new heights. Don't miss out on this limited-time offer tailored for your
-        needs!
-      </p>
+
+      <div className="card-monthlydetails">
+        <div className="monthly-plan-header">
+          <h2>Monthly Plan</h2>
+          <p className="monthly-price">
+            $149<span>/per month</span>
+          </p>
+        </div>
+
+        <div className="plan-details">
+          <div className="bot-build-container">
+            <p className="bot-build-fee">BOT BUILD FEE:</p>
+            <p className="fee-amount">${buildFee.toFixed(2)}</p>
+          </div>
+
+          <div className="total-payment-container">
+            <p className="total-payment-label">TOTAL PAYMENT:</p>
+            <p className="total-amount">${totalPayment.toFixed(2)}</p>
+          </div>
+        </div>
+        <div className="footer-planss">
+          <p className="footer-textss">
+            Join our community of satisfied customers and elevate your business
+            to new heights. Don't miss out on this limited-time offer tailored
+            for your needs!
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

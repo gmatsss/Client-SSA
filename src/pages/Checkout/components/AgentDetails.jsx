@@ -3,6 +3,7 @@ import industryData from "../../../industry.json";
 import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import toneOfVoiceOptions from "../../../toneOfVoiceOptions";
 
 const AgentDetails = ({ formData, handleInputChange, botCount }) => {
   const options = industryData.map((categoryData) => ({
@@ -12,6 +13,11 @@ const AgentDetails = ({ formData, handleInputChange, botCount }) => {
       label: industry.industry_name,
     })),
   }));
+
+  const agentTypeOptions = [
+    { value: "CustomerService", label: "Customer Service" },
+    { value: "SalesAgents", label: "Sales" },
+  ];
 
   const customStyles = {
     control: (provided) => ({
@@ -69,19 +75,23 @@ const AgentDetails = ({ formData, handleInputChange, botCount }) => {
             </span>
           </span>
         </label>
-        <select
+        <Select
+          styles={customStyles}
+          options={agentTypeOptions}
+          isSearchable={true}
           name="agentType"
-          value={formData.agentType}
-          onChange={handleInputChange}
-          className="my-onboarding-input"
-          tabIndex="7"
-        >
-          <option value="" disabled>
-            Select Agent Type
-          </option>
-          <option value="CustomerService">Customer Service</option>
-          <option value="SalesAgents">Sales</option>
-        </select>
+          value={agentTypeOptions.find(
+            (option) => option.value === formData.agentType
+          )}
+          onChange={(selectedOption) =>
+            handleInputChange({
+              target: {
+                name: "agentType",
+                value: selectedOption.value,
+              },
+            })
+          }
+        />
       </div>
       <div className="my-input-item">
         <label className="my-onboarding-label" htmlFor="toneOfVoice">
@@ -91,55 +101,12 @@ const AgentDetails = ({ formData, handleInputChange, botCount }) => {
             <span className="tooltip">
               <strong>Examples of Tone of Voice:</strong>
               <ul>
-                <li>
-                  <strong>Professional and Formal:</strong> "We want the chatbot
-                  to sound like a corporate representative, using formal
-                  language and avoiding slang or colloquialisms."
-                </li>
-                <li>
-                  <strong>Friendly and Casual:</strong> "We'd like the chatbot
-                  to come across as approachable and friendly, using everyday
-                  language that our customers can relate to."
-                </li>
-                <li>
-                  <strong>Empathetic and Supportive:</strong> "The chatbot
-                  should sound understanding and caring, especially since it
-                  will handle customer complaints and issues."
-                </li>
-                <li>
-                  <strong>Enthusiastic and Energetic:</strong> "We want a
-                  chatbot that sounds excited about our products and services,
-                  using exclamation points and positive adjectives."
-                </li>
-                <li>
-                  <strong>Concise and Direct:</strong> "The chatbot should
-                  provide straight-to-the-point answers without any fluff."
-                </li>
-                <li>
-                  <strong>Humorous and Playful:</strong> "We'd like our chatbot
-                  to have a sense of humor, maybe even cracking jokes or using
-                  puns when appropriate."
-                </li>
-                <li>
-                  <strong>Educational and Informative:</strong> "The chatbot
-                  should sound knowledgeable, providing detailed answers and
-                  guiding users with additional information."
-                </li>
-                <li>
-                  <strong>Youthful and Trendy:</strong> "We're targeting a
-                  younger audience, so we want the chatbot to use current slang
-                  and maybe even emojis."
-                </li>
-                <li>
-                  <strong>Calm and Reassuring:</strong> "Given the nature of our
-                  services, it's important that the chatbot provides answers in
-                  a calm and soothing manner."
-                </li>
-                <li>
-                  <strong>Neutral and Objective:</strong> "We prefer a chatbot
-                  that remains neutral, avoiding any kind of emotional
-                  language."
-                </li>
+                {toneOfVoiceOptions.map((option) => (
+                  <li key={option.value}>
+                    <strong>{option.label}:</strong> Some description of{" "}
+                    {option.label}.
+                  </li>
+                ))}
               </ul>
               <p>
                 Remember, the tone of voice for the chatbot should align with
@@ -149,14 +116,22 @@ const AgentDetails = ({ formData, handleInputChange, botCount }) => {
             </span>
           </span>
         </label>
-        <input
-          type="text"
-          className="my-onboarding-input"
-          placeholder="Tone of Voice"
+        <Select
+          styles={customStyles}
+          options={toneOfVoiceOptions}
+          isSearchable={true}
           name="toneOfVoice"
-          value={formData.toneOfVoice}
-          onChange={handleInputChange}
-          tabIndex="6"
+          value={toneOfVoiceOptions.find(
+            (option) => option.value === formData.toneOfVoice
+          )}
+          onChange={(selectedOption) =>
+            handleInputChange({
+              target: {
+                name: "toneOfVoice",
+                value: selectedOption.value,
+              },
+            })
+          }
         />
       </div>
       <div className="my-input-item">

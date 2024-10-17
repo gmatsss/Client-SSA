@@ -1,0 +1,56 @@
+@media (max-width: 768px) {
+  .info h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+
+  .router-img-holder {
+    width: 70%;
+    margin-bottom: 20px;
+  }
+
+  .info-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .column.info {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info h1 {
+    font-size: 1.5em;
+    padding: 0 5px;
+  }
+
+  .router-img-holder {
+    width: 80%;
+    margin-bottom: 15px;
+  }
+
+  .info-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .glowing-text {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 360px) {
+  .info h1 {
+    font-size: 1.3em;
+  }
+
+  .router-img-holder {
+    width: 90%;
+  }
+
+  .glowing-text {
+    font-size: 1em;
+  }
+}

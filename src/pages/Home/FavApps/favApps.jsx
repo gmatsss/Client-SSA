@@ -30,20 +30,10 @@ const FavApps = () => {
   };
 
   return (
-    <div className="fav_apps d-flex flex-column justify-content-center align-items-center ">
-      <div
-        className="d-flex flex-column justify-content-center align-items-center"
-        style={{ marginTop: "70px" }}
-      >
-        <img
-          src={logo_small}
-          alt="Super Smart Agents Logo"
-          style={{ height: "30%" }}
-        />
-        <p
-          className="text-center"
-          style={{ fontSize: "48px", fontWeight: "600", marginTop: "10px" }}
-        >
+    <div className="fav_apps d-flex flex-column justify-content-center align-items-center">
+      <div className="header-section d-flex flex-column justify-content-center align-items-center">
+        <img src={logo_small} alt="Super Smart Agents Logo" className="logo" />
+        <p className="intro-text">
           Super Smart Agents Integrate <br />
           with your favorite tools
         </p>
@@ -51,24 +41,9 @@ const FavApps = () => {
       <div className="container">
         {[twilio, zapier, slack, whatsapp, messenger, shopify].map(
           (item, index) => (
-            <div
-              key={index}
-              className="item d-flex flex-column align-items-center"
-              data-aos="zoom-in-up"
-            >
-              <img
-                src={item}
-                alt={`item-${index}`}
-                style={{
-                  height: "300px",
-                  width: "auto",
-                  marginBottom: "-45px",
-                }}
-              />
-              <p
-                className="text-center"
-                style={{ fontSize: "18px", width: "100%" }}
-              >
+            <div key={index} className="item" data-aos="zoom-in-up">
+              <img src={item} alt={`item-${index}`} className="item-image" />
+              <p className="description">
                 {descriptions[Object.keys(descriptions)[index]]}
               </p>
             </div>

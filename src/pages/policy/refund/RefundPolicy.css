@@ -1,3 +1,4 @@
+/* General Styles */
 .refund-container {
   margin: 20px;
   padding: 20px;
@@ -37,4 +38,100 @@
 
 .refund-footer-text {
   color: #ffffff;
+}
+
+.email-link {
+  color: #27b3df; /* Set the email color to blue */
+  text-decoration: none; /* Remove underline */
+}
+
+.email-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Responsive Styles for 1440px */
+@media (max-width: 1440px) {
+  .refund-container {
+    padding: 18px;
+  }
+
+  .refund-title {
+    font-size: 28px;
+  }
+
+  .refund-content {
+    font-size: 17px;
+  }
+}
+
+/* Responsive Styles for 1024px */
+@media (max-width: 1024px) {
+  .refund-container {
+    padding: 16px;
+  }
+
+  .refund-title {
+    font-size: 24px;
+  }
+
+  .refund-content {
+    font-size: 16px;
+  }
+}
+
+/* Responsive Styles for 768px */
+@media (max-width: 768px) {
+  .refund-container {
+    padding: 15px;
+  }
+
+  .refund-title {
+    font-size: 22px;
+  }
+
+  .refund-content {
+    font-size: 15px;
+  }
+
+  .refund-subtitle {
+    font-size: 18px;
+  }
+}
+
+/* Responsive Styles for 500px */
+@media (max-width: 500px) {
+  .refund-container {
+    padding: 12px;
+  }
+
+  .refund-title {
+    font-size: 20px;
+  }
+
+  .refund-content {
+    font-size: 14px;
+  }
+
+  .refund-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* Responsive Styles for 375px */
+@media (max-width: 375px) {
+  .refund-container {
+    padding: 10px;
+  }
+
+  .refund-title {
+    font-size: 18px;
+  }
+
+  .refund-content {
+    font-size: 12px;
+  }
+
+  .refund-subtitle {
+    font-size: 14px;
+  }
 }

@@ -15,7 +15,7 @@ const Savings = () => {
         <p>
           Let's say you have 3 agents in the Philippines all doing the same job
         </p>
-        <p>
+        <p style={{ fontWeight: 700 }}>
           Check out your average savings with us over{" "}
           <span class="fire">ONE</span>
           <span class="burn"> YEAR</span>

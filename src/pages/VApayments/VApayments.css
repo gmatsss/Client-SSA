@@ -84,7 +84,7 @@
 }
 
 .plan-content {
-  max-height: 700px; /* Set a max-height */
+  max-height: 800px; /* Set a max-height */
   overflow-y: auto; /* Add scroll if content overflows */
 }
 
@@ -122,4 +122,33 @@
 
 .verification-button svg {
   margin-right: 5px;
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.centered-container h1 {
+  font-size: 2rem; /* Adjust the font size as needed */
+  margin-bottom: 10px;
+}
+
+.centered-container p {
+  font-size: 1rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.verification-code {
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.verification-code:hover {
+  color: #c4c4c4;
+  transform: scale(1.05);
 }

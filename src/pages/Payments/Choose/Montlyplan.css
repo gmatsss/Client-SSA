@@ -1,6 +1,13 @@
 .choose-container {
   padding: 30px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.choose-continer {
+  margin-bottom: 15px;
 }
 
 .choose-title {
@@ -10,55 +17,131 @@
   font-weight: 600;
 }
 
-.choose-description,
-.choose-footer {
-  font-size: 20px;
-  color: rgb(255, 255, 255);
-  margin: 20px 0;
+.card-monthlydetails {
+  width: 420px;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  color: #000;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  animation: shimmer-border 3s infinite; /* Adding shimmering animation */
 }
 
-.choose-details {
-  margin: 40px 0;
+/* Keyframes for the shimmering border effect */
+@keyframes shimmer-border {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.4), 0 0 20px rgba(0, 168, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6), 0 0 40px rgba(0, 255, 204, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.4), 0 0 20px rgba(0, 168, 255, 0.6);
+  }
 }
 
-.choose-subtitle {
-  color: #e74c3c;
-  font-size: 29px;
+.monthly-plan-header {
+  text-align: left; /* Align the text to the start */
 }
 
-.choose-list {
-  list-style-type: none;
-  padding: 0;
+.monthly-plan-header h2 {
+  font-size: 30px; /* Size for more emphasis */
+  font-weight: bold;
+  color: #000;
 }
 
-.choose-list li {
-  margin-bottom: 15px;
-  font-size: 25px;
+.monthly-price {
+  font-size: 36px; /* Larger size of the price */
+  font-weight: bold;
+  color: #000;
+}
+
+.monthly-price span {
+  font-size: 18px; /* Smaller size for the "/per month" */
+  color: #888; /* Color of the "/per month" */
+}
+
+.plan-details {
+  padding: 5px; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Bot Build Container: Rounded top-left and top-right corners only */
+.bot-build-container {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #00a8ff; /* Blue border */
+  border-top-left-radius: 10px; /* Rounded top-left */
+  border-top-right-radius: 10px; /* Rounded top-right */
+  border-bottom: 2px solid #00a8ff; /* No bottom border for smoother transition */
+}
+
+/* Total Payment Container: Rounded bottom-left and bottom-right corners only */
+.total-payment-container {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #00a8ff; /* Blue border */
+  border-bottom-left-radius: 10px; /* Rounded bottom-left */
+  border-bottom-right-radius: 10px; /* Rounded bottom-right */
+  border-top: none; /* No top border for smoother transition */
+}
+
+.bot-build-fee {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  margin: 10px;
+}
+
+.fee-amount {
+  font-size: 17px;
+  color: #000;
+  font-weight: 700;
+  margin: 10px;
+}
+
+.total-payment-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff0000;
+  margin: 10px;
+}
+
+.total-amount {
+  font-size: 17px;
+  color: #ff0000;
+  font-weight: 700;
+  margin: 10px;
+}
+
+.footer-planss {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-textss {
+  font-size: 15px;
+  color: #666;
 }
 
 @media (max-width: 1024px) {
-  .choose-title,
-  .yearly-title {
-    font-size: 36px;
-    margin-bottom: 20px;
+  .plan-details {
+    padding: 10px; /* Reduced padding */
   }
 
-  .choose-description,
-  .choose-footer,
-  .yearly-description,
-  .yearly-footer {
-    font-size: 18px;
-    margin: 15px 0;
+  .bot-build-fee,
+  .total-payment-label {
+    font-size: 14px; /* Further reduced font size */
   }
 
-  .choose-subtitle,
-  .yearly-subtitle {
-    font-size: 24px;
-  }
-
-  .choose-list li,
-  .yearly-list li {
-    font-size: 20px;
-    margin-bottom: 10px;
+  .fee-amount,
+  .total-amount {
+    font-size: 14px; /* Further reduced font size */
   }
 }

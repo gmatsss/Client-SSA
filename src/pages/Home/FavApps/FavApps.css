@@ -1,13 +1,28 @@
-/* FavApps.css */
+/* General styles */
+.header-section {
+  margin-top: 70px;
+}
+
+.logo {
+  height: 30%;
+}
+
+.intro-text {
+  font-size: 48px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Changed from space-between to center */
+  justify-content: center;
   width: 100%;
 }
 
 .item {
-  flex: 0 0 32%; /* 3 items per row */
+  flex: 0 0 32%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -15,15 +30,68 @@
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .item {
-    flex: 0 0 48%; /* 2 items per row */
+.item-image {
+  height: 300px;
+  width: auto;
+  margin-bottom: -45px;
+}
+
+.description {
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive for 1024px */
+@media (max-width: 1024px) {
+  .intro-text {
+    font-size: 36px;
   }
 }
 
+/* Responsive for 768px */
+@media (max-width: 768px) {
+  .item {
+    flex: 0 0 48%;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .intro-text {
+    font-size: 28px;
+  }
+}
+
+/* Responsive for 425px */
 @media (max-width: 425px) {
   .item {
-    flex: 0 0 100%; /* 1 item per row */
-    margin: 0 auto; /* Center the item */
+    flex: 0 0 100%;
+    margin: 0 auto;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .intro-text {
+    font-size: 22px;
+  }
+}
+
+/* Responsive for 280px */
+@media (max-width: 280px) {
+  .intro-text {
+    font-size: 18px;
+  }
+
+  .item-image {
+    height: 200px;
+    margin-bottom: -30px;
+  }
+
+  .description {
+    font-size: 14px;
   }
 }

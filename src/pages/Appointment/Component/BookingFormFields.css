@@ -1,0 +1,222 @@
+.booking-form-ismobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-row-ismobile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form__group_book-ismobile {
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+}
+
+.form__field_book-ismobile {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-bottom: 8%;
+}
+
+.form__field_book-ismobile::placeholder {
+  color: transparent;
+}
+
+.form__field_book-ismobile:placeholder-shown ~ .form__label_book-ismobile {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label_book-ismobile {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #de416c;
+  pointer-events: none;
+}
+
+.form__field_book-ismobile:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #de416c, #c46f85);
+  border-image-slice: 1;
+}
+
+.form__field_book-ismobile:focus ~ .form__label_book-ismobile {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #de416c;
+  font-weight: 700;
+}
+
+.form__field_book-ismobile:required,
+.form__field_book-ismobile:invalid {
+  box-shadow: none;
+}
+
+.btn-book-ismobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  min-height: 50px;
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+.btn-book-ismobile:hover {
+  background-color: #de416c;
+  box-shadow: 0px 15px 20px #c26f85;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.btn-book-ismobile:active {
+  transform: translateY(-1px);
+}
+
+.lds-dual-ring1book-ismobile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 28px;
+  margin-bottom: 5px;
+}
+
+.lds-dual-ring1book-ismobile:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 6px solid #de416c;
+  border-color: #de416c transparent #de416c transparent;
+  animation: lds-dual-ring1 1.2s linear infinite;
+}
+
+.btn-book-ismobile:hover .lds-dual-ring1book-ismobile:after {
+  border-color: #fff transparent #fff transparent;
+}
+
+@keyframes lds-dual-ring1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 425px) {
+  .booking-form-ismobile {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .form__field_book-ismobile {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
+  .btn-book-ismobile {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.8em 1.5em;
+  }
+}
+
+@media (max-width: 375px) {
+  .form__field_book-ismobile {
+    font-size: 15px;
+    padding: 8px 0;
+  }
+
+  .btn-book-ismobile {
+    max-width: 220px !important;
+    padding: 0.7em 1.3em !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .form__field_book-ismobile {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .btn-book-ismobile {
+    max-width: 200px !important;
+    padding: 0.6em 1.2em !important;
+  }
+
+  .lds-dual-ring1book-ismobile {
+    width: 40px;
+    height: 24px;
+  }
+
+  .lds-dual-ring1book-ismobile:after {
+    width: 24px;
+    height: 24px;
+    border-width: 4px;
+  }
+}
+
+@media (max-width: 280px) {
+  .form__field_book-ismobile {
+    font-size: 13px;
+    padding: 5px 0;
+  }
+
+  .btn-book-ismobile {
+    max-width: 180px !important;
+    padding: 0.5em 1em !important;
+  }
+
+  .lds-dual-ring1book-ismobile {
+    width: 35px;
+    height: 20px;
+  }
+
+  .lds-dual-ring1book-ismobile:after {
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+  }
+}

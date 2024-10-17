@@ -8,7 +8,7 @@
 }
 
 .liveDemoHeader {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .vidDemo {
@@ -26,8 +26,8 @@
 
 .livechat {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  justify-content: space-between; /* Distribute space between children */
+  flex-direction: column;
+  justify-content: space-between;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -38,27 +38,23 @@
   padding: 2px;
 }
 
-/* chat header */
-
 .headerchat {
   background-color: #000434;
-  display: flex; /* Use flexbox layout */
-  justify-content: space-between; /* Align children to the start and end of the container */
-  align-items: center; /* Vertically center-align children */
-  padding: 0 10px; /* Add some padding to the container */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
 }
 
 .close-buttonchat {
   background: none;
   border: none;
   font-size: 24px;
-
   color: aliceblue;
-  cursor: pointer; /* Change the cursor to a pointer on hover */
+  cursor: pointer;
   display: none;
 }
 
-/* chat message*/
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -79,7 +75,7 @@ li {
 }
 
 .wrapper {
-  height: 69%; /* Make header take the full width of the parent */
+  height: 69%;
 }
 
 .wrapper ul {
@@ -99,7 +95,7 @@ li {
   font: 1em/1.6 "arial";
   clear: both;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35);
-  box-shadow: 0px 4px 2px -2px gray; /* Added shadow to li */
+  box-shadow: 0px 4px 2px -2px gray;
 }
 
 .wrapper ul li:nth-child(odd) {
@@ -124,13 +120,14 @@ li {
 .wrapper ul li:before {
   width: 45px;
   height: 45px;
-  top: 50%; /* Center the image vertically */
-  transform: translateY(-50%); /* Center the image vertically */
+  top: 50%;
+  transform: translateY(-50%);
   border-radius: 50%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: cover; /* Ensure the background image covers the entire element */
+  background-size: cover;
 }
+
 .wrapper ul li.sent {
   float: right;
   margin-right: 80px;
@@ -142,19 +139,9 @@ li {
 .wrapper ul li.received {
   float: left;
   margin-left: 80px;
-  color: rgba(
-    255,
-    255,
-    255,
-    0.9
-  ); /* Set the text color for received messages */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.65
-  ); /* Set the background color for received messages */
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35); /* Set the text shadow for received messages */
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.75);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .wrapper ul li.sent:before {
@@ -167,24 +154,23 @@ li {
   background-image: url("../../../../img/logo_small.png");
 }
 
-/* chat footer */
 .footerchat {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%; /* Make footer take the full width of the parent */
-  flex-shrink: 0; /* Prevent the footer from shrinking */
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .buttonchat {
-  display: flex; /* Enable flexbox layout */
-  align-items: center; /* Center the text vertically */
-  justify-content: center; /* Center the text horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .searchBox {
   display: flex;
-  position: relative; /* Relative positioning */
+  position: relative;
   width: 100%;
   align-items: center;
   background: #2f3640;
@@ -201,22 +187,21 @@ li {
     linear-gradient(90deg, #2af598 0%, #009efd 100%)
   );
   border: 0;
-  display: flex; /* Enable flexbox layout */
-  align-items: center; /* Center the text vertically */
-  justify-content: center; /* Center the text horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
-  position: absolute; /* Absolute positioning */
-  right: 10px; /* Position at the end of the input */
+  position: absolute;
+  right: 10px;
 }
 
-/*hover effect*/
 .buttonchat:hover {
   color: #fff;
   background-color: #1a1a1a;
   box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
   transform: translateY(-3px);
 }
-/*button pressing effect*/
+
 .buttonchat:active {
   box-shadow: none;
   transform: translateY(0);
@@ -232,31 +217,27 @@ li {
   outline: none;
   color: white;
   font-size: 15px;
-  padding: 24px 50px 24px 26px; /* Added padding to the right */
+  padding: 24px 50px 24px 26px;
   width: 100%;
 }
 
 .overlay {
-  position: fixed; /* Position the overlay fixed to the viewport */
-  top: 0; /* Set the top position to 0 */
-  right: 0; /* Set the right position to 0 */
-  bottom: 0; /* Set the bottom position to 0 */
-  left: 0; /* Set the left position to 0 */
-  width: 100%; /* Set the width to 100% of the viewport */
-  height: 100%; /* Set the height to 100% of the viewport */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Set a semi-transparent black background color */
-  z-index: 999; /* Ensure the overlay is displayed below the live chat and button */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 .message.received p {
-  margin: 0; /* Remove default margin */
-  padding: 0.5em 0; /* Add some vertical padding for spacing */
+  margin: 0;
+  padding: 0.5em 0;
 }
+
 @keyframes typewriter {
   from {
     width: 0;
@@ -278,9 +259,8 @@ li {
 
 .typewriter {
   max-width: fit-content;
-
-  white-space: nowrap; /* Keep text in one line */
-  overflow: hidden; /* Hide text outside of the box */
+  white-space: nowrap;
+  overflow: hidden;
   animation: typewriter 2s steps(25, end), blinkCursor 0.5s step-end infinite;
 }
 
@@ -316,14 +296,14 @@ li {
 
 @media (max-width: 1024px) {
   .liveDemoImage {
-    width: 75%; /* Set image width to 100% of its container */
-    height: auto; /* Maintain aspect ratio */
+    width: 75%;
+    height: auto;
   }
   .livechat {
     width: 61%;
   }
   .wrapper ul {
-    padding-right: 20px; /* Decrease padding */
+    padding-right: 20px;
   }
   .wrapper ul li {
     margin-bottom: 15px;
@@ -353,23 +333,23 @@ li {
   }
 
   .searchBox {
-    width: 100%; /* Set width to 100% */
+    width: 100%;
   }
 
   .searchButton {
-    width: 40px; /* Reduce width */
-    height: 40px; /* Reduce height */
+    width: 40px;
+    height: 40px;
   }
 
   .buttonchat {
-    display: flex; /* Enable flexbox layout */
-    align-items: center; /* Center the text vertically */
-    justify-content: center; /* Center the text horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .searchInput {
-    padding: 18px 35px 18px 18px; /* Reduce padding */
-    font-size: 14px; /* Reduce font size */
+    padding: 18px 35px 18px 18px;
+    font-size: 14px;
   }
 
   .sendimg {
@@ -379,8 +359,8 @@ li {
 
 @media (max-width: 768px) {
   .liveDemoImage {
-    width: 90%; /* Set image width to 100% of its container */
-    height: auto; /* Maintain aspect ratio */
+    width: 90%;
+    height: auto;
   }
   .livechat {
     width: 74%;
@@ -389,66 +369,65 @@ li {
 
 @media (max-width: 668px) {
   .wrapper ul {
-    padding-right: 15px; /* Decreased padding */
+    padding-right: 15px;
   }
   .wrapper ul li {
-    margin-bottom: 10px; /* Decreased margin */
-    padding: 6px 12px; /* Decreased padding */
-    font-size: 0.8em; /* Decreased font size */
-    border-radius: 6px; /* Decreased border-radius */
-    box-shadow: 0px 2px 1px -2px gray; /* Adjusted box-shadow */
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    font-size: 0.8em;
+    border-radius: 6px;
+    box-shadow: 0px 2px 1px -2px gray;
   }
 
   .wrapper ul li:nth-child(odd),
   .wrapper ul li:nth-child(even) {
-    margin-left: 50px; /* Decreased margin */
-    margin-right: 50px; /* Decreased margin */
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
   .wrapper ul li:before {
-    width: 30px; /* Decreased width */
-    height: 30px; /* Decreased height */
+    width: 30px;
+    height: 30px;
   }
 
   .wrapper ul li:nth-child(odd):before {
-    left: -55px; /* Adjusted position */
+    left: -55px;
   }
 
   .wrapper ul li:nth-child(even):before {
-    right: -55px; /* Adjusted position */
+    right: -55px;
   }
 
   .searchBox {
-    width: 100%; /* Decreased width */
+    width: 100%;
   }
 
   .searchButton {
-    width: 35px; /* Decreased width */
-    height: 35px; /* Decreased height */
+    width: 35px;
+    height: 35px;
   }
 
   .searchInput {
-    padding: 15px 30px 15px 15px; /* Decreased padding */
-    font-size: 13px; /* Decreased font size */
+    padding: 15px 30px 15px 15px;
+    font-size: 13px;
   }
 
   .sendimg {
-    width: 80%; /* Decreased width */
+    width: 80%;
   }
 }
 
 @media (max-width: 550px) {
   .liveDemoImage {
-    width: 90%; /* Set image width to 100% of its container */
-    height: auto; /* Maintain aspect ratio */
+    width: 90%;
+    height: auto;
   }
 
   .livechat {
-    position: fixed; /* Position the live chat fixed to the viewport */
-
-    width: 100%; /* Set the width to 100% of the viewport */
-    height: 100%; /* Set the height to 100% of the viewport */
-    z-index: 1000; /* Ensure the live chat is displayed above other elements */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
   }
 
   .close-buttonchat {
@@ -457,15 +436,15 @@ li {
 
   .wrapper {
     background-color: rgb(255, 255, 255);
-    height: 86%; /* Make header take the full width of the parent */
+    height: 86%;
   }
 
   .show-chat-button {
-    display: block; /* Show the button */
-    position: absolute; /* Position the button absolutely */
-    top: 50%; /* Center the button vertically */
-    left: 50%; /* Center the button horizontally */
-    transform: translate(-50%, -50%); /* Ensure the button is centered */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 10px;
     background-color: #645bff;
     color: white;
@@ -475,7 +454,7 @@ li {
   }
 
   .wrapper ul {
-    padding-right: 10px; /* Further decrease padding */
+    padding-right: 10px;
   }
 
   .wrapper ul li {
@@ -503,5 +482,46 @@ li {
 
   .wrapper ul li:nth-child(even):before {
     right: -50px;
+  }
+}
+
+@media (max-width: 280px) {
+  .textDemo h1,
+  .textDemo p,
+  .liveDemoHeader,
+  .wrapper ul li {
+    font-size: 12px; /* Decrease font size for general text */
+  }
+
+  .wrapper ul li p {
+    font-size: 10px; /* Decrease font size for message text */
+  }
+
+  .textDemo img {
+    height: 20%; /* Reduce image height */
+  }
+
+  .liveDemoHeader {
+    font-size: 14px;
+  }
+
+  .textDemo1 h1 {
+    font-size: 18px;
+  }
+
+  .textDemo1 p {
+    font-size: 10px;
+  }
+
+  .searchInput {
+    font-size: 10px;
+  }
+
+  .searchButton {
+    font-size: 10px;
+  }
+
+  .buttonchat {
+    font-size: 10px;
   }
 }

@@ -81,12 +81,18 @@ const TermsOfService = () => {
               Phone: 888-985-6854
               <br />
               Email for General Inquiries:{" "}
-              <a href="mailto:sales@supersmartagents.com">
+              <a
+                className="email-link sales-email"
+                href="mailto:sales@supersmartagents.com"
+              >
                 sales@supersmartagents.com
               </a>
               <br />
               Support Email:{" "}
-              <a href="mailto:support@supersmartagents.com">
+              <a
+                className="email-link support-email"
+                href="mailto:support@supersmartagents.com"
+              >
                 support@supersmartagents.com
               </a>
               <br />

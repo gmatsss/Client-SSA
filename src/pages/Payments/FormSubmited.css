@@ -1,0 +1,197 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2c3553;
+  padding: 50px;
+  border-radius: 20px;
+  width: 750px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-button-form {
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 15px; /* Adjusted padding */
+  margin: -15px -15px 0 0; /* Adjusted margin */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-button-form:hover {
+  color: #ff0077;
+  transform: scale(1.2);
+}
+
+.close-button-form:focus {
+  outline: none;
+  color: #ff0077;
+}
+
+.form-submitted {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 15px;
+  border: none;
+  border-left: 5px solid #ff0077;
+  background-color: #f4f4f4;
+  color: #2c3553;
+  font-size: 1.1em;
+  border-radius: 8px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 150px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background-color: #e8e8e8;
+}
+
+.agent-details {
+  border: 2px solid #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  background-color: #3b4567;
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.agent-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spacing between the form groups */
+}
+
+.remove-agent-inline {
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #ff3d00;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  align-self: flex-end; /* Aligns the button to the right */
+  margin-top: 10px; /* Adds space above the button */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.remove-agent-inline:hover {
+  background-color: #e63600; /* Darker shade on hover */
+}
+
+.add-agent-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-agent {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #0097c2;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid #00aeef;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.save-button {
+  background-color: #ff0077;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  display: block;
+}
+
+.save-button:focus {
+  outline: none;
+  background-color: #e6006b;
+}
+
+.modal-container-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.text-open-modal {
+  color: #00aeef;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.text-open-modal:hover {
+  color: #ff0077;
+  transform: scale(1.05);
+}
+
+.text-open-modal:active {
+  transform: scale(1);
+}

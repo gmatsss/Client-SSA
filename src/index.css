@@ -130,6 +130,7 @@ body {
   height: auto; /* You can set a specific height if needed */
   width: 100%;
   display: block;
+  margin-bottom: -20px;
 }
 
 .price_table {

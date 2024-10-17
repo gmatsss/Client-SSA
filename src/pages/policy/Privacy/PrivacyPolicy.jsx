@@ -89,7 +89,14 @@ const PrivacyPolicy = () => {
             <p>
               Users have the right to contact us to request the deletion of
               their data. To exercise this right, users can contact us through
-              our general support email at support@supersmartagents.com.
+              our general support email at{" "}
+              <a
+                href="mailto:support@supersmartagents.com"
+                className="email-link"
+              >
+                support@supersmartagents.com
+              </a>
+              .
             </p>
           </div>
 
@@ -111,8 +118,21 @@ const PrivacyPolicy = () => {
             <p>Murphy Web Services Inc.</p>
             <p>1219-3A Commerce Drive,</p>
             <p>Mountain Home, Arkansas 72653</p>
-            <p>Phone: 888-985-6854</p>
-            <p>Email: support@supersmartagents.com</p>
+            <p>
+              Phone:{" "}
+              <a href="tel:888-985-6854" className="contact-link">
+                888-985-6854
+              </a>
+            </p>
+            <p>
+              Email:{" "}
+              <a
+                href="mailto:support@supersmartagents.com"
+                className="contact-link"
+              >
+                support@supersmartagents.com
+              </a>
+            </p>
           </div>
         </section>
         <hr className="tos-divider" />

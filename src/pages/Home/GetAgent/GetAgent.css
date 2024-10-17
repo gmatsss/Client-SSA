@@ -65,3 +65,35 @@
     font-size: 1.3rem;
   }
 }
+
+@media (max-width: 280px) {
+  .get_agent .text {
+    font-size: 1rem;
+    margin-top: 50px;
+  }
+
+  .get_agent .title {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .get_agent .price {
+    font-size: 0.8rem;
+  }
+
+  .get_agent .special {
+    font-size: 0.9rem;
+  }
+
+  .get_agent .logo {
+    width: 40%;
+  }
+
+  .logoget {
+    width: 20%;
+  }
+
+  .get_agent .banner-button {
+    font-size: 0.8rem;
+  }
+}

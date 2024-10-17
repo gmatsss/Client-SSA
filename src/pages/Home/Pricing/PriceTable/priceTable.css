@@ -13,7 +13,7 @@
 
 .country-service,
 .average-cost {
-  width: 50%; /* Set a fixed width for each td */
+  width: 50%;
 }
 
 .header-row,
@@ -32,8 +32,8 @@
   border-bottom: 1px solid #27b3df;
 }
 
-td {
-  padding: 30px; /* Uniform padding for all td elements */
+.price-table-td {
+  padding: 30px;
 }
 
 .average-cost {
@@ -41,8 +41,8 @@ td {
 }
 
 .logo-cell .logo {
-  width: 70%; /* Adjusted width for the logo */
-  max-width: 100px; /* Maximum width for the logo */
+  width: 70%;
+  max-width: 100px;
 }
 
 .final-cost .h1 {
@@ -51,22 +51,22 @@ td {
 }
 
 .final-row {
-  border-right: 1px solid #27b3df; /* Ensuring border for the last row */
+  border-right: 1px solid #27b3df;
 }
 
 .logo-cell .logo {
-  width: 100%; /* Full width for the logo on medium screens */
-  max-width: none; /* Removing the maximum width restriction */
+  width: 100%;
+  max-width: none;
 }
 
 .h1 {
   font-family: "CoreCircus", sans-serif;
-  font-size: 4rem; /* Adjusted font size */
+  font-size: 4rem;
   text-align: center;
   margin: 0;
   color: rgba(45, 45, 45, 1);
   letter-spacing: -0.2rem;
-  position: relative; /* Changed from absolute to relative */
+  position: relative;
   animation: flicker 3s linear infinite;
 }
 
@@ -78,8 +78,8 @@ td {
   width: 100%;
   z-index: 5;
   text-shadow: none;
-  left: 0; /* Adjusted left position */
-  top: 0; /* Added top position */
+  left: 0;
+  top: 0;
   text-align: left;
 }
 
@@ -140,14 +140,63 @@ td {
       format("truetype");
 }
 
-/* Responsive Styles */
+@media (max-width: 1440px) {
+  .header-row {
+    font-size: 22px;
+  }
+
+  .data-row {
+    font-size: 16px;
+  }
+
+  td {
+    font-size: 24px;
+    padding: 20px;
+  }
+
+  .final-cost .h1 {
+    font-size: 30px;
+  }
+
+  .MO {
+    font-size: 30px;
+  }
+
+  .logo-cell .logo {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .price-table {
     width: 60%;
   }
+
+  .header-row {
+    font-size: 22px;
+  }
+
+  .data-row {
+    font-size: 16px;
+  }
+
+  td {
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  .final-cost .h1 {
+    font-size: 30px;
+  }
+
+  .MO {
+    font-size: 30px;
+  }
+
   .logo-cell .logo {
-    width: 100%; /* Full width for the logo on medium screens */
-    max-width: none; /* Removing the maximum width restriction */
+    width: 100%;
+    max-width: none;
   }
 }
 
@@ -158,34 +207,189 @@ td {
   }
 
   td {
-    padding: 20px; /* Adjusted padding for medium screens */
+    padding: 20px;
   }
 
   .logo-cell .logo {
-    width: 100%; /* Full width for the logo on medium screens */
-    max-width: none; /* Removing the maximum width restriction */
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 1336px) {
+  .price-table {
+    width: 50%;
+    font-size: 18px;
+  }
+
+  td {
+    padding: 25px;
+  }
+
+  .header-row {
+    font-size: 24px;
+  }
+
+  .data-row {
+    font-size: 18px;
+  }
+
+  .final-cost .h1 {
+    font-size: 38px;
+  }
+
+  .MO {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .price-table {
+    width: 55%;
+    font-size: 17px;
+  }
+
+  td {
+    padding: 20px;
+  }
+
+  .header-row {
+    font-size: 22px;
+  }
+
+  .data-row {
+    font-size: 17px;
+  }
+
+  .final-cost .h1 {
+    font-size: 36px;
+  }
+
+  .MO {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 992px) {
+  .price-table {
+    width: 65%;
+    font-size: 16px;
+  }
+
+  td {
+    padding: 15px;
+  }
+
+  .header-row {
+    font-size: 20px;
+  }
+
+  .data-row {
+    font-size: 16px;
+  }
+
+  .final-cost .h1 {
+    font-size: 34px;
+  }
+
+  .MO {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 640px) {
+  .price-table {
+    width: 75%;
+    font-size: 14px;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  .header-row {
+    font-size: 18px;
+  }
+
+  .data-row {
+    font-size: 14px;
+  }
+
+  .final-cost .h1 {
+    font-size: 30px;
+  }
+
+  .MO {
+    font-size: 30px;
+  }
+
+  .logo-cell .logo {
+    width: 75%;
+    max-width: 120px;
   }
 }
 
 @media (max-width: 425px) {
   .price-table {
     width: 95%;
-    font-size: 12px; /* Reduced font size for smaller screens */
+    font-size: 12px;
   }
 
   td {
-    padding: 15px; /* Adjusted padding for smaller screens */
+    padding: 10px;
   }
-  .logo-cell .logo {
-    width: 80%; /* Full width for the logo on medium screens */
-    max-width: none; /* Removing the maximum width restriction */
+
+  .header-row {
+    font-size: 12px;
+  }
+
+  .data-row {
+    font-size: 12px;
   }
 
   .final-cost .h1 {
-    font-size: 26px; /* Reduced font size for cost in smaller screens */
+    font-size: 22px;
   }
 
   .MO {
-    font-size: 30px; /* Reduced font size for cost in smaller screens */
+    font-size: 28px;
+  }
+
+  .logo-cell .logo {
+    width: 70%;
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 280px) {
+  .price-table {
+    width: 100%;
+    font-size: 8px;
+  }
+
+  td {
+    padding: 3px;
+    font-size: 14px;
+  }
+
+  .header-row {
+    font-size: 8px;
+  }
+
+  .data-row {
+    font-size: 8px;
+  }
+
+  .final-cost .h1 {
+    font-size: 10px;
+  }
+
+  .MO {
+    font-size: 14px;
+  }
+
+  .logo-cell .logo {
+    width: 100%;
+    max-width: 150px;
   }
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import ButtonComponent from "../components/ButtonComponent";
 import logo from "../../../img/Logo.png";
-import { Link } from "react-scroll"; // Import Link from react-scroll
+import { Link } from "react-scroll";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./Header.css";
 import UserContext from "../../../Context/UserContext";
@@ -10,25 +10,12 @@ import { toast } from "react-toastify";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { user, reloadUser } = useContext(UserContext); // Use UserContext here
+  const { user, reloadUser } = useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleLogout = async () => {
-    try {
-      const response = await fetchData("User/logoutuser", "POST");
-      if (response.message === "Successfully logged out.") {
-        toast.success(response.message);
-        navigate("/Appointment");
-        reloadUser();
-      }
-    } catch (error) {
-      console.error("Logout Error:", error);
-    }
-  };
 
   return (
     <header className="header">
-      <div className="header-content ">
+      <div className="header-content">
         <div className="logo-container">
           <img src={logo} alt="" className="logo-style responsive-size" />
         </div>
@@ -52,56 +39,56 @@ const Header = () => {
           )}
 
           <RouterLink to="/" className="router-link">
-            <p className="mx-4 p-hover-color responsive-size">Home</p>
+            <p className=" p-hover-color responsive-size router-link">Home</p>
           </RouterLink>
 
           <Link
-            to="demoComponent" // the id or name of your Demo component
+            to="demoComponent"
             spy={true}
             smooth={true}
             offset={-70}
             duration={500}
             className="router-link"
           >
-            <p className="mx-4 p-hover-color responsive-size router-link">
-              Demo
-            </p>
+            <p className=" p-hover-color responsive-size router-link">Demo</p>
           </Link>
           <Link
-            to="pricingComponent" // the id or name of your Demo component
+            to="pricingComponent"
             spy={true}
             smooth={true}
             offset={-70}
             duration={500}
             className="router-link"
           >
-            <p className="mx-4 p-hover-color responsive-size router-link">
+            <p className=" p-hover-color responsive-size router-link">
               Pricing
             </p>
           </Link>
-          <div className="hover-dropdown mx-4">
-            <p className="p-hover-color responsive-size">About</p>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <div className="testi-hover-dropdown ">
+            <p className="testi-flex">
+              <span className="p-hover-color">About</span>
+              <span className="testi-arrow">&#9662;</span>
+            </p>
+            <ul>
               <li>
-                <hr className="custom-hr" />
                 <Link
-                  to="ratingsComponent" // the id or name of your Demo component
+                  to="ratingsComponent"
                   spy={true}
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className="router-link"
+                  className="testi-link"
                 >
-                  <p className="p-hover-color responsive-size dropdown-item router-link">
-                    Testimonials
-                  </p>
+                  <p className="testi-style">Testimonials</p>
                 </Link>
               </li>
             </ul>
           </div>
 
           <RouterLink to="/Appointment" className="router-link">
-            <ButtonComponent text="Hire Agents" color="#E03F6D" />
+            <button className="banner-button header-buts">
+              Hire Super Agents
+            </button>
           </RouterLink>
         </div>
       </div>

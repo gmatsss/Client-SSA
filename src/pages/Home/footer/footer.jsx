@@ -57,16 +57,18 @@ const Footer = () => {
       </div>
       <div className="footer-text">
         <p>
-          Get started with your very own Super Smart Agent for just a one-time
-          fee of $495 and a monthly charge of $100. This includes access to one
+          Get started with your very own Super Smart Agent for just a{" "}
+          <strong>one-time fee of $495</strong> and a{" "}
+          <strong>monthly charge of $100</strong>. This includes access to one
           communication channel of your choice, be it Website, FB Messenger,
           Twilio, Telegram, or WhatsApp. Need more channels? Add as many as you
-          like for just $19/mo each
+          like for just <strong>$19/mo</strong> each.
         </p>
       </div>
-      <div className="footer-buttons mb-3">
+
+      <div className="footer-buttons mb-4">
         <RouterLink to="/Appointment" className="router-link">
-          <button className="banner-button fw-bold">Buy Now</button>
+          <button className="fots-button fw-bold">Buy Now</button>
         </RouterLink>
         <Link
           to="liveDemo" // the id or name of your Demo component
@@ -75,7 +77,7 @@ const Footer = () => {
           offset={-70}
           duration={500}
         >
-          <button className="banner-button fw-bold">Live Demo</button>
+          <button className="fots-button fw-bold">Live Demo</button>
         </Link>
       </div>
     </footer>

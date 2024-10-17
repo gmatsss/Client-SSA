@@ -11,7 +11,7 @@ const PriceMarket = () => {
     <div className="price_market">
       <div className="content_wrapper">
         <div className="main_title" data-aos="fade-down">
-          <h1>
+          <h1 style={{ fontWeight: "700" }}>
             Hate to break it to you but we're even cheaper <br />
             than your Filipino VA
             <span> (A LOT Cheaper)</span>
@@ -60,7 +60,7 @@ const PriceMarket = () => {
         </div>
 
         <div className="final_text mt-5" data-aos="fade-down">
-          <h3>
+          <h3 style={{ fontWeight: "700" }}>
             When you need the boss to intervene, we have an easy way for easy
             conversation takeover
           </h3>

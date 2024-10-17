@@ -93,11 +93,61 @@
   }
 }
 
-@media (max-width: 480px) {
-  .onboarding-container {
-    height: 120vh;
+@media (max-width: 580px) {
+  .my-onboarding-title {
+    font-size: 1.5em; /* Reduced for smaller screens */
   }
 
+  .my-onboarding-subtitle {
+    font-size: 1em; /* Reduced for smaller screens */
+  }
+
+  .agent-input-group {
+    width: 100%; /* Make full width for smaller screens */
+    max-width: 500px; /* Adjusted max width */
+  }
+
+  .my-onboarding-form {
+    width: 100%; /* Full width for small screens */
+    max-width: 500px; /* Adjusted max width */
+    padding: 20px; /* Reduced padding for smaller screens */
+  }
+
+  .my-onboarding-input {
+    width: 100%; /* Full width input */
+    padding: 0.65em; /* Adjusted padding */
+    font-size: 0.9em; /* Reduced font size */
+  }
+
+  .my-onboarding-button {
+    font-size: 0.9em; /* Reduced font size */
+    padding: 0.65em; /* Adjusted padding */
+  }
+
+  .bot-channels {
+    flex-wrap: wrap;
+    gap: 8px; /* Reduced gap */
+  }
+
+  .bot-channel {
+    padding: 6px; /* Reduced padding */
+    font-size: 0.85em; /* Reduced font size */
+  }
+
+  .file-upload {
+    font-size: 0.85em; /* Reduced font size */
+  }
+
+  .file-delete {
+    font-size: 0.85em; /* Reduced font size */
+  }
+
+  .tooltip-container .tooltip {
+    width: 200px; /* Reduced width for tooltips */
+    margin-left: -60px; /* Adjusted margin for tooltips */
+  }
+}
+@media (max-width: 480px) {
   .my-onboarding-title {
     font-size: 1.5em;
   }
@@ -112,7 +162,7 @@
   }
 
   .my-onboarding-form {
-    padding: 20px;
+    padding: 25px;
   }
 
   .my-input-group {
@@ -126,22 +176,22 @@
   }
 
   .my-onboarding-input {
-    padding: 0.75em;
+    padding: 1em;
     font-size: 1em;
   }
 
   .my-onboarding-button {
     font-size: 0.9em;
-    padding: 0.6em;
+    padding: 0.8em;
   }
 
   .bot-channels {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
 
   .bot-channel {
-    padding: 12px;
+    padding: 14px;
     font-size: 1em;
   }
 
@@ -160,5 +210,134 @@
   .tooltip-container .tooltip {
     width: 200px;
     margin-left: -50px;
+  }
+}
+
+@media (max-width: 375px) {
+  .my-onboarding-title {
+    font-size: 1.3em;
+  }
+
+  .my-onboarding-subtitle {
+    font-size: 1em;
+  }
+
+  .agent-input-group {
+    max-width: 350px;
+  }
+
+  .my-onboarding-form {
+    padding: 20px;
+  }
+
+  .my-onboarding-input {
+    padding: 0.9em;
+    font-size: 0.95em;
+  }
+
+  .my-onboarding-button {
+    font-size: 0.85em;
+    padding: 0.75em;
+  }
+
+  .bot-channel {
+    padding: 12px;
+    font-size: 0.95em;
+  }
+
+  .file-upload,
+  .file-delete {
+    font-size: 0.95em;
+  }
+
+  .tooltip-container .tooltip {
+    width: 180px;
+    margin-left: -40px;
+  }
+}
+
+@media (max-width: 320px) {
+  .my-onboarding-title {
+    font-size: 1.2em;
+  }
+
+  .my-onboarding-subtitle {
+    font-size: 0.9em;
+  }
+
+  .agent-input-group {
+    max-width: 300px;
+  }
+
+  .my-onboarding-form {
+    padding: 15px;
+  }
+
+  .my-onboarding-input {
+    padding: 0.85em;
+    font-size: 0.9em;
+  }
+
+  .my-onboarding-button {
+    font-size: 0.8em;
+    padding: 0.7em;
+  }
+
+  .bot-channel {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .file-upload,
+  .file-delete {
+    font-size: 0.9em;
+  }
+
+  .tooltip-container .tooltip {
+    width: 160px;
+    margin-left: -35px;
+  }
+}
+
+@media (max-width: 280px) {
+  .my-onboarding-title {
+    font-size: 1em;
+  }
+
+  .my-onboarding-subtitle {
+    font-size: 0.85em;
+  }
+
+  .agent-input-group {
+    max-width: 250px;
+  }
+
+  .my-onboarding-form {
+    padding: 12px;
+  }
+
+  .my-onboarding-input {
+    padding: 0.75em;
+    font-size: 0.85em;
+  }
+
+  .my-onboarding-button {
+    font-size: 0.75em;
+    padding: 0.65em;
+  }
+
+  .bot-channel {
+    padding: 8px;
+    font-size: 0.85em;
+  }
+
+  .file-upload,
+  .file-delete {
+    font-size: 0.85em;
+  }
+
+  .tooltip-container .tooltip {
+    width: 140px;
+    margin-left: -30px;
   }
 }
