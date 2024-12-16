@@ -6,8 +6,8 @@ const WatchDemo = () => {
   return (
     <div className="watchDemo">
       <div className="textDemo1">
-        <img className="mt-5" src={logo_small} alt="Super Smart Agents Logo" />
-        <h1 className="mt-4">Watch Video Demo</h1>
+        <img src={logo_small} alt="Super Smart Agents Logo" />
+        <h1>Watch Video Demo</h1>
         <p>
           Dive into the capabilities of Super Smart Agents.
           <br />
@@ -17,20 +17,16 @@ const WatchDemo = () => {
       </div>
 
       <div className="vidDemos">
-        <iframe
-          src="https://fast.wistia.net/embed/iframe/gruk8nj2qd?videoFoam=true"
-          title="Wistia video player"
-          allowtransparency="true"
-          frameborder="0"
-          scrolling="no"
-          className="wistia_embed"
-          name="wistia_embed"
-          allowfullscreen
-          mozallowfullscreen
-          webkitallowfullscreen
-          oallowfullscreen
-          msallowfullscreen
-        ></iframe>
+        <video
+          src="https://storage.googleapis.com/msgsndr/w8huTDD5C8qAPtFbY5nk/media/674cf2ce3ec81fb0701a5c68.mp4"
+          className="video_demo"
+          autoPlay
+          muted
+          loop
+          controls
+        >
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   );

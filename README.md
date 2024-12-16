@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# SSA Landing Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The SSA Landing Page provides a seamless user experience for purchasing AI bots, voice agents, and managing other services through a well-structured React-based web application.
 
-## Available Scripts
+## Links
 
-In the project directory, you can run:
+- **Main Landing Page**: [https://supersmartagents.com/](https://supersmartagents.com/)  
+  Access the primary interface for exploring and purchasing AI solutions.
 
-### `npm start`
+- **Buy Bots**: [https://supersmartagents.com/onbording](https://supersmartagents.com/onbording)  
+  Navigate directly to the bot purchasing section.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Buy Voice Agent**: [https://supersmartagents.com/VAonboarding](https://supersmartagents.com/VAonboarding)  
+  Access the section dedicated to onboarding and purchasing voice agents.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Dynamic Routing**: Routes include distinct pages for policies, onboarding, and checkout processes.
+- **Toast Notifications**: User actions are acknowledged with customizable toast notifications.
+- **Reusable Layout**: The app utilizes a common layout structure with a shared header and footer for a consistent user experience.
+- **Policy Pages**: Links to Terms of Service, Refund Policy, and Privacy Policy.
+- **Smooth Navigation**: Implemented using React Router for fast and smooth transitions between pages.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Run Locally
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/gmatsss/SSA-admin.git
+   cd SSA-admin
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. Start the project:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Access the application in your browser at:
+   [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Components Overview
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The landing page integrates multiple React components for streamlined functionality:
 
-## Learn More
+- **Header**: Contains navigation links and branding.
+- **FooterAll**: Displays policy links and additional resources.
+- **Home**: Showcases primary features and services.
+- **Payments**: Allows users to manage payment-related actions.
+- **Onboarding**: Guides users through the process of buying bots.
+- **VA Onboarding**: Dedicated page for onboarding voice agents.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Explore the SSA Landing Page to experience its full capabilities.

@@ -466,6 +466,49 @@ const Payments = () => {
     }
   };
 
+  // const fetchPaymentDataBot = async () => {
+  //   try {
+  //     setLoading(true);
+
+  //     // Simulating fetched payment data
+  //     const result = {
+  //       payments: [
+  //         {
+  //           form_id: currentFormId,
+  //           customer_id: "12345ABC",
+  //         },
+  //       ],
+  //     };
+
+  //     const matchingPaymentDataArray = result.payments.filter(
+  //       (payment) => payment.form_id === currentFormId
+  //     );
+
+  //     const successfulPaymentData = matchingPaymentDataArray[0]; // Fetch the first matching payment data
+
+  //     if (successfulPaymentData) {
+  //       setPaymentidplan(successfulPaymentData.customer_id);
+  //       console.log("Set payment ID plan:", successfulPaymentData.customer_id);
+
+  //       // Navigate to Thank You page
+  //       console.log(
+  //         "Navigating to Thank You page with Customer ID:",
+  //         successfulPaymentData.customer_id
+  //       );
+  //       await navigateToThankYou(successfulPaymentData.customer_id);
+
+  //       setLoading(false);
+  //       toast.success("Payment Data Retrieved Successfully");
+  //     } else {
+  //       setLoading(false);
+  //       toast.warning("No matching payment data found.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching payment data:", error);
+  //     setLoading(false);
+  //   }
+  // };
+
   function generateNewVerificationCode() {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

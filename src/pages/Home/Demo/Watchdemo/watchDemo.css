@@ -15,11 +15,13 @@
 
 .textDemo1 img {
   height: 30%;
+  margin-top: 20px; /* Replaces mt-5 */
 }
 
 .textDemo1 h1 {
   font-weight: 700;
   font-size: 48px;
+  margin-top: 20px; /* Replaces mt-4 */
 }
 
 .textDemo1 p {
@@ -28,15 +30,14 @@
 
 .vidDemos {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.vidDemos iframe {
+.video_demo {
   width: 70%;
-  height: 100%;
+  max-height: 800px;
 }
 
 @media (max-width: 1024px) {
@@ -52,9 +53,8 @@
     font-size: 18px;
   }
 
-  .vidDemos iframe {
+  .video_demo {
     width: 90%;
-    height: 100%;
   }
 }
 
@@ -71,9 +71,8 @@
     font-size: 18px;
   }
 
-  .vidDemos iframe {
+  .video_demo {
     width: 90%;
-    height: 100%;
   }
 }
 
@@ -90,9 +89,8 @@
     font-size: 14px;
   }
 
-  .vidDemos iframe {
+  .video_demo {
     width: 90%;
-    height: 100%;
   }
 }
 
@@ -109,9 +107,8 @@
     font-size: 12px;
   }
 
-  .vidDemos iframe {
+  .video_demo {
     width: 90%;
-    height: 100%;
   }
 }
 
@@ -128,8 +125,7 @@
     font-size: 10px;
   }
 
-  .vidDemos iframe {
+  .video_demo {
     width: 95%;
-    height: 100%;
   }
 }
